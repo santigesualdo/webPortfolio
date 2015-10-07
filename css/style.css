@@ -1,0 +1,76 @@
+    @import url("http://fonts.googleapis.com/css?family=Chewy");
+
+    @font-face {
+      font-family: 'Chewy', cursive;
+      src: url("http://fonts.googleapis.com/css?family=Chewy") format("truetype");
+    }
+
+    html {      
+      /*background: url(images/bg.jpg) no-repeat center center fixed; */
+      background-size: cover;
+    }
+
+    #paper{
+        width: 800px;
+        height: 600px;
+    }
+
+   /* #paperJoseContent{
+        width: 400px;
+        height: 400px;
+    } */
+
+  .contenidoText p {
+    font: normal 14px Chewy;
+    line-height:30%; 
+  }
+
+  .contenidoText h2 {
+    font: normal 25px Chewy;
+    line-height:30%; 
+  }
+
+  #popup, .bMulti {
+    background-color: #FFF;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 10px 10px #fbaf47;
+    color: #111;
+    display: none;
+    min-width: 650px;
+    min-height: 480;
+    padding: 25px;
+    offset-y: auto;
+  }
+
+  #popup, .logo {
+    color: #2B91AF;
+    font: bold 325% 'Petrona',sans;
+  }
+
+  .button.b-close, .button.bClose {
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: none;
+    font: bold 131% sans-serif;
+    padding: 0 6px 2px;
+    position: absolute;
+    right: -7px;
+    top: -7px;
+  }
+
+  .button {
+    background-color: #2B91AF;
+    border-radius: 10px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    color: #FFF;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  
+  .contentCenter {
+    width: 100%;
+    margin: 0 auto;
+  }
