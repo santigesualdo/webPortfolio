@@ -58,6 +58,7 @@ var main=(function(){
 	var textIzq;
 	var textDer;
 	var paper;
+	var contenedor_iframe;
 	var set;
 	var borde;
 	var lineaMedio;
@@ -119,6 +120,8 @@ var main=(function(){
 		paper= Raphael("paper", "100%","100%");
 
 		$('#paper').center();
+		$('#contentiframe').center();
+
 
 		// Borde papel
 		var borde = paper.rect(0,0,mainOptions.paperwidth, mainOptions.paperheigth)
@@ -394,6 +397,8 @@ var main=(function(){
 				opacity:0
 			});			
 		}
+
+		$('#contentiframe').css("display","none");
 	}
 	var crearContenido= function(circulo){
 		if (circulo == "a"){
@@ -412,22 +417,29 @@ var main=(function(){
 
 	var contenidoA = function(){
 
-		butinfo.attr({
+		butinfo.animate({
 			transform: "t20,-50 s0.2"
-		});
-		butinfo.toFront();
+		},1000,"backOut").toFront();
+
+		$('#contentiframe').css( "display", "inline");
+
+
 	}
+
 	var contenidoB = function(){
-		butinfo.attr({
+
+		butinfo.animate({
 			transform: "t230,-50 s0.2"
-		});
-		butinfo.toFront();
+		},1000,"backOut").toFront();
+
 	}
 	var contenidoC = function(){
-		butinfo.attr({
+		butinfo.animate({
 			transform: "t570,-50 s0.2"
-		});
-		butinfo.toFront();}
+		},1000,"backOut").toFront();	
+
+
+	}
 
 	var createCircle = function( id, x , y , r , color, text1, text2, text3) {
 		
