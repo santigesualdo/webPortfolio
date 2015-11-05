@@ -419,11 +419,11 @@ var main=(function(){
 
 		butinfo.animate({
 			transform: "t20,-50 s0.2"
-		},1000,"backOut").toFront();
-
-		$('#contentiframe').css( "display", "inline");
-
-
+		},1000,"backOut", function(e){
+			var url = 'slider.html';
+			$('#contentiframe').prop('src', url);
+			$('#contentiframe').css( "display", "inline");
+		}).toFront();		
 	}
 
 	var contenidoB = function(){
@@ -443,17 +443,41 @@ var main=(function(){
 
 	var createCircle = function( id, x , y , r , color, text1, text2, text3) {
 		
-		var circle = paper.circle(x, y, r)
-		.attr({ fill: color, 'stroke-width':2, opacity: 0.5})
+		/*var circle = paper.circle(x, y, r)
+		.attr({ fill: color, 'stroke-width':2, opacity: 0})
 		.hover(function(e){
 			circle.attr({ opacity: 1 });
 			setTextoCentral(id,text1,text2,text3);
 		}, function(e){
 			circle.attr({ opacity: 0.5 });
 			setTextoCentralFade();
-		});
+		});*/
 
-		var set = paper.set();
+		var circle;
+		var w = 52;
+
+		if (id == "a") {
+			circle = paper.image ("data/icon_santi.png",x-w*0.5,y-w*0.5,w,w);
+		}else
+		if (id == "b") {
+			circle = paper.image ("data/icon_gabo.png",x-w*0.5,y-w*0.5,w,w);
+		}else{
+			circle = paper.image ("data/icon_jose.png",x-w*0.5,y-w*0.5,w,w);
+		}
+		
+		circle.attr({
+			opacity:0.5
+		}).hover(function(e){
+			this.animate({
+				opacity:1				
+			},"linear",200)					
+			setTextoCentral(id,text1,text2,text3);
+		}, function(e){
+			this.animate({
+				opacity:0.5
+			},"linear",200)
+			setTextoCentralFade();
+		});		
 
 		return circle;
 	}
