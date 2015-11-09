@@ -220,7 +220,7 @@ var main=(function(){
 
 			estado = estados.inicio;
 	}	
-
+	
 	var circuloAclick = function(){
 		
 		if ( estado != estados.clickCircleA) {
@@ -437,8 +437,6 @@ var main=(function(){
 		butinfo.animate({
 			transform: "t570,-50 s0.2"
 		},1000,"backOut").toFront();	
-
-
 	}
 
 	var createCircle = function( id, x , y , r , color, text1, text2, text3) {

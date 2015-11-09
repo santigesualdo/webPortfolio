@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 </head>
-<body style="padding:0px; margin:0px; background-color:#fff;">
+<body style="top: 200px; padding:0px; margin:0px; background-color:#fff;">
 
     <!-- #region Jssor Slider Begin -->
 
@@ -26,8 +26,8 @@
               $ThumbnailNavigatorOptions: {
                 $Class: $JssorThumbnailNavigator$,
                 $Cols: 4,
-                $SpacingX: 4,
-                $SpacingY: 4,
+                $SpacingX: 0,
+                $SpacingY: 0,
                 $Orientation: 2,
                 $Align: 0
               }
@@ -38,13 +38,15 @@
             //responsive code begin
             //you can remove responsive code if you don't want the slider scales while window resizes
             function ScaleSlider() {
+                // Aca toma el tamaño del css del tag "contentiframe"
                 var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
                 if (refSize) {
                     refSize = Math.min(refSize, 810);
+
                     jssor_1_slider.$ScaleWidth(refSize);
                 }
                 else {
-                    window.setTimeout(ScaleSlider, 30);
+                    window.setTimeout(ScaleSlider, 30); 
                 }
             }
             ScaleSlider();
@@ -99,10 +101,10 @@
                 <div data-u="thumb">
                     <img class="i" src="data/imgSlider1/thumb-002.jpg" />
                     <div class="t">Banner Rotator</div>
-                    <div class="c">360+ touch swipe slideshow effects</div>
+                    <div class="c">360+ touch swipe slideshow</div>
                 </div>
             </div>
-            <div data-p="112.50" ">
+            <div data-p="112.50" >
                 <img data-u="image" src="data/imgSlider1/003.jpg" />
                 <div data-u="thumb">
                     <img class="i" src="data/imgSlider1/thumb-003.jpg" />
