@@ -14,16 +14,27 @@
         width: 800px;
         height: 600px;
     }
+    
+    #containerframe{
+        position: relative;
+        top: 50px;
+    }
 
     #contentiframe{
         width: 750px;
-        height: 300px;
+        height: 450px;
     }
 
-   /* #paperJoseContent{
-        width: 400px;
-        height: 400px;
-    } */
+    #textslide{
+      color: black;
+      text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; 
+      font-family: 'Chewy', cursive;
+      position: fixed; 
+      top: 410px; 
+      left: 10px; 
+      width: 500px;
+      height: 200px;
+    }
 
   .contenidoText p {
     font: normal 14px Chewy;
