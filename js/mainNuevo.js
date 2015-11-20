@@ -54,6 +54,7 @@ var main=(function(){
 	var setJoseContent=null;
 
 	var fontNombres = "Pacifico";
+	var fontNombres2 = "Oxygen";
 	//variables
 	var textIzq;
 	var textDer;
@@ -103,6 +104,7 @@ var main=(function(){
 		mainOptions.halfheigth = mainOptions.paperheigth*0.5;
 
 		addGoogleFont(fontNombres);		
+		addGoogleFont(fontNombres2);
 
 
 		beginthings();
@@ -490,8 +492,9 @@ var main=(function(){
 			textoCentral.t1 = paper.text(textoCentral.x, textoCentral.y).
 			attr({
 				text: text1,
-				"font-family": "Architects Daughter, cursive",
+				//"font-family": "Oxygen, sans-serif",
 				//"font-family": "Pacifico, sans-serif",
+				"font-family": "Architects Daughter, sans-serif",
 				'font-size': 25,
 				fill: "white",
 				opacity:0,
@@ -503,8 +506,9 @@ var main=(function(){
 			textoCentral.t2 = paper.text(textoCentral.x, textoCentral.y+30).
 			attr({
 				text: text2,
-				"font-family": "Architects Daughter, cursive",
-				font: fontNombres,
+				"font-family": "Architects Daughter, sans-serif",
+				//"font-family": "Oxygen, sans-serif",
+				//font: fontNombres,
 				'font-size': 20,
 				fill: "white",
 				opacity:1,

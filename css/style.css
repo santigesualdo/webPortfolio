@@ -25,12 +25,25 @@
         height: 450px;
     }
 
-    #textslide{
-      color: black;
-      text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; 
-      font-family: 'Chewy', cursive;
+    #textslide_title{
       position: fixed; 
-      top: 410px; 
+      top: 380px; 
+      left: 10px; 
+      width: 500px;
+      height: 200px;
+      font-family: 'Chewy', cursive;
+      font-size: xx-large;
+      color: grey;
+      text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 2px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; 
+    }
+
+    #textslide_sub{
+      font-family: 'Chewy', cursive;
+      color: green;
+      text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 2px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; 
+      font-size: x-large;
+      position: fixed; 
+      top: 415px; 
       left: 10px; 
       width: 500px;
       height: 200px;
