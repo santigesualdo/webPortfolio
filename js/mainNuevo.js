@@ -33,6 +33,16 @@ var main=(function(){
 	textoCentral.santi2 = "Santiago Gesualdo";
 	textoCentral.santi3 = "( Programing & Design )";
 
+	var rx={};
+	rx.A = 0;
+	rx.B = 0;
+	rx.C = 0;
+	
+	var ry={};
+	ry.A = 0;
+	ry.B = 0;
+	ry.C = 0;
+
 	
 	textoCentral.gabo2 = "Gabriel Barukel";
 	textoCentral.gabo3 = " ( Audio & Composiyon )";
@@ -45,6 +55,8 @@ var main=(function(){
 	textoCentral.t2;
 	textoCentral.t3;
 
+
+	var contentActivated = "-1";
 
 	var estado = "";
 
@@ -91,7 +103,7 @@ var main=(function(){
 
 	var recuadroContenido ; 
 
-	var circleTagsTime = 1000;
+	var circleTagsTime = 200;
 
 	var offsetY = 100;
 	var velCircles = 250;
@@ -113,7 +125,6 @@ var main=(function(){
 
 		beginthings();
 	};
-
 	var beginthings = function(){
 
 		clicked = false;
@@ -122,6 +133,14 @@ var main=(function(){
 		estado = estados.inicio;
 
 		recuadroContenido = undefined;
+
+		rx.A = 0;
+		rx.B = 0;
+		rx.C = 0;
+	
+		ry.A = 0;
+		ry.B = 0;
+		ry.C = 0;
 
 		paper= Raphael("paper", "100%","100%");
 
@@ -200,36 +219,36 @@ var main=(function(){
 			circuloCclick();
 		});
 	};
-
 	var clickRestart = function(){
-			
 			circuloA.toFront();
 			circuloB.toFront();
 			circuloC.toFront();
 
 			circuloA.animate({
 				transform: "t0,0"
-			}, 1000,"backOut");
+			}, 1000,"linear");
 
 			circuloB.animate({
 				transform: "t0, 0"
-			}, 1000,"backOut");
+			}, 1000,"linear");
 
 			circuloC.animate({
 				transform: "t0, 0"
-			}, 1000,"backOut");
+			}, 1000,"linear");
 
 			butinfo.toBack();
 
 			desaparecerRecuadro();
 
+			limpiarLineasContent();
+
 			estado = estados.inicio;
 	}	
-	
 	var circuloAclick = function(){
 		
 		if ( estado != estados.clickCircleA) {
 			desaparecerRecuadro();
+			limpiarLineasContent();
 		}
 
 		var scale = 0.75;
@@ -242,7 +261,7 @@ var main=(function(){
 
 				circuloB.animate({
 					transform: "t250,-140 s"+scale
-				}, velCircles,"linear", crearPantalla("a"));
+				}, velCircles,"linear", crearContenido("a"));
 
 				circuloC.animate({
 					transform: "t125,-140 s"+scale
@@ -252,7 +271,7 @@ var main=(function(){
 				estado = estados.clickCircleA;
 				circuloA.animate({
 					transform: "t-75,-125 s1"
-				}, velCircles,"linear",crearPantalla("a"));
+				}, velCircles,"linear",crearContenido("a"));
 
 				circuloB.animate({
 					transform: "t250,-140 s"+scale
@@ -266,7 +285,7 @@ var main=(function(){
 				estado = estados.clickCircleA;
 				circuloA.animate({
 					transform: "t-75,-125 s1"
-				}, velCircles,"linear",crearPantalla("a"));
+				}, velCircles,"linear",crearContenido("a"));
 
 				circuloB.animate({
 					transform: "t250,-140 s"+scale
@@ -280,6 +299,7 @@ var main=(function(){
 	var circuloBclick = function(){
 		if ( estado != estados.clickCircleB) {
 			desaparecerRecuadro();
+			limpiarLineasContent();
 		}
 
 		var scale = 0.75;
@@ -289,11 +309,11 @@ var main=(function(){
 
 				circuloB.animate({
 					transform: "t-100, -125"
-				}, velCircles,"linear",crearPantalla("b"));
+				}, velCircles,"linear",crearContenido("b"));
 
 				circuloA.animate({
 					transform: "t-75, -140 s"+scale
-				}, velCircles,"linear",crearPantalla("b"));
+				}, velCircles,"linear");
 
 				setTextoCentralFade();
 
@@ -309,7 +329,7 @@ var main=(function(){
 
 				circuloB.animate({
 					transform:  "t-100, -125 s1"
-				}, velCircles,"linear",crearPantalla("b"));
+				}, velCircles,"linear",crearContenido("b"));
 
 				circuloC.animate({
 					transform: "t125,-140 s"+scale
@@ -319,7 +339,7 @@ var main=(function(){
 				estado = estados.clickCircleB;
 				circuloA.animate({
 					transform: "t-75, -140 s"+scale
-				}, velCircles,"linear",crearPantalla("b"));
+				}, velCircles,"linear",crearContenido("b"));
 
 				circuloB.animate({
 					transform:  "t-100, -125 s1"
@@ -333,6 +353,7 @@ var main=(function(){
 	var circuloCclick = function(){
 		if ( estado != estados.clickCircleC) {
 			desaparecerRecuadro();
+			limpiarLineasContent();
 		}
 
 		var scale = 0.75;
@@ -341,15 +362,15 @@ var main=(function(){
 				estado = estados.clickCircleC;
 				circuloA.animate({
 					transform: "t-75, -140 s"+scale
-				}, velCircles,"linear",crearPantalla("b"));
+				}, velCircles,"linear");
 
 				circuloB.animate({
 					transform: "t-190, -140 s"+scale
-				}, velCircles,"linear",crearPantalla("b"));
+				}, velCircles,"linear");
 
 				circuloC.animate({
 					transform: "t100, -125"
-				}, velCircles,"linear",crearPantalla("c"));
+				}, velCircles,"linear",crearContenido("c"));
 			}else 
 			if (estado == estados.clickCircleA){
 				estado = estados.clickCircleC;
@@ -363,7 +384,7 @@ var main=(function(){
 
 				circuloC.animate({
 					transform: "t100, -125 s1"
-				}, velCircles,"linear",crearPantalla("c"));				
+				}, velCircles,"linear",crearContenido("c"));				
 			}else 
 			if (estado == estados.clickCircleB){
 				estado = estados.clickCircleC;
@@ -377,38 +398,10 @@ var main=(function(){
 
 				circuloC.animate({
 					transform: "t100, -125 s1"
-				}, velCircles,"linear",crearPantalla("c"));				
+				}, velCircles,"linear",crearContenido("c"));				
 			}
 	}
 
-	var crearPantalla = function(circulo){
-
-		/*var colorRelleno;
-		var colorLinea = "black";
-		if (circulo=="a"){
-			colorRelleno = "red";			
-		}else
-		if (circulo=="b"){
-			colorRelleno = "yellow";
-		}else
-		if (circulo=="c"){
-			colorRelleno = "green";
-		}
-
-		recuadroContenido = paper.rect( 10,110, 780,480,10)
-		.attr({
-			stroke: "black",
-			'stroke-opacity':0,
-			'stroke': colorLinea , 
-			'fill-opacity': 0,
-			'fill': colorRelleno
-		}).animate({
-			'stroke-opacity':1,
-			'fill-opacity': 1,
-		},1000, crearContenido(circulo));*/
-
-		crearContenido(circulo);
-	}
 	var desaparecerRecuadro = function(){
 		
 		if (recuadroContenido!=undefined){
@@ -421,20 +414,52 @@ var main=(function(){
 		$('#contentiframe').css("display","none");
 	}
 	var crearContenido= function(circulo){
-		if (circulo == "a"){
-			circuloA.toFront();	
+
+		if (circulo === "a"){
 			contenidoA();
 		}else 
-		if (circulo == "b"){
-			circuloB.toFront();	
-			//contenidoB();
-		}
-		if (circulo == "c"){
-			circuloC.toFront();	
-			//contenidoC();
+		if (circulo === "b"){
+			contenidoB();
+		}else
+		if (circulo === "c"){
+			contenidoC();
 		}	
 	}
+	var exist = function(obj){
+	    return (typeof obj !== 'undefined' );
+	}
+	var limpiarLineasContent = function(){
 
+		
+		if (exist(contentLineA)){
+			contentLineA.remove();	
+		}
+
+		if (exist(contentLineB)){
+			contentLineB.remove();	
+		}
+
+		if (exist(contentLineC)){
+			contentLineC.remove();	
+		}				
+		
+		/*if(typeof contentLineaA !== 'undefined'){
+    		alert(contentLineaA);
+    		contentLineA.remove();
+		} else {
+
+		}
+
+		if(typeof contentLineaB !== 'undefined'){
+    		alert(contentLineaB);
+    		contentLineB.remove();
+		};	
+
+		if(typeof contentLineaC !== 'undefined'){
+    		alert(contentLineaC);
+    		contentLineC.remove();
+		};	*/
+	}
 	var contenidoA = function(){
 
 		/*butinfo.animate({
@@ -445,45 +470,107 @@ var main=(function(){
 			$('#contentiframe').css( "display", "inline");
 		}).toFront();	*/	
 
-		var hola = function(e){
+		var mostrarSlider = function(e){
 			var url = 'slider.html';
 			$('#contentiframe').prop('src', url);
 			$('#contentiframe').css( "display", "inline");
 		};	
+		
+		if (rx.A === 0){
+			rx.A = circuloA.matrix.x(circuloA.attr("x") + circuloA.attr("width") * 0.5, circuloA.attr("y") - circuloA.attr("height") * 0.75);	
+		}
+		
+		if (ry.A === 0){
+			ry.A = circuloA.matrix.y(circuloA.attr("x") + circuloA.attr("width") * 0.5, circuloA.attr("y") - circuloA.attr("height") * 0.75);	
+		}
 
-		var pathString = "m "+circuloA.attr(x)+","+circuloB.y +" l 200,5";
-		alert(pathString);
+		alert("x: "+ rx.A + ", y:" +ry.A );
+
+		var pathString = "m "+rx.A+","+ry.A +" l 200,0";
+		//alert(pathString);
+
 		// d="m 102.85714,478.07649 368.57143,0"
 
-		/*contentLineA = drawpath(
+		contentLineA = drawpath(
 						paper,
 						pathString,
 						circleTagsTime,
 						{ stroke: "white", 'stroke-width': 2, 'stroke-opacity': 1 ,fill: "white","fill-opacity": 1},
 	        			function(e){
 	        				circuloA.toFront();
-		        			contentLineA.animate({
-		        				"fill-opacity": 0.3	
-		        			}, 100, "linear")
+	        				//mostrarSlider();
 		        		}
-					);	*/
-
-		//hola();
+					);	
+		//alert(contentLineA) ;
 	}
-
 	var contenidoB = function(){
 
-		butinfo.animate({
-			transform: "t230,-50 s0.2"
-		},1000,"backOut").toFront();
+		var mostrarSlider = function(e){
+			var url = 'slider.html';
+			$('#contentiframe').prop('src', url);
+			$('#contentiframe').css( "display", "inline");
+		};	
 
+		if (rx.B === 0){
+			rx.B = circuloB.matrix.x(circuloB.attr("x") + circuloB.attr("width") * 0.25	, circuloB.attr("y") - circuloB.attr("height") * 0.75);
+		}
+
+		if (ry.B === 0){
+			ry.B = circuloB.matrix.y(circuloB.attr("x") + circuloB.attr("width") * 0.25, circuloB.attr("y") - circuloB.attr("height") * 0.75);
+		}
+
+		alert("x: "+ rx.B + ", y:" +ry.B );
+		var pathString = "m "+rx.B+","+ry.B +" l 200,0";
+		
+		contentLineB = drawpath(
+						paper,
+						pathString,
+						circleTagsTime,
+						{ stroke: "white", 'stroke-width': 2, 'stroke-opacity': 1 ,fill: "black","fill-opacity": 1},
+	        			function(e){
+	        				circuloB.toFront();
+	        				//mostrarSlider();
+						}
+		);	
+		//alert(contentLineB);
 	}
 	var contenidoC = function(){
-		butinfo.animate({
-			transform: "t570,-50 s0.2"
-		},1000,"backOut").toFront();	
-	}
 
+
+		var mostrarSlider = function(e){
+			var url = 'slider.html';
+			$('#contentiframe').prop('src', url);
+			$('#contentiframe').css( "display", "inline");
+		};	
+		
+		if (rx.C === 0){
+			rx.C = circuloC.matrix.x(circuloC.attr("x") + circuloC.attr("width")*0.75, circuloC.attr("y") - circuloC.attr("height") * 0.75);
+		}
+
+		if (ry.C === 0){
+			ry.C = circuloC.matrix.y(circuloC.attr("x") + circuloC.attr("width")*0.75, circuloC.attr("y") - circuloC.attr("height") * 0.75);
+		}
+		
+		alert("x: "+ rx.C + ", y:" +ry.C );
+
+		var pathString = "m "+rx.C+","+ry.C +" l -200,0";
+		
+		//alert(pathString);
+		// d="m 102.85714,478.07649 368.57143,0"
+
+		contentLineC = drawpath(
+						paper,
+						pathString,
+						circleTagsTime,
+						{ stroke: "white", 'stroke-width': 2, 'stroke-opacity': 1 ,fill: "white","fill-opacity": 1},
+	        			function(e){
+	        				circuloC.toFront();
+	        				//mostrarSlider();
+		        		}
+					);
+
+		//alert(contentLineC);
+	}
 	var createCircle = function( id, x , y , r , color, text1, text2, text3) {
 		
 		/*var circle = paper.circle(x, y, r)
@@ -621,7 +708,6 @@ var main=(function(){
 			}
 		}
 	}
-
 	var setTextoCentralFade = function(){
 		if (textoCentral.t1 != null) {
 
@@ -659,7 +745,6 @@ var main=(function(){
 			}
 		}
 	}
-
 	var createClickeableContent = function( divGame, contentPath , x , y , w , h ) {
 
 		var img = contentPath + "thumb.png";
@@ -713,7 +798,6 @@ var main=(function(){
 	
 		return contentSet;
 	};
-
 	var drawpath = function( canvas, pathstr, duration, attr, callback )
 	{
 	    var guide_path = canvas.path( pathstr ).attr( { stroke: "none", fill: "none" } );
@@ -739,7 +823,6 @@ var main=(function(){
 	         }, interval_length );
 	     return result;
  	};
-
 	jQuery.fn.center = function () {
     	this.css("position","absolute");
     	this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
@@ -748,11 +831,9 @@ var main=(function(){
                                                 	$(window).scrollLeft()) + "px");
 	    return this;
 	};
-
 	var addGoogleFont= function(fontname) {
 	    $("head").append("<link href='https://fonts.googleapis.com/css?family=" + fontname + "' rel='stylesheet' type='text/css'>");
 	};
-
 	return {
 		init: init
 	}
