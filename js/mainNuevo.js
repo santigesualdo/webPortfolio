@@ -80,10 +80,19 @@ var main=(function(){
 	var pathbuthinfo = "M 100.942,0.001 C 44.9,0.304 -0.297,45.98 0.006,102.031 0.299,158.082 46.004,203.269 102.026,202.976 158.107,202.673 203.274,156.998 202.971,100.956 202.659,44.886 157.013,-0.292 100.942,0.001 Z m 1.006,186.435 C 55.032,186.67 16.84,148.86 16.576,101.944 16.332,55.037 54.113,16.787 101.029,16.533 c 46.926,-0.254 85.167,37.596 85.421,84.483 0.245,46.935 -37.595,85.166 -84.502,85.42 z m 15.036,-40.537 -0.42,-75.865 -39.149,0.254 0.078,16.6 10.63,-0.059 0.313,59.237 -11.275,0.039 0.088,15.857 49.134,-0.264 -0.098,-15.847 -9.301,0.048 z M 102.065,58.837 c 9.575,-0.039 15.349,-6.448 15.3,-14.323 -0.254,-8.07 -5.882,-14.225 -15.095,-14.186 -9.184,0.059 -15.173,6.292 -15.134,14.362 0.049,7.865 5.892,14.216 14.929,14.147 z"
 	var butinfo;
 
-	var infoCurvePath1 = "M 0,0 c 0,0 -18.276717,106.214317 0,154.285717 4.07557,10.71956 12.395406,21.01627 22.857143,25.71428 41.702401,18.72713 137.142851,0 137.142851,0";
+	var infoCurvePath1 = "M 0,0 c 0,0 -8.374528,43.557659 0,63.271365 1.86746,4.396 5.982645,8.453 10.47332,10.54522 10.390112,4.8408 34.268446,2.85714 34.268446,2.85714";
 	var infoCurve1;
-	var infoCurvePath2 = "M 0,0 c 0,0 -30.9629251,172.048014 11.428571,240.000014 11.506055,18.44377 36.225862,25.50896 57.142855,31.42856 37.61667,10.64568 117.14285,5.71429 117.14285,5.71429"
+	var infoCurvePath2 = "M 0,0 c 0,0 -11.442707,70.701094 4.223561,98.625154 4.252195,7.57925 13.151293,10.76587 21.117802,12.9152 7.497602,2.02282 23.291491,-0.50892 23.291491,-0.50892";
 	var infoCurve2;
+
+	var infoLinke;
+	var infoFace;
+	var infoPinte;
+	var infoMail;
+
+	var setSocialA;
+	var setSocialB;
+	var setSocialC;
 
 	var clicked ;
 
@@ -202,7 +211,6 @@ var main=(function(){
 		circuloA = createCircle("a",posInicialX, posInicialY, sizeCircle, colores.rojito, textoCentral.santi1, textoCentral.santi2, textoCentral.santi3);
 		circuloB = createCircle("b",posInicialX+difX, posInicialY, sizeCircle, colores.naranjita,textoCentral.gabo1, textoCentral.gabo2, textoCentral.gabo3);
 		circuloC = createCircle("c",posInicialX+difX*2, posInicialY, sizeCircle, colores.verdecin,textoCentral.jose1, textoCentral.jose2, textoCentral.jose3);
-
 
 		circuloA.mousedown(function(e){
 			circuloAclick();
@@ -430,43 +438,156 @@ var main=(function(){
 			}
 	}
 	var clickedInfo = function(){
-	
 		desaparecerRecuadro();
 
 		if (estado === estados.clickCircleA) {
-			infoA();
+			showSocial(rx.A-10, ry.A+10, "a");
 		}else if (estado === estados.clickCircleB){
-			infoB();
+			showSocial(rx.B, ry.B, "b");
 		}else if (estado === estados.clickCircleC){
-			infoC();
+			showSocial(rx.C, ry.C, "c");
 		}
-
 	}	
-	var infoA = function(){
-		/*canvas, pathstr, duration, attr, callback*/
-		var path = infoCurvePath2.replace("0,0", rx.A + ","+ ry.A+15 );
-		var path2 = infoCurvePath1.replace("0,0", rx.A + ","+ry.A+15 );
+	var showSocial = function(x,y, letra){
 		
-		infoCurve1 = drawpath(paper,
-			path,
-			800,
-			{ stroke: "black", 'stroke-width': 2, 'stroke-opacity': 1, opacity : 1, 'fill-opacity': 1, fill: "white" },
-			null
-		);				
+		var difx = 35;
 
-		/*infoCurve2 = drawpath(
-			paper,
-			path2,
-			300,
-			{ stroke: "black", 'stroke-width': 2}
-		);*/
-		
+		var _y = y;
+		var _x = x;
+
+		if (letra === 'a'){
+			  infoMail=  info_textMail(_x+difx,_y,"santigesualdo@gmail.com");
+			  infoFace=  info_Facebook(_x+difx*2,_y, "enlace");
+			  infoLinke=  info_Linkedn(_x+difx*3,_y,"enlace");
+			  infoSkype=info_Skype(_x+difx*4,_y, "enlace")
+			  
+			  setSocialA = paper.set();
+			  setSocialA.push(infoLinke);
+			  setSocialA.push(infoFace);
+			  setSocialA.push(infoSkype);
+			  setSocialA.push(infoMail);
+		}else 
+		if (letra === 'b'){		
+			  info_Linkedn(_x,_y,"enlace");
+			 info_Facebook(_x+difx,_y, "enalce");
+			info_Pinterest(_x+difx*2,_y, "enalce");
+			 info_textMail(_x+difx*3,_y, "enalce");
+		}else
+		if (letra === 'c'){
+			  info_Linkedn(_x,_y,"enlace");
+			 info_Facebook(_x+difx,_y, "enalce");
+			info_Pinterest(_x+difx*2,_y, "enalce");
+			 info_textMail(_x+difx*3,_y, "enalce");
+		}
 	}
-	var infoB = function(){
+	var info_Linkedn= function(x,y,link){
+		var pathLinke = "M27.25,3.125h-22c-1.104,0-2,0.896-2,2v22c0,1.104,0.896,2,2,2h22c1.104,0,2-0.896,2-2v-22C29.25,4.021,28.354,3.125,27.25,3.125zM11.219,26.781h-4v-14h4V26.781zM9.219,11.281c-1.383,0-2.5-1.119-2.5-2.5s1.117-2.5,2.5-2.5s2.5,1.119,2.5,2.5S10.602,11.281,9.219,11.281zM25.219,26.781h-4v-8.5c0-0.4-0.403-1.055-0.687-1.213c-0.375-0.211-1.261-0.229-1.665-0.034l-1.648,0.793v8.954h-4v-14h4v0.614c1.583-0.723,3.78-0.652,5.27,0.184c1.582,0.886,2.73,2.864,2.73,4.702V26.781z";
 
+		var linkedin = paper.path(pathLinke).attr({
+			'stroke-opacity':0,
+			'fill-opacity': 1 , 
+			'fill': "white",
+			'opacity':0
+		}).animate({
+			opacity:1
+		},500,"linear")
+		.hover(function(e){
+			this.animate({
+				fill: 'black'
+			},100, "linear");
+		}, function(e){
+			this.animate({
+				fill: 'white'
+			},100, "linear");
+		});
+
+		var set = paper.set();
+		set.push(linkedin);
+		set.translate(x,y);
+
+		return set;
 	}
-	var infoC = function(){
+	var info_Facebook= function(x,y,link){
+		var pathFace = "M25.566,2.433H6.433c-2.2,0-4,1.8-4,4v19.135c0,2.199,1.8,4,4,4h19.135c2.199,0,4-1.801,4-4V6.433C29.566,4.232,27.768,2.433,25.566,2.433zM25.309,16.916h-3.218v11.65h-4.819v-11.65h-2.409V12.9h2.409v-2.411c0-3.275,1.359-5.224,5.229-5.224h3.218v4.016h-2.011c-1.504,0-1.604,0.562-1.604,1.608L22.091,12.9h3.644L25.309,16.916z"
 
+		var facebook = paper.path(pathFace).attr({
+			'stroke-opacity':0,
+			'fill-opacity': 1 , 
+			'fill': "white",
+			'opacity':0
+		}).animate({
+			opacity:1
+		},500,"linear")
+		.hover(function(e){
+			this.animate({
+				fill: 'black'
+			},100, "linear");
+		}, function(e){
+			this.animate({
+				fill: 'white'
+			},100, "linear");
+		});
+
+		var set = paper.set();
+		set.push(facebook);
+		set.translate(x,y);
+
+		return set;
+	}
+	var info_Skype= function(x,y,link){
+		var pathSkype = "M28.777,18.438c0.209-0.948,0.318-1.934,0.318-2.944c0-7.578-6.144-13.722-13.724-13.722c-0.799,0-1.584,0.069-2.346,0.2C11.801,1.199,10.35,0.75,8.793,0.75c-4.395,0-7.958,3.562-7.958,7.958c0,1.47,0.399,2.845,1.094,4.024c-0.183,0.893-0.277,1.814-0.277,2.76c0,7.58,6.144,13.723,13.722,13.723c0.859,0,1.699-0.078,2.515-0.23c1.119,0.604,2.399,0.945,3.762,0.945c4.395,0,7.957-3.562,7.957-7.959C29.605,20.701,29.309,19.502,28.777,18.438zM22.412,22.051c-0.635,0.898-1.573,1.609-2.789,2.115c-1.203,0.5-2.646,0.754-4.287,0.754c-1.971,0-3.624-0.346-4.914-1.031C9.5,23.391,8.74,22.717,8.163,21.885c-0.583-0.842-0.879-1.676-0.879-2.479c0-0.503,0.192-0.939,0.573-1.296c0.375-0.354,0.857-0.532,1.432-0.532c0.471,0,0.878,0.141,1.209,0.422c0.315,0.269,0.586,0.662,0.805,1.174c0.242,0.558,0.508,1.027,0.788,1.397c0.269,0.355,0.656,0.656,1.151,0.89c0.497,0.235,1.168,0.354,1.992,0.354c1.135,0,2.064-0.241,2.764-0.721c0.684-0.465,1.016-1.025,1.016-1.711c0-0.543-0.173-0.969-0.529-1.303c-0.373-0.348-0.865-0.621-1.465-0.807c-0.623-0.195-1.47-0.404-2.518-0.623c-1.424-0.306-2.634-0.668-3.596-1.076c-0.984-0.419-1.777-1-2.357-1.727c-0.59-0.736-0.889-1.662-0.889-2.75c0-1.036,0.314-1.971,0.933-2.776c0.613-0.8,1.51-1.423,2.663-1.849c1.139-0.422,2.494-0.635,4.027-0.635c1.225,0,2.303,0.141,3.201,0.421c0.904,0.282,1.668,0.662,2.267,1.13c0.604,0.472,1.054,0.977,1.335,1.5c0.284,0.529,0.43,1.057,0.43,1.565c0,0.49-0.189,0.937-0.563,1.324c-0.375,0.391-0.851,0.589-1.408,0.589c-0.509,0-0.905-0.124-1.183-0.369c-0.258-0.227-0.523-0.58-0.819-1.09c-0.342-0.65-0.756-1.162-1.229-1.523c-0.463-0.351-1.232-0.529-2.292-0.529c-0.984,0-1.784,0.197-2.379,0.588c-0.572,0.375-0.85,0.805-0.85,1.314c0,0.312,0.09,0.574,0.273,0.799c0.195,0.238,0.471,0.447,0.818,0.621c0.36,0.182,0.732,0.326,1.104,0.429c0.382,0.106,1.021,0.263,1.899,0.466c1.11,0.238,2.131,0.506,3.034,0.793c0.913,0.293,1.703,0.654,2.348,1.072c0.656,0.429,1.178,0.979,1.547,1.635c0.369,0.658,0.558,1.471,0.558,2.416C23.371,20.119,23.049,21.148,22.412,22.051z";
+
+		var skype = paper.path(pathSkype).attr({
+			'stroke-opacity':0,
+			'fill-opacity': 1 , 
+			'fill': "white",
+			'opacity':0
+		}).animate({
+			opacity:1
+		},500,"linear")
+		.hover(function(e){
+			this.animate({
+				fill: 'black'
+			},100, "linear");
+		}, function(e){
+			this.animate({
+				fill: 'white'
+			},100, "linear");
+		});
+
+		var set = paper.set();
+		set.push(skype);
+		set.translate(x,y);
+
+		return set;	
+	}
+	var info_textMail= function(x,y,link){
+		var pathMail = "M28.516,7.167H3.482l12.517,7.108L28.516,7.167zM16.74,17.303C16.51,17.434,16.255,17.5,16,17.5s-0.51-0.066-0.741-0.197L2.5,10.06v14.773h27V10.06L16.74,17.303z";
+
+		var mail = paper.path(pathMail).attr({
+			'stroke-opacity':0,
+			'fill-opacity': 1 , 
+			'fill': "white",
+			'opacity':0
+		}).animate({
+			opacity:1
+		},500,"linear")
+		.hover(function(e){
+			this.animate({
+				fill: 'black'
+			},100, "linear");
+		}, function(e){
+			this.animate({
+				fill: 'white'
+			},100, "linear");
+		});
+
+
+		var set = paper.set();
+		set.push(mail);
+		set.translate(x,y);
+
+		return set;
 	}
 	var desaparecerRecuadro = function(){
 		
@@ -495,36 +616,11 @@ var main=(function(){
 	    return (typeof obj !== 'undefined' );
 	}
 	var limpiarLineasContent = function(){
-
-		
-		if (exist(contentLineA)){
-			contentLineA.remove();	
-		}
-
-		if (exist(contentLineB)){
-			contentLineB.remove();	
-		}
-
-		if (exist(contentLineC)){
-			contentLineC.remove();	
-		}				
-		
-		/*if(typeof contentLineaA !== 'undefined'){
-    		alert(contentLineaA);
-    		contentLineA.remove();
-		} else {
-
-		}
-
-		if(typeof contentLineaB !== 'undefined'){
-    		alert(contentLineaB);
-    		contentLineB.remove();
-		};	
-
-		if(typeof contentLineaC !== 'undefined'){
-    		alert(contentLineaC);
-    		contentLineC.remove();
-		};	*/
+		if (exist(contentLineA)){contentLineA.remove();}
+		if (exist(contentLineB)){contentLineB.remove();}
+		if (exist(contentLineC)){contentLineC.remove();}
+		if (exist(infoCurve1)){infoCurve1.remove();}		
+		if (exist(infoCurve2)){infoCurve2.remove();}		
 	}
 	var contenidoA = function(){
 
@@ -683,8 +779,8 @@ var main=(function(){
 		if (exist(textoCentral.gabo_2)) textoCentral.gabo_2.remove();
 		if (exist(textoCentral.santi_1)) textoCentral.santi_1.remove();
 		if (exist(textoCentral.santi_2)) textoCentral.santi_2.remove();
+		if (exist(setSocialA)) setSocialA.remove();
 	}
-
 	var setTextoCentral = function(id,text1,text2,text3){
 
 		if (textoCentral.t1 != null) textoCentral.t1.remove();
