@@ -57,6 +57,11 @@
             $(window).bind("resize", ScaleSlider);
             $(window).bind("orientationchange", ScaleSlider);
             //responsive code end
+
+            $("#img1").click(function () {
+                $("#game1")[0].click();
+            });
+
         });
     </script>
 
@@ -92,7 +97,6 @@
     </style>
 
 <!--a href="data/santi/contenido2/game.swf" id="game2" class="html5lightbox" data-width="400" data-height="600"     title="Frenetic- Lenguaje: ActionScript 3 - Libreria: FlashPunk - Prototipado Rapido - UNL"></a-->
-    
     <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 750px; height: 450px; overflow: hidden; scrolling: no;visibility: hidden; background-color: #000000;">
         <!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
@@ -101,7 +105,14 @@
         </div>
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 550px; height: 450px; overflow: hidden;">
             <div data-p="112.50" >
-                <img data-u="image" src="data/imgSlider1/002.jpg" href="data/santi/contenido1/game.swf" id="game1img" class="html5lightbox" data-width="640" data-height="480" title="Birds- Lenguaje: Haxe- Libreria: HaxeFlixel- Programacion 3- UNL";/> 
+                <img id= "img1" data-u="image" src="data/imgSlider1/002.jpg" onclick="img1click('#game1')" /> 
+                <script>
+                    function img1click(divGame) {
+                        $("#music").click(function () {
+                            $("#musicinfo").toggle();
+                        });
+                    }
+                </script>
                 <div id="textslide_title" u="caption">
                     Birds
                 </div>
@@ -173,7 +184,9 @@
         <span data-u="arrowright" class="jssora02r" style="top:123px;right:218px;width:55px;height:55px;" data-autocenter="2"></span>
         <a href="http://www.jssor.com" style="display:none">Jssor Slider</a>
     </div>
-
     <!-- #endregion Jssor Slider End -->
+
+    <a href= "data/santi/contenido1/game.swf" id="game1" class="html5lightbox" data-width="1024" data-height="768" title="Birds- Lenguaje: Haxe- Libreria: HaxeFlixel- Programacion 3- UNL" </a>
+
 </body>
 </html>
