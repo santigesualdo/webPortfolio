@@ -21,11 +21,11 @@
     }
 
     #contentiframe{
-        width: 755px;
-        height: 455px;
+        width: 750px; 
+        height: 450px;
         border-style: dotted;
-        border-width: 2px;        
         border-color: white;
+        border-width: 2px;            
     }
 
     #textslide_title{
