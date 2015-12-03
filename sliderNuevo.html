@@ -3,7 +3,7 @@
 <head> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Bullet Navigator Skin 13 - Jssor Slider, Carousel, Slideshow with Javascript Source Code</title>
+    <title>web</title>
 </head> 
 <body style="margin:0;padding:0; background:#fff; font-family: Arial, Verdana, Sans-Serif;">
     <link href="css/style.css" type="text/css" rel="stylesheet" />
@@ -21,22 +21,40 @@
         <div u="slides" style="cursor: move; position: relative; left: 0px; top: 0px; width: 740px; height: 440px;
             overflow: hidden;">
             
-            <div><img u="image" src="data/imgSlider1/002.jpg" onclick="img1click('#game1')"/>
-                <div id="textslide_title" u="caption">Birds</div>
-                <div id="textslide_sub" u="caption">Lenguaje: Haxe- Libreria: HaxeFlixel- Programacion 3- UNL</div>
+            <div><img id= "slide1" u="image" src="data/imgSlider1/002.jpg" onclick="img1click('#game1')"/>
+                <div id="textContainer0">
+                    <div id="textslide_title" u="caption">1</div>
+                    <div id="textslide_sub" u="caption">1</div>
+                </div>
             </div>    
-            <div><img u="image" src="data/imgSlider1/003.jpg" onclick="img1click('#game1')"/>
-                <div id="textslide_title" u="caption">KK</div>
-                <div id="textslide_sub" u="caption">KK</div>
+            <div><img id= "slide2" u="image" src="data/imgSlider1/003.jpg" onclick="img1click('#game1')"/>
+                <div id="textContainer1" style = "display: none;">
+                    <div id="textslide_title" u="caption">2</div>
+                    <div id="textslide_sub" u="caption">2</div>
+                </div>       
+            </div>                
+            <div><img id= "slide3" u="image" src="data/imgSlider1/004.jpg" onclick="img1click('#game1')"/>
+                <div id="textContainer2" style = "display: none;">
+                    <div id="textslide_title" u="caption">3</div>
+                    <div id="textslide_sub" u="caption">3</div>
+                </div>
             </div>
-                
-            <div><img u="image" src="data/imgSlider1/004.jpg" onclick="img1click('#game1')"/></div>
-            <div><img u="image" src="data/imgSlider1/005.jpg" onclick="img1click('#game1')"/></div>
-            <div><img u="image" src="data/imgSlider1/006.jpg" onclick="img1click('#game1')"/></div>
+            <div><img id="slide4" u="image" src="data/imgSlider1/005.jpg" onclick="img1click('#game1')"/>
+                <div id="textContainer3" style = "display: none;">
+                    <div id="textslide_title" u="caption">4</div>
+                    <div id="textslide_sub" u="caption">4</div>
+                </div>
+            </div>
+            <div><img id="slide5"u="image" src="data/imgSlider1/006.jpg" onclick="img1click('#game1')"/>
+                <div id="textContainer4" style = "display: none;">
+                    <div id="textslide_title" u="caption">5</div>
+                    <div id="textslide_sub" u="caption">5</div>
+                </div>
+            </div>
         </div>
 
         <!-- bullet navigator container -->
-        <div u="navigator" class="jssorb13" style="bottom: 16px; right: 6px;">
+        <div u="navigator" class="jssorb13" style="display:none;">
             <!-- bullet navigator item prototype -->
             <div u="prototype"></div>
         </div>

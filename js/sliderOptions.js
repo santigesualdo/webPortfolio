@@ -1,4 +1,7 @@
 init_jssor_slider1 = function (containerId) {
+            
+            var actualSlide = 0;
+
             var options = {
                 $AutoPlay: false,                                   //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
                 $SlideDuration: 500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
@@ -6,7 +9,7 @@ init_jssor_slider1 = function (containerId) {
                 $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
                     $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
                     $ChanceToShow: 1,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
-                    $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $AutoCenter: 3,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
                     $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
                     $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
                     $SpacingX: 10,                                  //[Optional] Horizontal space between each item in pixel, default value is 0
@@ -30,8 +33,38 @@ init_jssor_slider1 = function (containerId) {
                 }
             }
             //ScaleSlider();
-            $Jssor$.$AddEvent(window, "load", ScaleSlider);
-            $Jssor$.$AddEvent(window, "resize", $Jssor$.$WindowResizeFilter(window, ScaleSlider));
-            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+
+            var last = 0;
+            function OnSwipeStart(position, virtualPosition)
+            {
+                /*last = virtualPosition;
+                alert("start " + virtualPosition);*/
+            }
+
+            function OnSwipeEnd(position, virtualPosition)
+            {
+                var str = "#textContainer"+last;
+
+                $(str).css('display','none');
+
+                last = virtualPosition;
+                
+                str = "#textContainer"+last;
+                
+                $(str).css('display','inline');
+            }
+
+
+            jssor_1_slider.$On($JssorSlider$.$EVT_SWIPE_START, OnSwipeStart);
+            jssor_1_slider.$On($JssorSlider$.$EVT_SWIPE_END, OnSwipeEnd);
+
+            jssor_1_slider.$Jssor$.$AddEvent(window, "load", ScaleSlider);
+            jssor_1_slider.$Jssor$.$AddEvent(window, "resize", $Jssor$.$WindowResizeFilter(window, ScaleSlider));
+            jssor_1_slider.$Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+
             //responsive code end
-        };
+            $("#img1").click(function () {
+                $("#game1")[0].click();
+            });
+
+};

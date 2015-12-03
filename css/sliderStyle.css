@@ -1,5 +1,5 @@
-        <!--#region Bullet Navigator Skin Begin -->
-        <!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->
+       /* <!--#region Bullet Navigator Skin Begin -->
+        <!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->*/
         <style>
             /* jssor slider bullet navigator skin 13 css */
             /*
@@ -17,7 +17,7 @@
                 /* size of bullet elment */
                 width: 21px;
                 height: 21px;
-                background: url(data/sliderSkin/b13.png) no-repeat;
+                background: url(../data/sliderSkin/b13.png) no-repeat;
                 overflow: hidden;
                 cursor: pointer;
             }
