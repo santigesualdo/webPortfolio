@@ -73,7 +73,7 @@ init_jssor_slider1 = function (containerId) {
             jssor_1_slider.$Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
 
             //responsive code end
-            $("#img1").click(function () {
+            $("#slide1").click(function () {
                 $("#game1")[0].click();
             });
 
