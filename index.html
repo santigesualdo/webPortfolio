@@ -7,39 +7,34 @@
     <link href="css/lightcase.css" type="text/css" rel="stylesheet"/>
     <link href="css/styleUnslider.css" type="text/css" rel="stylesheet"/>
     <link href="css/styleLightBox.css" type="text/css" rel="stylesheet"/>
-
+    
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
-    <script type="text/javascript" src="js/jquery1.10.js"></script>     
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/queryloader2.min.js" ></script>
+    <!--script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script-->
     <script type="text/javascript" src="html5lightbox/html5lightbox.js"></script>
     <script type="text/javascript" src="js/raphaeljs-infobox.js"></script>
     <script type="text/javascript" src="js/lightcase.js"></script>
     <script type="text/javascript" src="js/raphael.js"></script>      
-    <script type="text/javascript" src="js/mainNuevo.js"></script>    
-    <script type='text/javascript' src='js/loadImg.js'></script>
-    <script type='text/javascript'>
-          $(function(){
-              $('img').imgPreload()
-          })
-    </script>
-    
+    <script type="text/javascript" src="js/mainNuevo.js"></script>     
     <script>
-        $(window).load(function() {
-            // Animate loader off screen
-            $(".se-pre-con").fadeOut("slow");;
+        $(document).ready(function(){
+            QueryLoader2(document.querySelector("body"), {
+                barColor: "green",
+                backgroundColor: "white",
+                percentage: false,
+                barHeight: 4,
+                minimumTime: 500,
+                fadeOutTime: 2000
+            });
+            
+            main.init();  
         });
     </script>
-    <script>
-          $(document).ready(function(){
-              main.init();  
-          });
-    </script>
+    
   </head>  
-
-  <div class="se-pre-con"></div>
-  
   <body>
     <div id="container" >
       <div id="paper" >        
@@ -60,4 +55,5 @@
     <!--a href="data/santi/contenido6/game.swf" id="game6" class="html5lightbox" data-width="800" data-height="800" title="  PacmanReversion- Lenguaje: ActionScript 3 - Libreria: FlashPunk - Prototipado Rapido - UNL"></a-->      
 
   </body>
+
 </html>

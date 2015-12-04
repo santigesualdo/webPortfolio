@@ -47,11 +47,21 @@ init_jssor_slider1 = function (containerId) {
 
                 $(str).css('display','none');
 
-                last = virtualPosition;
-                
+                last = Math.ceil(virtualPosition);
+
                 str = "#textContainer"+last;
-                
+
+                if (str == "#textContainer5"){
+                    str = "#textContainer0";
+                } 
+
+                if (str == "textContainer-1"){
+                    alert("asdfasdf");
+                }
+
                 $(str).css('display','inline');
+                alert(str);
+                
             }
 
 
