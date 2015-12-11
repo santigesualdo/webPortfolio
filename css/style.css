@@ -55,7 +55,7 @@
 
     #textslide_title{
       position: fixed; 
-      top: 380px; 
+      top: 365px; 
       left: 10px; 
       width: 500px;
       height: 200px;
@@ -66,15 +66,15 @@
     }
 
     #textslide_sub{
-      font-family: 'Chewy', cursive;
-      color: green;
-      text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 2px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; 
-      font-size: x-large;
       position: fixed; 
-      top: 415px; 
+      top: 400px; 
       left: 10px; 
-      width: 500px;
+      width: 750px;
       height: 200px;
+      font-family: 'Chewy', cursive;
+      font-size: medium;
+      color: green;
+      text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 2px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
     }
 
   .contenidoText p {
