@@ -10,16 +10,13 @@
             .jssorb13 .dn           (mousedown)
             */
             .jssorb13 {
-                position: absolute;
+                position: relative;
             }
             .jssorb13 div, .jssorb13 div:hover, .jssorb13 .av {
-                position: absolute;
                 /* size of bullet elment */
                 width: 21px;
                 height: 21px;
                 background: url('../data/sliderSkin/b13.png') no-repeat;
-                overflow: hidden;
-                cursor: pointer;
             }
             .jssorb13 div { background-position: -5px -5px; }
             .jssorb13 div:hover, .jssorb13 .av:hover { background-position: -35px -5px; }

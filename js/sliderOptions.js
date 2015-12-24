@@ -10,14 +10,14 @@ init_jssor_slider1 = function (containerId) {
                 $FillMode: 4,                                   // 0: stretch, 1: contain (keep aspect ratio and put all inside slide), 2: cover (keep aspect ratio and cover whole slide), 4: actual size, 5: contain for large image and actual size for small image, default value is 0
                 $DragOrientation: 1,                             //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0
                 $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
-                    $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
-                    $ChanceToShow: 3,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
-                    $AutoCenter: 0,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
-                    $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
-                    $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
-                    $SpacingX: 10,                                  //[Optional] Horizontal space between each item in pixel, default value is 0
-                    $SpacingY: 50,                                  //[Optional] Vertical space between each item in pixel, default value is 0
-                    $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+                   $Class: $JssorBulletNavigator$,                       //[Required] Class to create navigator instance
+                   $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                   $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                   $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
+                   $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
+                   $SpacingX: 10,                                  //[Optional] Horizontal space between each item in pixel, default value is 0
+                   $SpacingY: 10,                                  //[Optional] Vertical space between each item in pixel, default value is 0
+                   $Orientation: 1 
                 }
             };
             
@@ -45,32 +45,33 @@ init_jssor_slider1 = function (containerId) {
                 $(str).css('display','inline');               
             }
 
-            //responsive code begin
-            //you can remove responsive code if you don't want the slider scales while window resizing
-            function ScaleSlider() {
-                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-                if (refSize) {
-                    refSize = Math.min(refSize, 600);
-                    jssor_1_slider.$ScaleWidth(refSize);
-                }
-                else {
-                    window.setTimeout(ScaleSlider, 30);
-                }
-            }
-            //ScaleSlider();
+            function SliderClickEventHandler(slideIndex, event)
+            {
+                var index = "#game"+(slideIndex+1);
+                var pathname = window.location.pathname;
 
-            function SliderClickEventHandler(slideIndex, event) {
-                alert(slideIndex);
+                if (slideIndex+1===5) {
+                    pathname = pathname.replace("sliderNuevo.html", "data/santi/contenido"+(slideIndex+1)+"/demo.php");                    
+                } else{
+                    pathname = pathname.replace("sliderNuevo.html", "data/santi/contenido"+(slideIndex+1)+"/swf.html");                    
+                }
+
+                window.open(pathname, '_blank');
+                //alert(pathname);
+                
             }
+
+            ScaleSlider();
+
+            jssor_1_slider.$On($JssorSlider$.$EVT_SWIPE_END, OnSwipeEnd);
+            jssor_1_slider.$On($JssorSlider$.$EVT_CLICK, SliderClickEventHandler);
+
+            $(window).bind(window, "load", ScaleSlider);
+            $(window).bind(window, "resize", $Jssor$.$WindowResizeFilter(window, ScaleSlider));
+            $(window).bind(window, "orientationchange", ScaleSlider);
 
             
-
-            jssor_1_slider.$Jssor$.$AddEvent(window, "load", ScaleSlider);
-            jssor_1_slider.$Jssor$.$AddEvent(window, "resize", $Jssor$.$WindowResizeFilter(window, ScaleSlider));
-            jssor_1_slider.$Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
-
-            jssor_1_slider.$On($JssorSlider$.$EVT_CLICK, SliderClickEventHandler);
-            jssor_1_slider.$On($JssorSlider$.$EVT_SWIPE_END, OnSwipeEnd);
+            
 
 
             
