@@ -47,7 +47,7 @@ init_jssor_slider1 = function (containerId) {
 
             function SliderClickEventHandler(slideIndex, event)
             {
-                var index = "#game"+(slideIndex+1);
+                /*var index = "#game"+(slideIndex+1);
                 var pathname = window.location.pathname;
 
                 if (slideIndex+1===5) {
@@ -56,7 +56,9 @@ init_jssor_slider1 = function (containerId) {
                     pathname = pathname.replace("sliderNuevo.html", "data/santi/contenido"+(slideIndex+1)+"/swf.html");                    
                 }
 
-                window.open(pathname, '_blank');
+                window.open(pathname, '_blank');*/
+
+                $('#testfancy')[0].click();
                 //alert(pathname);
                 
             }
@@ -69,12 +71,5 @@ init_jssor_slider1 = function (containerId) {
             $(window).bind(window, "load", ScaleSlider);
             $(window).bind(window, "resize", $Jssor$.$WindowResizeFilter(window, ScaleSlider));
             $(window).bind(window, "orientationchange", ScaleSlider);
-
-            
-            
-
-
-            
-    
 
 };
