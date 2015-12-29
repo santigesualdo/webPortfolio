@@ -21,11 +21,11 @@
     }
 
     #contentiframe{
-        width: 750px; 
-        height: 450px;
-        border-style: dotted;
-        border-color: white;
-        border-width: 2px;            
+        width: 745px; 
+        height: 445px;
+        /*border-style: dotted;
+        border-color: black;
+        border-width: 3px;   */         
     }
 
 

@@ -58,7 +58,8 @@ init_jssor_slider1 = function (containerId) {
 
                 window.open(pathname, '_blank');*/
 
-                $('#testfancy')[0].click();
+
+                //$('#testfancy')[0].click();
                 //alert(pathname);
                 
             }
@@ -71,5 +72,21 @@ init_jssor_slider1 = function (containerId) {
             $(window).bind(window, "load", ScaleSlider);
             $(window).bind(window, "resize", $Jssor$.$WindowResizeFilter(window, ScaleSlider));
             $(window).bind(window, "orientationchange", ScaleSlider);
+
+            $("#slide1").click(function () {
+                var videourl = 'data/santi/contenido1/game.swf';
+                
+                parent.$("#slide1").fancybox({
+                    'parent': "form:first",
+                    'type': 'swf', 
+                    'width' : 640,
+                    'height' : 480,
+                    'autoDimensions' : false,
+                    'autoScale' : false,
+                    'href' : videourl
+                });
+
+                $("#slide1").trigger('click');
+            });
 
 };
