@@ -561,8 +561,8 @@ var main=(function(){
 		limpiarTextos();
 
 		var mostrarSlider = function(e){
-			var url = 'sliderNuevo.html';
-			$('#contentiframe').prop('src', url);
+			//var url = 'sliderNuevo.html';
+			//$('#contentiframe').prop('src', url);
 			$('#contentiframe').css( "display", "inline");
 		};	
 

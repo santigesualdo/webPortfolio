@@ -21,18 +21,18 @@ init_jssor_slider1 = function (containerId) {
                 }
             };
             
-            var jssor_1_slider = new $JssorSlider$(containerId, options);
+            var sliderSanti = new $JssorSlider$(containerId, options);
             
             
             function ScaleSlider() 
             {
-                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                var refSize = sliderSanti.$Elmt.parentNode.clientWidth;
                 if (refSize) {
                     refSize = Math.min(refSize, 746);
-                    jssor_1_slider.$ScaleWidth(refSize);
+                    sliderSanti.$ScaleWidth(refSize);
                 }
                 else {
-                    jssor_1_slider.$Delay(ScaleSlider, 30);
+                    window.setTimeout(ScaleSlider,30);                    
                 }
             }
             
@@ -42,51 +42,47 @@ init_jssor_slider1 = function (containerId) {
                 $(str).css('display','none');
                 last = Math.ceil(position);
                 str = "#textContainer"+last;                
-                $(str).css('display','inline');               
+                $(str).css('display','block');               
             }
 
             function SliderClickEventHandler(slideIndex, event)
             {
-                /*var index = "#game"+(slideIndex+1);
-                var pathname = window.location.pathname;
 
-                if (slideIndex+1===5) {
+
+                
+            
+                var index = "#santigame"+(slideIndex+1);
+
+                $(index)[0].click();
+
+                //var pathname = window.location.pathname;
+
+                /*if (slideIndex+1===5) {
                     pathname = pathname.replace("sliderNuevo.html", "data/santi/contenido"+(slideIndex+1)+"/demo.php");                    
                 } else{
                     pathname = pathname.replace("sliderNuevo.html", "data/santi/contenido"+(slideIndex+1)+"/swf.html");                    
                 }
 
-                window.open(pathname, '_blank');*/
+                window.open(pathname, '_blank');
 
+                if(document.getElementById("slide1") !== null){
+                    alert('encontro');
+                }else{
+                    alert('no encontro');
+                }
 
-                //$('#testfancy')[0].click();
-                //alert(pathname);
+                
+                */
                 
             }
 
             ScaleSlider();
 
-            jssor_1_slider.$On($JssorSlider$.$EVT_SWIPE_END, OnSwipeEnd);
-            jssor_1_slider.$On($JssorSlider$.$EVT_CLICK, SliderClickEventHandler);
+            sliderSanti.$On($JssorSlider$.$EVT_SWIPE_END, OnSwipeEnd);
+            sliderSanti.$On($JssorSlider$.$EVT_CLICK, SliderClickEventHandler);
 
-            $(window).bind(window, "load", ScaleSlider);
-            $(window).bind(window, "resize", $Jssor$.$WindowResizeFilter(window, ScaleSlider));
-            $(window).bind(window, "orientationchange", ScaleSlider);
-
-            $("#slide1").click(function () {
-                var videourl = 'data/santi/contenido1/game.swf';
-                
-                parent.$("#slide1").fancybox({
-                    'parent': "form:first",
-                    'type': 'swf', 
-                    'width' : 640,
-                    'height' : 480,
-                    'autoDimensions' : false,
-                    'autoScale' : false,
-                    'href' : videourl
-                });
-
-                $("#slide1").trigger('click');
-            });
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
 
 };

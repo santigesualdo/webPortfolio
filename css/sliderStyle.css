@@ -10,7 +10,8 @@
             .jssorb13 .dn           (mousedown)
             */
             .jssorb13 {
-                position: relative;
+                position: absolute;
+                left: 500px;
             }
             .jssorb13 div, .jssorb13 div:hover, .jssorb13 .av {
                 /* size of bullet elment */

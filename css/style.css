@@ -23,16 +23,16 @@
     #contentiframe{
         width: 745px; 
         height: 445px;
-        /*border-style: dotted;
+        border-style: dotted;
         border-color: black;
-        border-width: 3px;   */         
+        border-width: 3px;   
     }
 
 
     #textslide_title{
       position: fixed; 
-      top: 365px; 
-      left: 10px; 
+      top: 530px; 
+      left: 325px; 
       width: 500px;
       height: 200px;
       font-family: 'Chewy', cursive;
@@ -43,8 +43,8 @@
 
     #textslide_sub{
       position: fixed; 
-      top: 400px; 
-      left: 10px; 
+      top: 565px; 
+      left: 325px; 
       width: 750px;
       height: 200px;
       font-family: 'Chewy', cursive;
