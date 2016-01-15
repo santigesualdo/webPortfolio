@@ -5,9 +5,11 @@
     <meta name=viewport content="width=device-width">  
     <title>Full screen photo and image gallery</title>
 
+<script src="../../../js/jquery-1.11.0.min.js" type="text/javascript"></script>
 <link href="../../../css/style.css" type="text/css" rel="stylesheet"/>    
-<script type="text/javascript" src="../../../html5gallery/jquery.js"></script>
-<script type="text/javascript" src="../../../html5gallery/html5gallery.js"></script>
+
+<link rel="stylesheet" href="../../../js/fancyBox/source/jquery.fancybox.css" type="text/css" media="screen" />
+<script src="../../../js/fancyBox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
     
 <style type="text/css">
 body, html {
@@ -16,6 +18,19 @@ body, html {
   padding: 0;
 }
 </style>
+<script>
+	$(document).ready(function() {
+		// Initialize Fancybox
+        $('#my-gallery').fancybox({
+            // Use the `alt` attribute for captions per http://fancyapps.com/fancybox/#useful
+            beforeShow: function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+	});
+</script>
 
 </head>
 <body>
@@ -34,8 +49,22 @@ body, html {
     <p><a href="WolverineWeaponX.rar">(DESCARGAR DEMO)</a></p>
   </div>
 </div>
+
+<div id="my-gallery" class="editable-gallery">
+    <a href="" data-fancybox-group="my-gallery">
+        <img src="image1.png" alt="Menu beta.">
+    </a>
+    <a href="" data-fancybox-group="my-gallery">
+        <img src="image2.png" alt="Wolverine vs Patrol guy.">
+    </a>
+     <a href="" data-fancybox-group="my-gallery">
+        <img src="image3.png" alt="Wolverine vs Sentinel.">
+    </a>
+</div>
+
+
     
-<div style="display:none;margin:0 auto; width:100%;heigth=70%;" 
+<!--div style="display:none;margin:0 auto; width:100%;heigth=70%;" 
 	class="html5gallery"
 	data-responsive="true"
 	data-responsivefullscreen="true"
@@ -66,7 +95,7 @@ body, html {
 		<img src="thumb-image3.png" alt="Waves" data-description="Image3.">
 	</a>
 
-</div>
+</div-->
 
 
 
