@@ -18,49 +18,52 @@ body, html {
   padding: 0;
 }
 </style>
+
 <script>
 	$(document).ready(function() {
-		// Initialize Fancybox
-        $('#my-gallery').fancybox({
-            // Use the `alt` attribute for captions per http://fancyapps.com/fancybox/#useful
-            beforeShow: function() {
-                var alt = this.element.find('img').attr('alt');
-                this.inner.find('img').attr('alt', alt);
-                this.title = alt;
-            }
-        });
+     parent.$('.fancybox-buttons').fancybox({
+        closeBtn  : true,
+        helpers : {
+          title : {
+            type : 'inside'
+          },
+          buttons : {}
+        },
+
+        afterLoad : function() {
+          this.title = this.alt;          
+        }
+      });
 	});
 </script>
 
 </head>
 <body>
-
-<div class="contenidoText" style="width:100%;height:30%;text-align:left;">
-  <h2>  Wolverine Weapon X - C++ - SFML  </h2>
-  <p>   . Juego de plataformas 2D, con diferentes enemigos y mecanicas, factor curación e items.  </p>
-  <p>. 3 Niveles con dificultad ascendente.</p>
-  <p>. <u>Controles:</u> </p>
-  <p>.. Movimiento: Flechas de direccion.</p>
-  <p>.. Ataque: Z , X , C .</p>
-  <p>. <u>Instalacion:</u> </p>
-  <p>.. Extraer archivo rar en la ubicacion que se prefiera. </p>
-  <p>.. Ejecutar 'Wolverine_Weapon_X.exe'. </p>
-  <div style="text-align:center">
+<div id="wrap">
+  <div class="contenidoText" style="width:100%;height:45%;" >
+    <h2>  Wolverine Weapon X - C++ - SFML  </h2>
+    <p>   . Juego de plataformas 2D, con diferentes enemigos y mecanicas, factor curación e items.  </p>
+    <p>. 3 Niveles con dificultad ascendente.</p>
+    <p>. <u>Controles:</u> </p>
+    <p>.. Movimiento: Flechas de direccion.</p>
+    <p>.. Ataque: Z , X , C .</p>
+    <p>. <u>Instalacion:</u> </p>
+    <p>.. Extraer archivo rar en la ubicacion que se prefiera. </p>
+    <p>.. Ejecutar 'Wolverine_Weapon_X.exe'. </p>
     <p><a href="WolverineWeaponX.rar">(DESCARGAR DEMO)</a></p>
+    <p>
+        <!--a  rel="gallery" class="fancybox" href="image1.png" title="test1"><img alt="" src="thumb-image1.png"/></a-->
+        <!--a  rel="gallery" class="fancybox" href="image2.png" title="test2"><img alt="" src="thumb-image2.png"/></a-->
+        <!--a  rel="gallery" class="fancybox" href="image3.png" title="test3"><img alt="" src="thumb-image3.png"/></a-->
+
+        <a class="fancybox-buttons" data-fancybox-group="button" href="image1.png"><img src="thumb-image1.png" alt="hola"></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="image2.png"><img src="thumb-image2.png" alt="hola2"></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="image3.png"><img src="thumb-image3.png" alt="hola3"></a>
+    </p>  
   </div>
+
 </div>
 
-<div id="my-gallery" class="editable-gallery">
-    <a href="" data-fancybox-group="my-gallery">
-        <img src="image1.png" alt="Menu beta.">
-    </a>
-    <a href="" data-fancybox-group="my-gallery">
-        <img src="image2.png" alt="Wolverine vs Patrol guy.">
-    </a>
-     <a href="" data-fancybox-group="my-gallery">
-        <img src="image3.png" alt="Wolverine vs Sentinel.">
-    </a>
-</div>
 
 
 </body>

@@ -463,7 +463,7 @@ var main=(function(){
 		if (letra === 'a'){
 			  infoMail=  infoButton(_x+difx,_y+10,"mailto:santigesualdo@gmail.com", pathMail);
 			  infoFace=  infoButton(_x+difx*2,_y+10, "https://www.facebook.com/santi.gesualdo", pathFace);
-			  infoLinke= infoButton(_x+difx*3,_y+10,"https://www.linkedin.com/profile/view?id=150531030", pathLinke);
+			  infoLinke= infoButton(_x+difx*3,_y+10,"data/santi/cv.pdf", pathLinke);
 			  setSocialA = paper.set();
 			  setSocialA.push(infoLinke);
 			  setSocialA.push(infoFace);
@@ -503,10 +503,7 @@ var main=(function(){
 		set.push(but);
 		set.push(rect);
 		set.translate(x,y);
-		set.attr({
-			href: link,
-			target: "blank"
-		});
+
 		set.animate({
 			opacity:1
 		},1000,"linear")
@@ -520,6 +517,9 @@ var main=(function(){
 			},100, "linear");
 		});
 
+		set.mousedown(function(e){
+			$("#santicv")[0].click(); 
+		});				
 
 		return set;
 	}

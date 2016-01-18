@@ -23,7 +23,10 @@
     <script>
         $(document).ready(function(){
 
-            $(".fancybox").fancybox();
+            $(".fancybox").fancybox({
+                'openEffect': 'elastic',
+                'closeEffect': 'elastic',
+            });
 
             $('#santigame1').fancybox({
                'autoDimensions': false,
@@ -54,12 +57,10 @@
             });
 
             $('#santigame5').fancybox({
-               'overlayShow': false,
-                'frameWidth': 640, // set the width
-                'frameHeight': 480, // set the height
-                'openEffect': 'elastic',
-                'closeEffect': 'elastic',
-                'type': 'iframe', // tell the script to create an iframe
+                'autoDimensions': false,
+                'width': 500,
+                'height': 400,
+                'type': 'iframe', 
             });
 
             $('#santigame6').fancybox({
@@ -69,9 +70,15 @@
                 'type': 'swf', // tell the script to create an iframe
             });
 
+            $('#santicv').fancybox({
+                'autoDimensions':true,
+                'autoSize': true,
+                'type': 'iframe'
+            })
+
             QueryLoader2(document.querySelector("body"), {
-                barColor: "green",
-                backgroundColor: "white",
+                barColor: "#fbaf47",
+                backgroundColor: "grey",
                 percentage: false,
                 barHeight: 3,
                 minimumTime: 500,
@@ -90,6 +97,7 @@
    <a id="santigame4" class="fancybox" style="display:none;" href="data/santi/contenido4/game.swf"></a>
    <a id="santigame5" class="fancybox" style="display:none;" href="data/santi/contenido5/demo.php"></a>
    <a id="santigame6" class="fancybox" style="display:none;" href="data/santi/contenido6/game.swf"></a>
+   <a id="santicv" class="fancybox" style="display:none" href="data/santi/cv.pdf"></a>
 
    <div id="container" >
       <div id="paper"></div>   
