@@ -63,41 +63,5 @@ body, html {
 </div>
 
 
-    
-<!--div style="display:none;margin:0 auto; width:100%;heigth=70%;" 
-	class="html5gallery"
-	data-responsive="true"
-	data-responsivefullscreen="true"
-	data-html5player="true"
-	data-autoslide="false" 
-	data-skin="light" 
-	data-slideshadow="false"
-	data-showtitle="false" 
-	data-showsocialmedia="false" 
-	data-showfullscreenbutton="false"   
-	data-autoplayvideo="false" 
-	data-width="800" 
-	data-height="450" 
-	data-effect="slide" 
-	data-resizemode="fit" 
-	data-googleanalyticsaccount="UA-29319282-1"
-	>
-
-	<a href="image1.png">
-		<img src="thumb-image1.png" alt="Waves" data-description="Image1.">
-	</a>
-
-	<a href="image2.png">
-		<img src="thumb-image2.png" alt="Waves" data-description="Image2.">
-	</a>
-
-	<a href="image3.png">
-		<img src="thumb-image3.png" alt="Waves" data-description="Image3.">
-	</a>
-
-</div-->
-
-
-
 </body>
 </html>

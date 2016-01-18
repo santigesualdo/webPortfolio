@@ -23,9 +23,9 @@
     #contentiframe{
         width: 745px; 
         height: 445px;
-        border-style: dotted;
-        border-color: black;
-        border-width: 3px;   
+        
+     /*   border-color: black;
+        border-width: 3px;   */
     }
 
 
