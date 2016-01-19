@@ -15,7 +15,7 @@
 
     <script type="text/javascript" src="js/queryloader2.min.js" ></script>
     <script type="text/javascript" src="js/raphael.js"></script>      
-    <script type="text/javascript" src="js/mainNuevo.js"></script>  
+    <script type="text/javascript" src="js/main.js"></script>  
         
     <script type="text/javascript" src="js/jssor.slider.mini.js"></script>
     <script type="text/javascript" src="js/sliderOptions.js"></script>
@@ -23,58 +23,80 @@
     <script>
         $(document).ready(function(){
 
-            $(".fancybox").fancybox({
-                'openEffect': 'elastic',
-                'closeEffect': 'elastic',
+            $('.fancybox').fancybox({
+                'openEffect': 'fade',
+                'closeEffect': 'fade',
+                overlay : {
+                    closeClick : true,  // if true, fancyBox will be closed when user clicks on the overlay
+                    speedOut   : 200,   // duration of fadeOut animation
+                    showEarly  : true,  // indicates if should be opened immediately or wait until the content is ready
+                    locked     : true   // if true, the content will be locked into overlay
+            }
             });
-
             $('#santigame1').fancybox({
                'autoDimensions': false,
                 'width': 640, // set the width
                 'height': 480, // set the height
                 'type': 'swf', // tell the script to create an iframe
             });
-
             $('#santigame2').fancybox({
                'autoDimensions': false,
                 'width': 400, // set the width
                 'height': 600, // set the height
                 'type': 'swf', // tell the script to create an iframe
             });
-
             $('#santigame3').fancybox({
                'autoDimensions': false,
                 'width': 640, // set the width
                 'height': 640, // set the height
                 'type': 'swf', // tell the script to create an iframe
             });
-
             $('#santigame4').fancybox({
                'autoDimensions': false,
                 'width': 640, // set the width
                 'height': 480, // set the height
                 'type': 'swf', // tell the script to create an iframe
             });
-
             $('#santigame5').fancybox({
                 'autoDimensions': false,
                 'width': 500,
                 'height': 400,
                 'type': 'iframe', 
             });
-
             $('#santigame6').fancybox({
                'autoDimensions': false,
                 'width': 640, // set the width
                 'height': 640, // set the height
                 'type': 'swf', // tell the script to create an iframe
             });
-
-            $('#santicv').fancybox({
+            $('.fancypdf').fancybox({
                 'autoDimensions':true,
                 'autoSize': true,
-                'type': 'iframe'
-            })
+                'type': 'iframe'                
+            });
+            $('.fancyyoutube').fancybox({
+                maxWidth: 800,
+                maxHeight: 600,
+                fitToView: false,
+                width: '70%',
+                height: '70%',
+                autoSize: false,
+                'type':'iframe'
+            });
+            $('.fancybox-buttons').fancybox({
+                helpers     : {
+                    title   : { type : 'float' },
+                    buttons : {}
+                }
+            });
+            $('.fancycontenido').fancybox({
+                maxWidth    : 800,
+                maxHeight   : 600,
+                fitToView   : false,
+                width       : '70%',
+                height      : '70%',
+                autoSize    : false
+            });
 
             QueryLoader2(document.querySelector("body"), {
                 barColor: "#fbaf47",
@@ -83,8 +105,8 @@
                 barHeight: 3,
                 minimumTime: 500,
                 fadeOutTime: 2000
-            });
-            
+            });            
+
             main.init();  
         });
     </script>
@@ -95,59 +117,88 @@
    <a id="santigame2" class="fancybox" style="display:none;" href="data/santi/contenido2/game.swf"></a>
    <a id="santigame3" class="fancybox" style="display:none;" href="data/santi/contenido3/game.swf"></a>
    <a id="santigame4" class="fancybox" style="display:none;" href="data/santi/contenido4/game.swf"></a>
-   <a id="santigame5" class="fancybox" style="display:none;" href="data/santi/contenido5/demo.php"></a>
+   <a id="santigame5" class="fancybox fancycontenido" style="display:none;" href="#c5"></a>
+   <div id="c5" style="display:none;">
+      <div id="conten5"class="contenidoText" style="width:100%;height:45%;" >
+        <h2>  Wolverine Weapon X - C++ - SFML  </h2>
+        <p>   . Juego de plataformas 2D, con diferentes enemigos y mecanicas, factor curación e items.  </p>
+        <p>. 3 Niveles con dificultad ascendente.</p>
+        <p>. <u>Controles:</u> </p>
+        <p>.. Movimiento: Flechas de direccion.</p>
+        <p>.. Ataque: Z , X , C .</p>
+        <p>. <u>Instalacion:</u> </p>
+        <p>.. Extraer archivo rar en la ubicacion que se prefiera. </p>
+        <p>.. Ejecutar 'Wolverine_Weapon_X.exe'. </p>
+        <p><a href="WolverineWeaponX.rar">(DESCARGAR DEMO)</a></p>
+        <p>
+            <a class="fancybox-buttons" data-fancybox-group="button" href="data/santi/contenido5/image1.png"><img src="data/santi/contenido5/thumb-image1.png" alt="hola"></a>
+            <a class="fancybox-buttons" data-fancybox-group="button" href="data/santi/contenido5/image2.png"><img src="data/santi/contenido5/thumb-image2.png" alt="hola2"></a>
+            <a class="fancybox-buttons" data-fancybox-group="button" href="data/santi/contenido5/image3.png"><img src="data/santi/contenido5/thumb-image3.png" alt="hola3"></a>
+        </p>  
+      </div>
+     </div>
    <a id="santigame6" class="fancybox" style="display:none;" href="data/santi/contenido6/game.swf"></a>
-   <a id="santicv" class="fancybox" style="display:none" href="data/santi/cv.pdf"></a>
-
+   <a id="santigame7" class="fancybox fancyyoutube" style="display:none;" href="https://www.youtube.com/embed/L9szn1QQfas?autoplay=1"></a>
+   <a id="santigame8" class="fancybox fancypdf" style="display:none;" href="data/santi/cv.pdf"></a>
+   <a id="santicv" class="fancybox fancypdf" style="display:none" href="data/santi/cv.pdf"></a>
    <div id="container" >
       <div id="paper"></div>   
    </div>
 
    <div id="containerframe">
       <div id="contentiframe" style="display:none; left:300px;" >
-
+        <!-- Slides Container --> 
         <div id="slider1_container" style="position: relative; width: %100; height: %100;  background: #fbaf47; ">
-        
-            <!-- Slides Container --> 
             <div u="slides" style="cursor: move; position: relative; left: 0px; top: 0px; width: 740px; height: 440px;
                 overflow: hidden;">
                 <div><img class="slideSanti" id="slide1" u="image" src="data/santi/contenido1/image.png"/>
                     <div id="textContainer0">
-                        <div id="textslide_title" u="caption">Videojuego: Birds.</div>
-                        <div id="textslide_sub" u="caption">Como jugar: mueve los pajaros con el mouse para evitar los disparos. Como jugar: mueve los pajaros con el mouse para evitar los disparos.</div>
+                        <div id="textslide_title" u="caption">Birds.</div>
+                        <div id="textslide_sub" u="caption"> Como jugar: mueve los 3 pajaros con el mouse, seleccionando con el click izquierdo. Evita los disparos y llega al fin. Especial: con un solo Bird, modo FRENZY. </div>
                     </div>
                 </div>   
-
-                <div><img class="slideSanti" id= "slide2" u="image" src="data/santi/contenido2/image.png" />
+                <div><img class="slideSanti" id="slide2" u="image" src="data/santi/contenido2/image.png" />
                     <div id="textContainer1" style = "display: none;">
-                        <div id="textslide_title" u="caption">VideoGame: Frenetic.</div>
-                        <div id="textslide_sub" u="caption">2</div>
+                        <div id="textslide_title" u="caption">Frenetic.</div>
+                        <div id="textslide_sub" u="caption">Como jugar: mueve el personaje de color verde con las flechas de dirección para obtener la comida antes que tu nemesis de color rosa. Presionando la T, te teleportaras a la ubicacion de tu enemigo.</div>
                     </div>       
                 </div>                
-                <div><img class="slideSanti" id= "slide3" u="image" src="data/santi/contenido3/image.png" />
+                <div><img class="slideSanti" id="slide3" u="image" src="data/santi/contenido3/image.png" />
                     <div id="textContainer2" style = "display: none;">
-                        <div id="textslide_title" u="caption">VideoGame: Gravity Guy.</div>
-                        <div id="textslide_sub" u="caption">3</div>
+                        <div id="textslide_title" u="caption">Gollem Job.</div>
+                        <div id="textslide_sub" u="caption">Como jugar: coloca las trampas para proteger tu tierra. Luego, mueve con las flechas de dirección al personaje (bola negra) para proteger a tu territorio de la destrucción. Para curar un punto de territorio, frena con la flecha de direccion hacia abajo. Cuida tu mundo!</div>
                     </div>
                 </div>
                 <div><img class="slideSanti" id="slide4" u="image" src="data/santi/contenido4/image.png" />
                     <div id="textContainer3" style = "display: none;">
-                        <div id="textslide_title" u="caption">VideoGame: Gollem Job.</div>
+                        <div id="textslide_title" u="caption">Gravity Guy.</div>
                         <div id="textslide_sub" u="caption">4</div>
                     </div>
                 </div>
                 <div><img class="slideSanti" id="slide5"u="image" src="data/santi/contenido5/image3.png" />
                     <div id="textContainer4" style = "display: none;">
-                        <div id="textslide_title" u="caption">VideoGame: Wolverine- WeaponX.</div>
+                        <div id="textslide_title" u="caption">Wolverine- WeaponX (no oficial).</div>
                         <div id="textslide_sub" u="caption">5</div>
                     </div>
                 </div>
                 <div><img class="slideSanti" id="slide6"u="image" src="data/santi/contenido6/image.png" />
                     <div id="textContainer5" style = "display: none;">
-                        <div id="textslide_title" u="caption">VideoGame: Pacman: Reversion.</div>
+                        <div id="textslide_title" u="caption">Pacman: Reversion. (no oficial)</div>
                         <div id="textslide_sub" u="caption">6</div>
                     </div>
                 </div>            
+                <div><img class="slideSanti" id="slide7"u="image" src="data/santi/contenido6/image.png" />
+                    <div id="textContainer6" style = "display: none;">
+                        <div id="textslide_title" u="caption">Youtube.</div>
+                        <div id="textslide_sub" u="caption">Test video de youtube.</div>
+                    </div>
+                </div>        
+                <div><img class="slideSanti" id="slide8"u="image" src="data/santi/contenido2/image.png" />
+                    <div id="textContainer7" style = "display: none;">
+                        <div id="textslide_title" u="caption">PDF.</div>
+                        <div id="textslide_sub" u="caption">Test abrir un archivo PDF.</div>
+                    </div>
+                </div>                
             </div> <!-- end"slides" -->
 
             <!-- bullet navigator container -->

@@ -21,7 +21,8 @@ body, html {
 
 <script>
 	$(document).ready(function() {
-     parent.$('.fancybox-buttons').fancybox({
+
+     $('.fancybox-buttons').fancybox({
         closeBtn  : true,
         helpers : {
           title : {
@@ -34,6 +35,7 @@ body, html {
           this.title = this.alt;          
         }
       });
+     
 	});
 </script>
 
@@ -56,7 +58,7 @@ body, html {
         <!--a  rel="gallery" class="fancybox" href="image2.png" title="test2"><img alt="" src="thumb-image2.png"/></a-->
         <!--a  rel="gallery" class="fancybox" href="image3.png" title="test3"><img alt="" src="thumb-image3.png"/></a-->
 
-        <a class="fancybox-buttons" data-fancybox-group="button" href="image1.png"><img src="thumb-image1.png" alt="hola"></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="image1.png" target="_parent"><img src="thumb-image1.png" alt="hola"></a>
         <a class="fancybox-buttons" data-fancybox-group="button" href="image2.png"><img src="thumb-image2.png" alt="hola2"></a>
         <a class="fancybox-buttons" data-fancybox-group="button" href="image3.png"><img src="thumb-image3.png" alt="hola3"></a>
     </p>  

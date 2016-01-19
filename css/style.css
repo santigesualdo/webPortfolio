@@ -23,9 +23,8 @@
     #contentiframe{
         width: 745px; 
         height: 445px;
-        
-     /*   border-color: black;
-        border-width: 3px;   */
+        border-color: grey;
+        border-width: 1px;   
     }
 
 
@@ -55,7 +54,7 @@
 
   .contenidoText p {
     font: normal 14px Chewy;
-    line-height:75%; 
+    line-height:80%; 
   }
 
   .contenidoText h2 {
