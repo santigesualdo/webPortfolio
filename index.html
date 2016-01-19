@@ -69,11 +69,22 @@
                 'height': 640, // set the height
                 'type': 'swf', // tell the script to create an iframe
             });
-            $('.fancypdf').fancybox({
+            $(".fancypdf").click(function(){
+             $.fancybox({
+               type: 'html',
+               autoSize: false,
+               content: '<embed src="'+this.href+'#nameddest=self&page=1&view=FitH,0&zoom=80,0,0" type="application/pdf" height="99%" width="100%" />',
+               beforeClose: function() {
+                 $(".fancybox-inner").unwrap();
+               }
+             }); //fancybox
+             return false;
+            }); //click
+            /*$('.fancypdf').fancybox({
                 'autoDimensions':true,
                 'autoSize': true,
                 'type': 'iframe'                
-            });
+            });*/
             $('.fancyyoutube').fancybox({
                 maxWidth: 800,
                 maxHeight: 600,
@@ -139,8 +150,9 @@
      </div>
    <a id="santigame6" class="fancybox" style="display:none;" href="data/santi/contenido6/game.swf"></a>
    <a id="santigame7" class="fancybox fancyyoutube" style="display:none;" href="https://www.youtube.com/embed/L9szn1QQfas?autoplay=1"></a>
-   <a id="santigame8" class="fancybox fancypdf" style="display:none;" href="data/santi/cv.pdf"></a>
-   <a id="santicv" class="fancybox fancypdf" style="display:none" href="data/santi/cv.pdf"></a>
+   <a id="santigame8" class="fancypdf" style="display:none;" href="data/santi/cv.pdf"></a>
+   
+   <a id="santicv" class="fancypdf" style="display:none" href="data/santi/cv.pdf"></a>
    <div id="container" >
       <div id="paper"></div>   
    </div>
