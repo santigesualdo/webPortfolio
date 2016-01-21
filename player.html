@@ -1,0 +1,129 @@
+<!doctype html >
+<html lang="es" xml:lang="es">
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />		
+		<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/swfobject.js"></script>
+		<script>
+			
+		</script>
+		<style>
+		html { 
+			background: url(data/playerbg.jpg) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+		#myContent {
+			margin: 1px;
+			padding: 1px;
+			border: 2px dashed  grey;
+			-moz-border-radius: 1px;
+			border-radius: 1px;
+		}		
+		.comoJugar{
+			font-family: 'Source Code Pro';
+			color: white;
+			font-size: 10px;
+		}
+		.comoJugar p{
+			top:200px;
+			font-size: 12px;
+		}
+		.comoJugar ul{
+			top:220px;
+		}
+		#volver{
+			font-size: 16px;
+		}
+		</style>
+	</head>
+	<script>
+		function IsJsonString(str) {
+		    try {
+		        JSON.parse(str);
+		    } catch (e) {
+		        return false;
+		    }
+		    return true;
+		}
+		
+		$(document).ready(function(){
+			// Tomamos la URL de la pagina, que tiene el JSON adjunto
+			var href =  window.location.href;
+
+			// Decodificamos la URL (para que no esten los %22 en los espacios en blanco)
+			var strJson = decodeURIComponent(href);
+
+			// Parseamos la url para obtener el JSON propiamente dicho
+			var json = strJson.substring("?game=");
+			var ini = json.indexOf("=");
+			var res = "{" + json.substring(ini+1, json.length) + "}";
+			if (IsJsonString(res)){
+				res = jQuery.parseJSON(res);				
+			}
+
+			// Con el JSON vamos asignando los datos del juego		
+			var w = res.width;
+			var h = res.height;
+
+			// Si el tipo de juego es SWF
+			// SWF
+			var flashvars={};
+			var params={};
+			var attributes={};
+
+			swfobject.embedSWF(res.data, "myContent",w, h, "9.0.0", "expressInstall.swf",flashvars,params,attributes,onFlashReady);
+
+			function onFlashReady(e) {
+				var f = swfobject.getObjectById('myContent');
+				f.tabIndex = 0;
+				f.focus();
+			}
+			// SWF
+			// Falta: iframe.
+		    $('#container').focusout(function() {
+		        $('#myContent').css("border","2px dashed orange");
+		        $('#volver').css("display","inline");
+		    }).focusin(function(){
+		    	$('#myContent').css("border","2px dashed grey");
+		    	$('#volver').css("display","none");
+		    });
+
+
+		    // Datos de ayuda.
+			var dataArray = [];
+			
+			$.each(res.help, function (index, value) {
+			    dataArray.push(value["text"].toString());
+			});
+
+			for (var i=0;i<dataArray.length;i++){
+				var div = document.createElement('div');
+				div.className = 'row';
+				div.innerHTML = '<li>'+dataArray[i]+'</li>';
+				document.getElementById('lista').appendChild(div);
+			}	
+			
+		});
+	</script>
+
+	<body>
+		<p class="comoJugar" style="top:200px;">
+			C&oacutemo jugar.
+			<ul id="lista" class="comoJugar" style= "position:fixed;"></ul>
+		</p>
+		<div id="container" style="position:fixed; top:0; left:0; width:100%; height:100%;">  
+		  <div style="height:100%; display:table; margin:0 auto;">  
+			<div style="vertical-align:middle; display:table-cell;">
+				<p class="comoJugar" style="position:inherited; margin-top:-20px;">Recuadro de Juego</p>
+				<div id= "myContent" style="padding: 10px; border: thick; -moz-border-radius: 20px; border-color:red;"></div>
+				<p id="volver" class="comoJugar" style="position:fixed; margin-top:-8px; color: orange; display:none">Click para volver al juego.</p>
+			</div>
+		  </div>
+		</div>
+	</body>
+</html>

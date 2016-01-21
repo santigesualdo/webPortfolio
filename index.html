@@ -36,18 +36,10 @@
                     locked     : true   // if true, the content will be locked into overlay
             }
             });
-            $('#santigame1').fancybox({
-               'autoDimensions': false,
-                'width': 640, // set the width
-                'height': 480, // set the height
-                'type': 'swf', // tell the script to create an iframe
-            });
-            $('#santigame2').fancybox({
-               'autoDimensions': false,
-                'width': 400, // set the width
-                'height': 600, // set the height
-                'type': 'swf', // tell the script to create an iframe
-            });
+            $('#santigame1').attr('href','player.html?game="data":"data/santi/contenido1/game.swf","titulo": "Birds","width": "640","height": "480","help": [{"text": "1. Mover el mouse."}]');
+
+            $('#santigame2').attr('href','player.html?game="data":"data/santi/contenido2/game.swf","titulo":"Frenetic","width":"400","height": "600","tipo": "swf","help": [{"text":"1. Mueve el personaje con las flechas de direccion."},{ "text":"2. Consigue la comida antes que tu oponente."},{ "text":"3. Presiona T para intercambiar la posicion con el enemigo."}]');
+
             $('#santigame3').fancybox({
                'autoDimensions': false,
                 'width': 640, // set the width
@@ -131,7 +123,7 @@
   </head>  
   <body>  
    
-   <a id="santigame1" class="fancybox" style="display:none;" href="data/santi/contenido1/game.swf"></a>
+   <a id="santigame1" style="display:none;" target="_blank"></a>
    <a id="santigame2" class="fancybox" style="display:none;" href="data/santi/contenido2/game.swf"></a>
    <a id="santigame3" class="fancybox" style="display:none;" href="data/santi/contenido3/game.swf"></a>
    <a id="santigame4" class="fancybox" style="display:none;" href="data/santi/contenido4/game.swf"></a>

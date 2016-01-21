@@ -1,0 +1,28 @@
+JSON por juego
+{
+	"data": "data/santi/contenido2/game.swf",
+	"titulo": "Frenetic",
+	"width": "400",
+	"height": "600",
+	"tipo": "swf",
+	"help": [
+		{ "text":"1. Mueve el personaje con las flechas de direccion."},
+		{ "text":"2. Consigue la comida antes que tu oponente."},			
+		{ "text":"3. Presiona T para intercambiar la posicion con el enemigo."}
+	]
+}	
+	
+http://jsonlint.com/
+
+{
+	"data": "data/santi/contenido2/game.swf",
+	"titulo": "Frenetic",
+	"width": "400",
+	"height": "600",
+	"tipo": "swf",
+	"help": [
+		{ "text":"1. Mueve el personaje con las flechas de direccion."},
+		{ "text":"2. Consigue la comida antes que tu oponente."},			
+		{ "text":"3. Presiona T para intercambiar la posicion con el enemigo."}
+	]
+}	
