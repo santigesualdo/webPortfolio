@@ -35,7 +35,7 @@
       width: 500px;
       height: 200px;
       font-family: 'Chewy', cursive;
-      font-size: xx-large;
+      font-size: 26px;
       color: grey;
       text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 2px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; 
     }
@@ -47,7 +47,7 @@
       width: 750px;
       height: 200px;
       font-family: 'Chewy', cursive;
-      font-size: medium;
+      font-size: 18px;
       color: green;
       text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 2px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
     }

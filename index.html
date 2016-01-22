@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>PortFolioJoSan</title> 
+    <title>Portfolio</title> 
 
     <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
     <script src="js/fancyBox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
@@ -36,34 +36,22 @@
                     locked     : true   // if true, the content will be locked into overlay
             }
             });
-            $('#santigame1').attr('href','player.html?game="data":"data/santi/contenido1/game.swf","titulo": "Birds","width": "640","height": "480","help": [{"text": "1. Mover el mouse."}]');
+            $('#santigame1').attr('href','player.html?game="data":"data/santi/contenido1/game.swf","titulo": "Birds","width": "640","height": "480","help": [{"text": "Mantiene el click izquierdo sobre el pajaro que quieras mover y desplaza el mouse."},{"text": "Deberás esquivar los disparos que vienen volando y llegar con la mayor cantidad de pajaros al final."},{"text": "Si queda solo un pajaro vivo, se activa el modo FRENZY. Cuidado!"}]');
 
-            $('#santigame2').attr('href','player.html?game="data":"data/santi/contenido2/game.swf","titulo":"Frenetic","width":"400","height": "600","tipo": "swf","help": [{"text":"1. Mueve el personaje con las flechas de direccion."},{ "text":"2. Consigue la comida antes que tu oponente."},{ "text":"3. Presiona T para intercambiar la posicion con el enemigo."}]');
+            $('#santigame2').attr('href','player.html?game="data":"data/santi/contenido2/game.swf","titulo":"Frenetic","width":"400","height": "600","tipo": "swf","help": [{"text":"Mueve el personaje con las flechas de direccion."},{ "text":"Consigue la comida antes que tu oponente."},{ "text":"Presiona T para intercambiar la posicion con el enemigo."}]');
+            
+            $('#santigame3').attr('href','player.html?game="data":"data/santi/contenido3/game.swf","titulo":"GollemJob","width":"640","height": "640","tipo": "swf","help": [{"text":"Ubicar las trampas: con el click izquierdo selecciona el obstaculo a posicionar y colocalo para protegerte. Al finalizar presiona ENTER."},{ "text":"El personaje se mueve con las flechas de direccion, deberas proteger los puntos de vida. (estilo Arkanoid)"},{ "text":"Puedes curar un punto de vida dañado presionando la flecha hacia ABAJO, cuando el PJ esta encima del mismo."},{ "text":"Tu objetivo es proteger a tu tierra durante el ataque!!."}]');
 
-            $('#santigame3').fancybox({
-               'autoDimensions': false,
-                'width': 640, // set the width
-                'height': 640, // set the height
-                'type': 'swf', // tell the script to create an iframe
-            });
-            $('#santigame4').fancybox({
-               'autoDimensions': false,
-                'width': 640, // set the width
-                'height': 480, // set the height
-                'type': 'swf', // tell the script to create an iframe
-            });
+            $('#santigame4').attr('href','player.html?game="data":"data/santi/contenido4/game.swf","titulo":"GravityGuy","width":"640","height": "480","tipo": "swf","help": [{"text":"Posiciona al astronauta con click izquierdo."},{ "text":"La barra espaciadora cambia el sentido de la gravedad, usalo para esquivar asteroides!!"},{ "text":"Puedes moverte horizontalmente con las flechas de direccion."}]'); 
+            
             $('#santigame5').fancybox({
                 'autoDimensions': false,
-                'width': 500,
+                'width': 200,
                 'height': 400,
                 'type': 'iframe', 
             });
-            $('#santigame6').fancybox({
-               'autoDimensions': false,
-                'width': 640, // set the width
-                'height': 640, // set the height
-                'type': 'swf', // tell the script to create an iframe
-            });
+            $('#santigame6').attr('href','player.html?game="data":"data/santi/contenido6/game.swf","titulo":"Pacman-Reversion","width":"640","height": "640","tipo": "swf","help": [{"text":"Mueve a Pac-Man con las flechas de direccion."},{ "text":"Con la comida, acumularas disparos para matar fantasmas."}, { "text":"Con la comida, acumularas disparos para matar fantasmas. Presiona la tecla I para realizar el disparo enloquecedor."},{ "text":"El nivel finaliza cuando se recolecta toda la comida y todo los fantasmas estan enloquecidos."}]');    
+
             $(".fancypdf").click(function(){
              $.fancybox({
                type: 'html',
@@ -75,11 +63,7 @@
              }); //fancybox
              return false;
             }); //click
-            /*$('.fancypdf').fancybox({
-                'autoDimensions':true,
-                'autoSize': true,
-                'type': 'iframe'                
-            });*/
+            
             $('.fancyyoutube').fancybox({
                 maxWidth: 800,
                 maxHeight: 600,
@@ -124,10 +108,10 @@
   <body>  
    
    <a id="santigame1" style="display:none;" target="_blank"></a>
-   <a id="santigame2" class="fancybox" style="display:none;" href="data/santi/contenido2/game.swf"></a>
-   <a id="santigame3" class="fancybox" style="display:none;" href="data/santi/contenido3/game.swf"></a>
-   <a id="santigame4" class="fancybox" style="display:none;" href="data/santi/contenido4/game.swf"></a>
-   <a id="santigame5" class="fancybox fancycontenido" style="display:none;" href="#c5"></a>
+   <a id="santigame2" style="display:none;" target="_blank"></a>
+   <a id="santigame3" style="display:none;" target="_blank"></a>
+   <a id="santigame4" style="display:none;" target="_blank"></a>
+   <a id="santigame5" class="fancycontenido" style="display:none;" href="#c5"></a>
    <div id="c5" style="display:none;">
       <div id="conten5"class="contenidoText" style="width:100%;height:45%;" >
         <h2>  Wolverine Weapon X - C++ - SFML  </h2>
@@ -147,8 +131,8 @@
         </p>  
       </div>
      </div>
-   <a id="santigame6" class="fancybox" style="display:none;" href="data/santi/contenido6/game.swf"></a>
-   <a id="santigame7" class="fancybox fancyyoutube" style="display:none;" href="https://www.youtube.com/embed/lRLVLb7zPZg?autoplay=1"></a>
+   <a id="santigame6" style="display:none;" target="_blank"></a>
+   <a id="santigame7" class="fancyyoutube" style="display:none;" href="https://www.youtube.com/embed/lRLVLb7zPZg?autoplay=1"></a>
    <a id="santigame8" class="fancypdf" style="display:none;" href="data/santi/cv.pdf"></a>
 
    <a id="santicv" class="fancypdf" style="display:none" href="data/santi/cv.pdf"></a>
@@ -164,38 +148,38 @@
                 overflow: hidden;">
                 <div><img class="slideSanti" id="slide1" u="image" src="data/santi/contenido1/image.png"/>
                     <div id="textContainer0">
-                        <div id="textslide_title" u="caption">Birds.</div>
-                        <div id="textslide_sub" u="caption"> Como jugar: mueve los 3 pajaros con el mouse, seleccionando con el click izquierdo. Evita los disparos y llega al fin. Especial: con un solo Bird, modo FRENZY. </div>
+                        <div id="textslide_title" u="caption">Trabajo Practico: Birds</div>
+                        <div id="textslide_sub" u="caption">Lenguaje:</div>
                     </div>
                 </div>   
                 <div><img class="slideSanti" id="slide2" u="image" src="data/santi/contenido2/image.png" />
                     <div id="textContainer1" style = "display: none;">
-                        <div id="textslide_title" u="caption">Frenetic.</div>
-                        <div id="textslide_sub" u="caption">Como jugar: mueve el personaje de color verde con las flechas de dirección para obtener la comida antes que tu nemesis de color rosa. Presionando la T, te teleportaras a la ubicacion de tu enemigo.</div>
+                        <div id="textslide_title" u="caption"> Trabajo Practico: Frenetic.</div>
+                        <div id="textslide_sub" u="caption">Lenguaje:</div>
                     </div>       
                 </div>                
                 <div><img class="slideSanti" id="slide3" u="image" src="data/santi/contenido3/image.png" />
                     <div id="textContainer2" style = "display: none;">
-                        <div id="textslide_title" u="caption">Gollem Job.</div>
-                        <div id="textslide_sub" u="caption">Como jugar: coloca las trampas para proteger tu tierra. Luego, mueve con las flechas de dirección al personaje (bola negra) para proteger a tu territorio de la destrucción. Para curar un punto de territorio, frena con la flecha de direccion hacia abajo. Cuida tu mundo!</div>
+                        <div id="textslide_title" u="caption">Trabajo Practico: Gollem Job.</div>
+                        <div id="textslide_sub" u="caption">Lenguaje:</div>
                     </div>
                 </div>
                 <div><img class="slideSanti" id="slide4" u="image" src="data/santi/contenido4/image.png" />
                     <div id="textContainer3" style = "display: none;">
-                        <div id="textslide_title" u="caption">Gravity Guy.</div>
-                        <div id="textslide_sub" u="caption">4</div>
+                        <div id="textslide_title" u="caption">Trabajo Practico: Gravity Guy</div>
+                        <div id="textslide_sub" u="caption">Lenguaje:</div>
                     </div>
                 </div>
                 <div><img class="slideSanti" id="slide5"u="image" src="data/santi/contenido5/image3.png" />
                     <div id="textContainer4" style = "display: none;">
-                        <div id="textslide_title" u="caption">Wolverine- WeaponX (no oficial).</div>
-                        <div id="textslide_sub" u="caption">5</div>
+                        <div id="textslide_title" u="caption">Trabajo Practico: Wolverine- WeaponX.</div>
+                        <div id="textslide_sub" u="caption">Lenguaje:</div>
                     </div>
                 </div>
                 <div><img class="slideSanti" id="slide6"u="image" src="data/santi/contenido6/image.png" />
                     <div id="textContainer5" style = "display: none;">
-                        <div id="textslide_title" u="caption">Pacman: Reversion. (no oficial)</div>
-                        <div id="textslide_sub" u="caption">6</div>
+                        <div id="textslide_title" u="caption">Trabajo Practico: Pacman-Reversion. </div>
+                        <div id="textslide_sub" u="caption">Lenguaje:</div>
                     </div>
                 </div>            
                 <div><img class="slideSanti" id="slide7"u="image" src="data/santi/contenido6/image.png" />
