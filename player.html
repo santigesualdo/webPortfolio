@@ -43,13 +43,17 @@
 			var params={};
 			var attributes={};
 
-			swfobject.embedSWF(res.data, "myContent",w, h, "9.0.0", "expressInstall.swf",flashvars,params,attributes,onFlashReady);
-
-			function onFlashReady(e) {
-				var f = swfobject.getObjectById('myContent');
-				f.tabIndex = 0;
-				f.focus();
+			if (res.type== "swf"){
+				swfobject.embedSWF(res.data, "myContent",w, h, "9.0.0", "expressInstall.swf",flashvars,params,attributes,onFlashReady);	
+				function onFlashReady(e) {
+					var f = swfobject.getObjectById('myContent');
+					f.tabIndex = 0;
+					f.focus();
+				}
 			}
+			
+
+
 			// SWF
 			// Falta: iframe para los juegos HTML5
 		    $('#container').focusout(function() {
