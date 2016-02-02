@@ -50,25 +50,47 @@
 					f.tabIndex = 0;
 					f.focus();
 				}
+			   $('#container').focusout(function() {
+			        $('#myContent').css("border","2px dashed orange");
+			        $('#volver').css("display","inline");
+			    }).focusin(function(){
+			    	$('#myContent').css("border","2px dashed grey");
+			    	$('#volver').css("display","none");
+			    });
 			}else 
 			if (res.tipo=="iframe"){
 				var  ifrm = document.createElement("IFRAME"); 
    				ifrm.setAttribute("src", res.data); 
    				ifrm.style.width = w+"px"; 
    				ifrm.style.height = h+"px"; 
+   				ifrm.id= "game_frame";
    				document.getElementById('myContent').appendChild(ifrm);
+   				document.getElementById('game_frame').focus();
+
+   				$("#container").click(function(e) {
+	        		if ($(e.target).closest("#container").length) {
+	            		alert("Clicked inside");
+	        		} else { 
+	            		alert("Clicked outside");
+	        		}
+    			});	
+
+   	     		$("#container").mousedown(function(e){
+					document.getElementById('game_frame').focus();
+   				});
+
+   				function checkFocus() {
+				  if(document.activeElement == document.getElementById("game_frame")) {
+				    $('#myContent').css("border","2px dashed grey");
+			    	$('#volver').css("display","none");
+				  } else {
+				    $('#myContent').css("border","2px dashed orange");
+			        $('#volver').css("display","inline");
+				  }
+				}
+				window.setInterval(checkFocus, 250);    			
 			}
-
-			// SWF
-			// Falta: iframe para los juegos HTML5
-		    $('#container').focusout(function() {
-		        $('#myContent').css("border","2px dashed orange");
-		        $('#volver').css("display","inline");
-		    }).focusin(function(){
-		    	$('#myContent').css("border","2px dashed grey");
-		    	$('#volver').css("display","none");
-		    });
-
+			
 		    // Datos de ayuda.
 			var dataArray = [];
 			
