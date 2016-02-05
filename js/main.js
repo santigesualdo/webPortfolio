@@ -518,7 +518,7 @@ var main=(function(){
 		});
 
 		set.mousedown(function(e){
-			$("#santicv")[0].click(); 
+			window.open(link);
 		});				
 
 		return set;
@@ -563,7 +563,7 @@ var main=(function(){
 		var mostrarSlider = function(e){
 			//var url = 'sliderNuevo.html';
 			//$('#contentiframe').prop('src', url);
-			$('#contentiframe').css( "display", "inline");
+			$('#jssor_1').css( "display", "inline");
 		};	
 
 		var pathString = "m "+rx.A+","+ry.A +" l 200,0";

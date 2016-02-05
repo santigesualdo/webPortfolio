@@ -88,7 +88,6 @@
 			title.innerHTML = "Juego: " + res.titulo;			
 		});
 	</script>
-
 	<body id="body">
 		<p class="comoJugar" id="titulo">Zona de Juego</p> 
 		<p class="comoJugar" style="top:-50px;">
@@ -99,112 +98,14 @@
 		  <div style="height:100%; display:table; margin:0 auto;">  
 			<div style="vertical-align:middle; display:table-cell;">
 				<p id="gametitle" class="comoJugar" style="position:inherited; margin-top:-15px;">Recuadro de Juego</p>
-				<div id= "myContent" style=""></div>
-				<p id="volver" class="comoJugar" style="position:fixed; margin-top:-8px; color: orange; display:none">Click para volver al juego.</p>
-			</div>
-		  </div>
-		</div>		
+				<div id= "myContent" style=""></div>			
+				<p id="volver" class="comoJugar" style="position:fixed; margin-top:-8px; color: orange; display:none">Click para volver al juego.
+				</p>
+			</div>		
+		  </div>		
+		</div>	
 	</body>
-	<script>
-			var nd = document.createElement('div');
-			nd.id="paper";
-			document.getElementById('body').appendChild(nd);
-			
-			var div = document.getElementById("paper");
-			var pathbutreload = "m 431.609,297.5 c -14.62,0 -27.041,9.383 -31.591,22.453 -0.009,-0.004 -0.019,-0.008 -0.027,-0.012 -19.11,42.59 -57.57,76.219 -102.84,88.18 -52.799,14.311 -113.45,0.299 -152.179,-39.051 21.92,-21.76 44.369,-43.01 66.189,-64.869 -59.7,0.049 -119.41,0.029 -179.11,0.01 -0.14,58.6 -0.159,117.189 0.011,175.789 21.92,-21.91 43.75,-43.91 65.79,-65.699 14.109,13.789 29.76,26.07 46.92,35.869 54.739,31.971 123.399,38.602 183.299,17.891 57.477,-19.297 106.073,-63.178 131.212,-118.318 3.645,-5.357 5.776,-11.824 5.776,-18.793 10e-4,-18.473 -14.976,-33.45 -33.45,-33.45 z M 479.971,32.18 c -21.72,21.211 -42.89,43 -64.52,64.301 -1.05,1.23 -2.26,-0.16 -3.09,-0.85 C 387.85,71.651 357.781,53.35 325.14,42.791 287.54,30.631 246.691,28.721 208.111,37.201 139.441,51.871 79.3,101.26 51.671,165.81 c 0.031,0.014 0.062,0.025 0.093,0.039 -2.3,4.537 -3.605,9.666 -3.605,15.1 0,18.475 14.977,33.451 33.451,33.451 15.831,0 29.084,-11.002 32.555,-25.773 19.757,-41.979 58.832,-74.445 103.967,-85.527 52.2,-13.17 111.37,1.33 149.4,40.041 -22.03,21.83 -44.391,43.34 -66.33,65.26 59.52,-0.32 119.06,-0.141 178.59,-0.09 0.499,-58.7 0.139,-117.42 0.179,-176.131 z";
-			var pathbuthcancel = "M1014.662 822.66c-0.004-0.004-0.008-0.008-0.012-0.010l-310.644-310.65 310.644-310.65c0.004-0.004 0.008-0.006 0.012-0.010 3.344-3.346 5.762-7.254 7.312-11.416 4.246-11.376 1.824-24.682-7.324-33.83l-146.746-146.746c-9.148-9.146-22.45-11.566-33.828-7.32-4.16 1.55-8.070 3.968-11.418 7.31 0 0.004-0.004 0.006-0.008 0.010l-310.648 310.652-310.648-310.65c-0.004-0.004-0.006-0.006-0.010-0.010-3.346-3.342-7.254-5.76-11.414-7.31-11.38-4.248-24.682-1.826-33.83 7.32l-146.748 146.748c-9.148 9.148-11.568 22.452-7.322 33.828 1.552 4.16 3.97 8.072 7.312 11.416 0.004 0.002 0.006 0.006 0.010 0.010l310.65 310.648-310.65 310.652c-0.002 0.004-0.006 0.006-0.008 0.010-3.342 3.346-5.76 7.254-7.314 11.414-4.248 11.376-1.826 24.682 7.322 33.83l146.748 146.746c9.15 9.148 22.452 11.568 33.83 7.322 4.16-1.552 8.070-3.97 11.416-7.312 0.002-0.004 0.006-0.006 0.010-0.010l310.648-310.65 310.648 310.65c0.004 0.002 0.008 0.006 0.012 0.008 3.348 3.344 7.254 5.762 11.414 7.314 11.378 4.246 24.684 1.826 33.828-7.322l146.746-146.748c9.148-9.148 11.57-22.454 7.324-33.83-1.552-4.16-3.97-8.068-7.314-11.414z";
-			
-			paper= Raphael("paper", window.innerWidth -100 , window.innerHeight-150);
 
-			var rect = paper.rect()
-
-			var butref = paper.path(pathbutreload).attr({
-				transform: "t-200,200 s0.08",
-				fill:"white",
-				'stroke-width': 1,
-				'stroke-opacity': 1,
-				stroke: "red"
-			});
-			butref.hover(
-			function(e){
-				this.attr({
-					'stroke-width': 2
-				});
-			}, 
-			function(e){
-				this.attr({
-					'stroke-width': 1
-				});
-			}).mousedown(function(e){
-				window.location.reload();
-			}).toBack();
-
-			var cx=-375;
-			var cy= -55;
-
-			var butcancel = paper.path(pathbuthcancel).attr({
-				transform: "t"+cx+","+cy+" s0.035",
-				fill:"white",
-				'stroke-width': 1,
-				'stroke-opacity': 1,
-				stroke: "red"
-			});
-			
-			var textCancel = null;
-
-			butcancel.hover(
-			function(e){
-				this.attr({
-					'stroke-width': 2
-				});
-				textCancel = paper.text( cx, cy+50, "Cerrar.")
-				.attr({
-					opacity: 0,
-					"font-family": "Kreon, sans-serif",
-					"font-size": 20,
-					fill: "white"
-				}).animate({
-					opacity: 1
-				},200,"linear");
-			}, 
-			function(e){
-				if (textCancel!=null){
-					textCancel.animate({
-						opacity:0
-					},200,"linear");
-				}
-				this.attr({
-					'stroke-width': 1
-				});
-			}).mousedown(function(e){
-				window.close();
-			}).toBack();			
-
-
-
-
-textoCentral.santi_1 = paper.text( 230 , 65 , textoCentral.santi2)
-		.attr({
-			opacity:0,
-			"font-family": "Architects Daughter, sans-serif",
-			 fill:  colores.rojito, 
-			 'font-size': 25
-		}).animate({
-			opacity:1
-		},800,"linear", function(){
-			textoCentral.santi_2 = paper.text( 230 , 40 , textoCentral.santi1)
-			.attr({
-				opacity:0,
-				"font-family": "Architects Daughter, sans-serif",
-				 fill:  colores.rojito, 
-				 'font-size': 20
-			}).animate({
-				opacity:1
-			},800,"linear");			
-		});
-
-
-
-
-		</script>
 </html>
+
+		

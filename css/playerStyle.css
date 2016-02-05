@@ -43,3 +43,14 @@
 		#volver{
 			font-size: 16px;
 		}
+
+		#paper{
+			 width: 300px;
+			 height: 200px;
+			 border: 2px dashed  grey;
+			-moz-border-radius: 20px;
+			border-radius: 1px;
+			clear: both;
+			margin-top: 200px;
+			margin-left: 100px;
+		}

@@ -1,0 +1,55 @@
+       /* <!--#region Bullet Navigator Skin Begin -->
+        <!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->*/
+        <style>
+			
+			/* jssor slider bullet navigator skin 13 css */
+			/*
+			.jssorb13 div           (normal)
+			.jssorb13 div:hover     (normal mouseover)
+			.jssorb13 .av           (active)
+			.jssorb13 .av:hover     (active mouseover)
+			.jssorb13 .dn           (mousedown)
+			*/
+			.jssorb13 {
+				position: absolute;
+			}
+			.jssorb13 div, .jssorb13 div:hover, .jssorb13 .av {
+				position: absolute;
+				/* size of bullet elment */
+				width: 21px;
+				height: 21px;
+				background: url('img/b13.png');
+				overflow: hidden;
+				cursor: pointer;
+			}
+			.jssorb13 div { background-position: -5px -5px; }
+			.jssorb13 div:hover, .jssorb13 .av:hover { background-position: -35px -5px; }
+			.jssorb13 .av { background-position: -65px -5px; }
+			.jssorb13 .dn, .jssorb13 .dn:hover { background-position: -95px -5px; }
+
+			/* jssor slider arrow navigator skin 13 css */
+			/*
+			.jssora13l                  (normal)
+			.jssora13r                  (normal)
+			.jssora13l:hover            (normal mouseover)
+			.jssora13r:hover            (normal mouseover)
+			.jssora13l.jssora13ldn      (mousedown)
+			.jssora13r.jssora13rdn      (mousedown)
+			*/
+			.jssora13l, .jssora13r {
+				display: block;
+				position: absolute;
+				/* size of arrow element */
+				width: 40px;
+				height: 50px;
+				cursor: pointer;
+				background: url('img/a13.png');
+				overflow: hidden;
+			}
+			.jssora13l { background-position: -10px -35px; }
+			.jssora13r { background-position: -70px -35px; }
+			.jssora13l:hover { background-position: -130px -35px; }
+			.jssora13r:hover { background-position: -190px -35px; }
+			.jssora13l.jssora13ldn { background-position: -250px -35px; }
+			.jssora13r.jssora13rdn { background-position: -310px -35px; }
+        </style>
