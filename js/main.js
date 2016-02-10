@@ -461,24 +461,24 @@ var main=(function(){
 		var _x = x;
 
 		if (letra === 'a'){
-			  infoMail=  infoButton(_x+difx,_y+10,"mailto:santigesualdo@gmail.com", pathMail);
-			  infoFace=  infoButton(_x+difx*2,_y+10, "https://www.facebook.com/santi.gesualdo", pathFace);
-			  infoLinke= infoButton(_x+difx*3,_y+10,"data/santi/cv.pdf", pathLinke);
+			  infoMail=  infoButton(_x+difx,_y+5,"mailto:santigesualdo@gmail.com", pathMail);
+			  infoFace=  infoButton(_x+difx*2,_y+5, "https://www.facebook.com/santi.gesualdo", pathFace);
+			  infoLinke= infoButton(_x+difx*3,_y+5,"data/santi/cv.pdf", pathLinke);
 			  setSocialA = paper.set();
 			  setSocialA.push(infoLinke);
 			  setSocialA.push(infoFace);
 			  setSocialA.push(infoMail);
 		}else 
 		if (letra === 'b'){		
-			  infoMail=  infoButton(_x+difx,_y+10,"mailto:gabobaruka_07@gmail.com", pathMail);
-			  infoFace=  infoButton(_x+difx*2,_y+10, "https://www.facebook.com/gbarukel", pathFace);
+			  infoMail=  infoButton(_x+difx,_y+5,"mailto:gabobaruka_07@gmail.com", pathMail);
+			  infoFace=  infoButton(_x+difx*2,_y+5, "https://www.facebook.com/gbarukel", pathFace);
 			  setSocialB = paper.set();
 			  setSocialB.push(infoMail);
 			  setSocialB.push(infoFace);
 		}else
 		if (letra === 'c'){
-			  infoMail = infoButton(_x+difx-200,_y+10, "mailto:jo.pgimenez@gmail.com", pathMail);
-			  infoFace = infoButton(_x+difx*2-200,_y+10, "https://www.facebook.com/josefina.gimenez.503", pathFace);
+			  infoMail = infoButton(_x+difx-200,_y+5, "mailto:jo.pgimenez@gmail.com", pathMail);
+			  infoFace = infoButton(_x+difx*2-200,_y+5, "https://www.facebook.com/josefina.gimenez.503", pathFace);
 			  setSocialC = paper.set();
 			  setSocialC.push(infoMail);
 			  setSocialC.push(infoFace);			
@@ -659,10 +659,11 @@ var main=(function(){
 
 		limpiarTextos();
 		var mostrarSlider = function(e){
-			var url = 'slider.html';
-			$('#contentiframe').prop('src', url);
-			$('#contentiframe').css( "display", "inline");
+			//var url = 'sliderNuevo.html';
+			//$('#contentiframe').prop('src', url);
+			$('#jssor_1').css( "display", "inline");
 		};	
+
 		
 		/*butinfo.animate({
 			transform: "t535,-40 s0.15",

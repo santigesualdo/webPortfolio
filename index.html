@@ -33,13 +33,13 @@
                     locked     : true   // if true, the content will be locked into overlay
             }
             });
-            $('#santigame1').attr('href','player.html?game="data":"data/santi/contenido1/game.swf","titulo": "Birds","width": "640","height": "480","help": [{"text": "Mantiene el click izquierdo sobre el pajaro que quieras mover y desplaza el mouse."},{"text": "Deberás esquivar los disparos que vienen volando y llegar con la mayor cantidad de pajaros al final."},{"text": "Si queda solo un pajaro vivo, se activa el modo FRENZY. Cuidado!"}]');
+            /*$('#santigame1').attr();
 
             $('#santigame2').attr('href','player.html?game="data":"data/santi/contenido2/game.swf","titulo":"Frenetic","width":"400","height": "600","tipo": "swf","help": [{"text":"Mueve el personaje con las flechas de direccion."},{ "text":"Consigue la comida antes que tu oponente."},{ "text":"Presiona T para intercambiar la posicion con el enemigo."}]');
             
             $('#santigame3').attr('href','player.html?game="data":"data/santi/contenido3/game.swf","titulo":"GollemJob","width":"640","height": "640","tipo": "swf","help": [{"text":"Ubicar las trampas: con el click izquierdo selecciona el obstaculo a posicionar y colocalo para protegerte. Al finalizar presiona ENTER."},{ "text":"El personaje se mueve con las flechas de direccion, deberas proteger los puntos de vida. (estilo Arkanoid)"},{ "text":"Puedes curar un punto de vida dañado presionando la flecha hacia ABAJO, cuando el PJ esta encima del mismo."},{ "text":"Tu objetivo es proteger a tu tierra durante el ataque!!."}]');
 
-            $('#santigame4').attr('href','player.html?game="data":"data/santi/contenido4/game.swf","titulo":"GravityGuy","width":"640","height": "480","tipo": "swf","help": [{"text":"Posiciona al astronauta con click izquierdo."},{ "text":"La barra espaciadora cambia el sentido de la gravedad, usalo para esquivar asteroides!!"},{ "text":"Puedes moverte horizontalmente con las flechas de direccion."}]'); 
+            $('#santigame4').attr('href','player.html?game="data":"data/santi/contenido4/game.swf","titulo":"GravityGuy","width":"640","height": "480","tipo": "swf","help": [{"text":"Posiciona al astronauta con click izquierdo."},{ "text":"La barra espaciadora cambia el sentido de la gravedad, usalo para esquivar asteroides!!"},{ "text":"Puedes moverte horizontalmente con las flechas de direccion."}]'); */
             
             $('#santigame5').fancybox({
                 'autoDimensions': false,
@@ -106,11 +106,7 @@
   </head>  
   <body>  
    
-   <a id="santigame1" style="display:none;" target="_blank"></a>
-   <a id="santigame2" style="display:none;" target="_blank"></a>
-   <a id="santigame3" style="display:none;" target="_blank"></a>
-   <a id="santigame4" style="display:none;" target="_blank"></a>
-   <a id="santigame5" class="fancycontenido" style="display:none;" href="#c5"></a>
+    <a id="santigame5" class="fancycontenido" style="display:none;" href="#c5"></a>
    <div id="c5" style="display:none;">
       <div id="conten5"class="contenidoText" style="width:100%;height:45%;" >
         <h2>  Wolverine Weapon X - C++ - SFML  </h2>
@@ -164,7 +160,7 @@
             ];
             
             var jssor_1_options = {
-              $AutoPlay: true,
+              $AutoPlay: false,
               $FillMode: 5,
               $SlideshowOptions: {
                 $Class: $JssorSlideshowRunner$,
@@ -187,7 +183,7 @@
             function ScaleSlider() {
                 var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
                 if (refSize) {
-                    refSize = Math.min(refSize, 700);
+                    refSize = Math.min(refSize, 600);
                     jssor_1_slider.$ScaleWidth(refSize);
                 }
                 else {
@@ -212,6 +208,12 @@
         .jssorb13 .av:hover     (active mouseover)
         .jssorb13 .dn           (mousedown)
         */
+        /*#jssor1{
+            border-radius:  2px;
+            border: "white";
+            border-style: "dashed";
+        }*/
+
         .jssorb13 {
             position: absolute;
         }
@@ -256,7 +258,7 @@
         .jssora13r.jssora13rdn { background-position: -310px -35px; }
     </style>
 
-   <div id="jssor_1" style="display: none; position: relative; margin: 0 auto; top: 160px; left: 300px; width: 700px; height: 400px; overflow: hidden; visibility: hidden; background-color: #fbaf47;">
+   <div id="jssor_1" style="display: none; position: relative; margin: 0 auto; top: 150px; left: 350px; width: 600px; height: 400px; overflow: hidden; visibility: hidden; background-color: #fbaf47;">
         <!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
@@ -264,26 +266,43 @@
         </div>
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 500px; overflow: hidden;">
             <div style="display: none;">
-                <img data-u="image" src="data/santi/contenido3/image.png" />
+                <a target="_blank" href='player.html?game="data":"data/santi/contenido3/game.swf","titulo":"GollemJob","width":"640","height": "640","tipo": "swf","help": [{"text":"Ubicar las trampas: con el click izquierdo selecciona el obstaculo a posicionar y colocalo para protegerte. Al finalizar presiona ENTER."},{ "text":"El personaje se mueve con las flechas de direccion, deberas proteger los puntos de vida. (estilo Arkanoid)"},{ "text":"Puedes curar un punto de vida dañado presionando la flecha hacia ABAJO, cuando el PJ esta encima del mismo."},{ "text":"Tu objetivo es proteger a tu tierra durante el ataque!!."}]'>
+                    <img data-u="image" src="data/santi/contenido3/image.png"/></a>
                 <div style="position: absolute; top: 10px; left: 10px; width: 300px; height: 50px; background-color: rgba(255,255,255,0.5); border-radius: 2px; font-family: Kreon; font-size: 25px; color: #400000;">Trabajo Practico: Gollem Job.</div>
-                <div style="position: absolute; top: 30px; left: 10px; width: 250px; height: 50px; font-family: Kreon; font-size: 20px;">Lenguaje: HaxeFlixel.
-                    
-                </div>
+                <div style="position: absolute; top: 30px; left: 10px; width: 250px; height: 50px; font-family: Kreon; font-size: 20px;">Lenguaje: HaxeFlixel.</div>
+
             </div>
             <div style="display: none;">
-                <img data-u="image" src="data/santi/contenido2/image.png" />
+                <a target="_blank" href='player.html?game="data":"data/santi/contenido2/game.swf","titulo":"Frenetic","width":"400","height": "600","tipo": "swf","help": [{"text":"Mueve el personaje con las flechas de direccion."},{ "text":"Consigue la comida antes que tu oponente."},{ "text":"Presiona T para intercambiar la posicion con el enemigo."}]'>
+                    <img data-u="image" src="data/santi/contenido2/image.png" /></a>                
                 <div style="position: absolute; top: 10px; left: 10px; width: 325px; height: 50px; background-color: rgba(255,255,255,0.5); border-radius: 2px; font-family: Kreon; font-size: 25px; color: #400000;">Trabajo Practico: Frenetic.</div>
                 <div style="position: absolute; top: 30px; left: 10px; width: 350px; height: 50px; font-family: Kreon; font-size: 20px;">Lenguaje: Action Script 3 - FlashPunk.
-                    
                 </div>
             </div>
             <div style="display: none;">
-                <img data-u="image" src="data/santi/contenido1/image.png" />
+                <a target="_blank" href='player.html?game="data":"data/santi/contenido1/game.swf","titulo": "Birds","width": "640","height": "480","help": [{"text": "Mantiene el click izquierdo sobre el pajaro que quieras mover y desplaza el mouse."},{"text": "Deberás esquivar los disparos que vienen volando y llegar con la mayor cantidad de pajaros al final."},{"text": "Si queda solo un pajaro vivo, se activa el modo FRENZY. Cuidado!"}]'>
+                    <img data-u="image" src="data/santi/contenido1/image.png" /></a>                
                 <div style="position: absolute; top: 10px; left: 10px; width: 300px; height: 50px; background-color: rgba(255,255,255,0.5); border-radius: 2px; font-family: Kreon; font-size: 25px; color: #400000;">Trabajo Practico: Birds.</div>
                 <div style="position: absolute; top: 30px; left: 10px; width: 250px; height: 50px; font-family: Kreon; font-size: 20px;">Lenguaje: HaxeFlixel.
-                    
                 </div>
             </div>
+            <div style="display: none;">
+                <a target="_blank" href='player.html?game="data":"data/santi/contenido4/game.swf","titulo":"GravityGuy","width":"640","height": "480","tipo": "swf","help": [{"text":"Posiciona al astronauta con click izquierdo."},{ "text":"La barra espaciadora cambia el sentido de la gravedad, usalo para esquivar asteroides!!"},{ "text":"Puedes moverte horizontalmente con las flechas de direccion."}]'>
+                    <img data-u="image" src="data/santi/contenido4/image.png" />    
+                </a>                
+                <div style="position: absolute; top: 10px; left: 10px; width: 325px; height: 50px; background-color: rgba(255,255,255,0.5); border-radius: 2px; font-family: Kreon; font-size: 25px; color: #400000;">Trabajo Practico: Gravity.</div>
+                <div style="position: absolute; top: 30px; left: 10px; width: 350px; height: 50px; font-family: Kreon; font-size: 20px;">Lenguaje: Action Script 3 - FlashPunk.
+                </div>
+            </div>         
+            <div style="display: none;">
+                <a href=''>
+                <img data-u="image" src="data/santi/contenido5/image3.png" />    
+                </a>
+                
+                <div style="position: absolute; top: 10px; left: 10px; width: 450px; height: 50px; background-color: rgba(255,255,255,0.5); border-radius: 2px; font-family: Kreon; font-size: 25px; color: #400000;">Trabajo Practico: Wolverine: WeaponX.</div>
+                <div style="position: absolute; top: 30px; left: 10px; width: 250px; height: 50px; font-family: Kreon; font-size: 20px;">Lenguaje: C++ - SFML.
+                </div>
+            </div>      
         </div>
         <!-- Bullet Navigator -->
         <div data-u="navigator" class="jssorb13" style="bottom:16px;right:16px;" data-autocenter="1">
