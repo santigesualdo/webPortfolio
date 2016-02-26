@@ -15,14 +15,22 @@ JSON por juego
 http://jsonlint.com/
 
 {
-	"data": "data/santi/contenido2/game.swf",
-	"titulo": "Frenetic",
-	"width": "400",
-	"height": "600",
+	"data": "https://github.com/santigesualdo/repo_tiledNape/blob/master/export/flash/bin/tiledNape.swf",
+	"titulo": "RepoTiledNape - en desarrollo",
+	"width": "1024",
+	"height": "768",
 	"tipo": "swf",
 	"help": [
 		{ "text":"1. Mueve el personaje con las flechas de direccion."},
-		{ "text":"2. Consigue la comida antes que tu oponente."},			
+		{ "text":"2. Test level."},			
 		{ "text":"3. Presiona T para intercambiar la posicion con el enemigo."}
 	]
 }	
+
+<a target="_blank" href='player.html?game="data":"https://github.com/santigesualdo/repo_tiledNape/blob/master/export/flash/bin/tiledNape.swf","titulo":"RepoTiledNape","width":"1024","height": "768","tipo": "swf","help": [{ "text":"1. Mueve el personaje con las flechas de direccion."},{ "text":"2. Consigue la comida antes que tu oponente."},{ "text":"3. Presiona T para intercambiar la posicion con el enemigo."}]'>
+	<img data-u="image" src="data/santi/contenido8/image.png" />    
+</a>                
+
+<div style="position: absolute; top: 10px; left: 10px; width: 400px; height: 50px; background-color: rgba(255,255,255,0.5); border-radius: 2px; font-family: Kreon; font-size: 25px; color: #400000;">Proyecto final tecnicatura en videojuegos.</div>
+<div style="position: absolute; top: 30px; left: 10px; width: 350px; height: 50px; font-family: Kreon; font-size: 20px;">Lenguaje: HaxeFlixel.
+</div>
