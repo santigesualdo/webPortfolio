@@ -462,15 +462,15 @@ var main=(function(){
 		var _x = x;
 
 		if (letra === 'a'){
-			  infoMail=  infoButton(_x+difx,_y+5,"mailto:santigesualdo@gmail.com", pathMail);
-			  infoFace=  infoButton(_x+difx*2,_y+5, "https://www.facebook.com/santi.gesualdo", pathFace);
-			  infoLinke= infoButton(_x+difx*3,_y+5,"data/santi/cv.pdf", pathLinke);
+			  infoMail=  infoButton(_x+difx,_y+5,"mailto:santigesualdo@gmail.com", pathMail, false);
+			  infoCv=  infoButton(_x+difx*2,_y+5, "santicv", pathFace, true);
+			  infoLinke= infoButton(_x+difx*3,_y+5,"https://www.linkedin.com/in/santiago-gesualdo-a464b442", pathLinke,false);
 			  setSocialA = paper.set();
 			  setSocialA.push(infoLinke);
-			  setSocialA.push(infoFace);
+			  setSocialA.push(infoCv);
 			  setSocialA.push(infoMail);
-		}else 
-		if (letra === 'b'){		
+		} 
+		/*else if (letra === 'b'){		
 			  infoMail=  infoButton(_x+difx,_y+5,"mailto:gabobaruka_07@gmail.com", pathMail);
 			  infoFace=  infoButton(_x+difx*2,_y+5, "https://www.facebook.com/gbarukel", pathFace);
 			  setSocialB = paper.set();
@@ -483,9 +483,9 @@ var main=(function(){
 			  setSocialC = paper.set();
 			  setSocialC.push(infoMail);
 			  setSocialC.push(infoFace);			
-		}
+		}*/
 	}
-	var infoButton = function(x,y,link, pathBoton){
+	var infoButton = function(x,y,link, pathBoton,isDiv){
 		var rect = paper.rect(0,0,32,32)
 		.attr({
 			opacity: 1,
@@ -518,9 +518,20 @@ var main=(function(){
 			},100, "linear");
 		});
 
-		set.mousedown(function(e){
-			window.open(link);
-		});				
+		if (isDiv){
+			set.mousedown(function(e){
+				alert('#'+link);
+				$('#'+link)[0].click();
+			});
+		}else{
+			set.mousedown(function(e){
+				window.open(link);
+			});				
+		}
+
+			
+	
+			
 
 		return set;
 	}
