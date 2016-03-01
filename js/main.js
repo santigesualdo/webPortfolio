@@ -155,6 +155,7 @@ var main=(function(){
 
 		$('#paper').center();
 		$('#contentiframe').center();
+		$('#sliderContainer').center();
 
 
 		// Borde papel
