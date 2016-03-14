@@ -169,7 +169,7 @@ var main=(function(){
 		});
 
 		butcancel = paper.path(pathbutcancel).attr({
-			transform: "t760,5",
+			transform: "t770,0",
 			fill:"black",
 			'stroke-width': 2,
 			'stroke-opacity': 0.5,
@@ -459,31 +459,28 @@ var main=(function(){
 		var difx = 45;
 
 		var _y = y;
-		var _x = x;
+		var _x; 
 
 		if (letra === 'a'){
+			  _x = x+25;
 			  infoMail=  infoButton(_x+difx,_y+5,"mailto:santigesualdo@gmail.com", pathMail, false);
-			  infoCv=  infoButton(_x+difx*2,_y+5, "santicv", pathFace, true);
-			  infoLinke= infoButton(_x+difx*3,_y+5,"https://www.linkedin.com/in/santiago-gesualdo-a464b442", pathLinke,false);
+			  infoLinke= infoButton(_x+difx*2,_y+5,"https://www.linkedin.com/in/santiago-gesualdo-a464b442", pathLinke,false);
 			  setSocialA = paper.set();
 			  setSocialA.push(infoLinke);
-			  setSocialA.push(infoCv);
 			  setSocialA.push(infoMail);
 		} 
-		/*else if (letra === 'b'){		
+		else if (letra === 'b'){		
+			  _x = x+35;
 			  infoMail=  infoButton(_x+difx,_y+5,"mailto:gabobaruka_07@gmail.com", pathMail);
-			  infoFace=  infoButton(_x+difx*2,_y+5, "https://www.facebook.com/gbarukel", pathFace);
 			  setSocialB = paper.set();
 			  setSocialB.push(infoMail);
-			  setSocialB.push(infoFace);
 		}else
 		if (letra === 'c'){
+			  _x = x+35;
 			  infoMail = infoButton(_x+difx-200,_y+5, "mailto:jo.pgimenez@gmail.com", pathMail);
-			  infoFace = infoButton(_x+difx*2-200,_y+5, "https://www.facebook.com/josefina.gimenez.503", pathFace);
 			  setSocialC = paper.set();
 			  setSocialC.push(infoMail);
-			  setSocialC.push(infoFace);			
-		}*/
+		}
 	}
 	var infoButton = function(x,y,link, pathBoton,isDiv){
 		var rect = paper.rect(0,0,32,32)
