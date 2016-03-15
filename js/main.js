@@ -158,6 +158,7 @@ var main=(function(){
 		$('#sliderContainer').center();
 
 
+
 		// Borde papel
 		var borde = paper.rect(0,0,mainOptions.paperwidth, mainOptions.paperheigth)
 		.attr({
@@ -215,6 +216,13 @@ var main=(function(){
 		var difX = posInicial.difX;
 
 		circuloA = createCircle("a",posInicialX, posInicialY, sizeCircle, colores.rojito, textoCentral.santi1, textoCentral.santi2, textoCentral.santi3);
+		
+		circuloA.hover( function (e){
+			//alert('overa');
+		}, function(e){
+			//alert('notovera');
+		});
+
 		circuloB = createCircle("b",posInicialX+difX, posInicialY, sizeCircle, colores.naranjita,textoCentral.gabo1, textoCentral.gabo2, textoCentral.gabo3);
 		circuloC = createCircle("c",posInicialX+difX*2, posInicialY, sizeCircle, colores.verdecin,textoCentral.jose1, textoCentral.jose2, textoCentral.jose3);
 
@@ -229,6 +237,8 @@ var main=(function(){
 		circuloC.mousedown(function(e){
 			circuloCclick();
 		});
+
+
 	};
 	var createCircle = function( id, x , y , r , color, text1, text2, text3) {
 		
@@ -244,17 +254,33 @@ var main=(function(){
 			circle = paper.image ("data/icon_jose.png",x-w*0.5,y-w*0.5,w,w);
 		}
 		
+
+
+
 		circle.attr({
-			opacity:0.5
-		}).hover(function(e){
+			opacity:0
+		});		
+
+		circle.animate({
+			opacity:0.75
+		}, "linear",5000);
+
+		var border = paper.circle(x,y,w*0.5)
+		.attr({
+			"stroke-width": "3px",
+			stroke: colores.rojito,
+			"stroke-opacity": 0,
+			opacity:0
+		});
+
+		circle.hover(function(e){
 			this.animate({
-				opacity:1				
+				opacity:1,
 			},"linear",200);					
 		}, function(e){
 			this.animate({
-				opacity:0.5
+				opacity:0.75,
 			},"linear",200)
-			//setTextoCentralFade();
 		});		
 
 		return circle;
