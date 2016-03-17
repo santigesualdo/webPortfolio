@@ -136,6 +136,7 @@ var main=(function(){
 
 	var init=function(){
 
+	
 		paper = null;
 
 		var div = document.getElementById("paper");
@@ -147,9 +148,9 @@ var main=(function(){
 
 		addGoogleFont(fontNombres);		
 		addGoogleFont(fontNombres2);
+		beginthings(); 			
+ 	
 
-
-		beginthings();
 	};
 	var beginthings = function(){
 
@@ -270,7 +271,7 @@ var main=(function(){
 		}, 2500, "linear", function(e){
 			var fontSize = 30;
 			var moveY = 70;
-			textoVideojuegos = paper.text(  posInicialX, posInicialY,  "Programacion Videjuegos")
+			textoVideojuegos = paper.text(  posInicialX, posInicialY,  textoCentral.santi1)
 			.attr({
 				'font-family': "Amatic SC, cursive",
 				opacity:0,			
@@ -282,7 +283,7 @@ var main=(function(){
 				opacity:0.75,
 			},500,"linear");
 
-			textoSonido = paper.text(  posInicialX+difX, posInicialY , "Audio y Sonido")
+			textoSonido = paper.text(  posInicialX+difX, posInicialY , textoCentral.gabo1)
 			.attr({
 				'font-family': "Amatic SC, cursive",
 				opacity:0,
@@ -294,7 +295,7 @@ var main=(function(){
 				opacity:0.75,
 			},500,"linear");
 
-			textoDiseño = paper.text(  posInicialX+difX*2, posInicialY, "Diseño y Animación")
+			textoDiseño = paper.text(  posInicialX+difX*2, posInicialY, textoCentral.jose1)
 			.attr({
 				'font-family': "Amatic SC, cursive",
 				opacity:0,				
