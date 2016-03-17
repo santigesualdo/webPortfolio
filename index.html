@@ -30,6 +30,20 @@
     <script>
         $(document).ready(function(){
 
+            setInterval(function(){
+            $('#qLpercentage').html('loading');
+            $('#qLpercentage').css('background-image','data/santi/contenido1/image.png');//setting background image
+            },100)
+
+            QueryLoader2(document.querySelector("body"), {
+                barColor: "#fbaf47",
+                percentage: false,
+                barHeight: 3,
+                minimumTime: 500,
+                fadeOutTime: 2000,
+                onComplete: main.init()
+            });     
+
             $('.fancybox').fancybox({
                 'openEffect': 'fade',
                 'closeEffect': 'fade',
@@ -85,21 +99,7 @@
                 autoSize    : false
             });
 
-            setInterval(function(){
-            $('#qLpercentage').html('loading');
-            $('#qLpercentage').css('background-image','data/santi/contenido1/image.png');//setting background image
-            },100)
-
-            QueryLoader2(document.querySelector("body"), {
-                barColor: "#fbaf47",
-                percentage: false,
-                barHeight: 3,
-                minimumTime: 500,
-                fadeOutTime: 2000,
-                onComplete: main.init()
-            });                        
-
-            // main.init();  
+                   
         });
     </script>
   </head>  
