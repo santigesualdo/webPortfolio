@@ -27,19 +27,21 @@ var main=(function(){
 	var textoCentral={};
 	textoCentral.x = 400;
 	textoCentral.y = 225;
-	textoCentral.santi1 ="Programacion & Diseño";
+	textoCentral.santi1 ="Programacion de Videojuegos";
+	textoCentral.gabo1 = "      Audio y Sonido    ";
+	textoCentral.gabo1 = "   Audio y Sonido  ";
 	textoCentral.santi2 = "Santiago Gesualdo";
-	textoCentral.santi3 = "( Programing & Design )";
+	textoCentral.santi3 = "( Videogames Programing  )";
 	textoCentral.santi_1;
 	textoCentral.santi_2;
 	
-	textoCentral.gabo1 = " Audio & Composicion ";
+	textoCentral.gabo1 = "      Audio y Sonido    ";
 	textoCentral.gabo2 = "Gabriel Barukel";
 	textoCentral.gabo3 = " ( Audio & Composiyon )";
 	textoCentral.gabo_1;
 	textoCentral.gabo_2;
 
-	textoCentral.jose1 = "    Arte & Diseño    ";
+	textoCentral.jose1 = "    Diseño y Animación  ";
 	textoCentral.jose2 = "Josefina Gimenez";
 	textoCentral.jose3 = "( Art & Design)";	
 	textoCentral.jose_1;
@@ -59,10 +61,21 @@ var main=(function(){
 
 	var estado = "";
 
-	var fontNombres = "Pacifico";
-	var fontNombres2 = "Oxygen";
-
-
+	var fontNombres = "Shadows Into Light Two";
+	var fontNombres2 = "Kreon";
+	/*	
+	'font-family': "Amatic SC, cursive",
+	'font-family': "BenchNine, sans-serif",
+	'font-family': "Shadows Into Light Two, cursive",
+	'font-family': "Patrick Hand, cursive",
+	'font-family': "Teko, sans-serif",
+	'font-family': "Alegreya SC, serif",
+	'font-family': "Kelly Slab, cursive",
+	'font-family': "Just Me Again Down Here, cursive",
+	'font-family': "Bowlby One SC, cursive",
+	'font-family': "Oregano, cursive",
+	'font-family': "Jolly Lodger, cursive",
+	*/
 
 	//variables
 	var textIzq;
@@ -73,6 +86,11 @@ var main=(function(){
 	var borde;
 	var lineaMedio;
 	var rectA, rectB;
+
+	var textoTitulo;
+	var textoVideojuegos;
+	var textoSonido;
+	var textoDiseño;
 
 	var pathbutcancel = "M27.812,16l-3.062-3.062V5.625h-2.625v4.688L16,4.188L4.188,16L7,15.933v11.942h17.875V16H27.812zM16,26.167h-5.833v-7H16V26.167zM21.667,23.167h-3.833v-4.042h3.833V23.167z";
 	var butcancel;
@@ -157,8 +175,6 @@ var main=(function(){
 		$('#contentiframe').center();
 		$('#sliderContainer').center();
 
-
-
 		// Borde papel
 		var borde = paper.rect(0,0,mainOptions.paperwidth, mainOptions.paperheigth)
 		.attr({
@@ -168,6 +184,7 @@ var main=(function(){
 			opacity: 1,
 			fill : colores.naranjita
 		});
+
 
 		butcancel = paper.path(pathbutcancel).attr({
 			transform: "t770,0",
@@ -217,11 +234,7 @@ var main=(function(){
 
 		circuloA = createCircle("a",posInicialX, posInicialY, sizeCircle, colores.rojito, textoCentral.santi1, textoCentral.santi2, textoCentral.santi3);
 		
-		circuloA.hover( function (e){
-			//alert('overa');
-		}, function(e){
-			//alert('notovera');
-		});
+		circuloA.hover( function (e){}, function(e){});
 
 		circuloB = createCircle("b",posInicialX+difX, posInicialY, sizeCircle, colores.naranjita,textoCentral.gabo1, textoCentral.gabo2, textoCentral.gabo3);
 		circuloC = createCircle("c",posInicialX+difX*2, posInicialY, sizeCircle, colores.verdecin,textoCentral.jose1, textoCentral.jose2, textoCentral.jose3);
@@ -238,7 +251,111 @@ var main=(function(){
 			circuloCclick();
 		});
 
+		textoTitulo = paper.text(  mainOptions.paperwidth * 0.5 , -50 , "Portfolio Digital")
+		.attr({
+			'font-family': "Amatic SC, cursive",
+			opacity:0,
+			"font-weight": "bold",
+			fill:  "#000", 
+			 'stroke': "#fff",
+			 'stroke-widht': 1,
+			'font-size': 80
+		});
 
+		var alto = textoTitulo.node.getBBox().height;
+
+		textoTitulo.animate({
+			transform: "T0,"+alto,
+			opacity:1,
+		}, 2500, "linear", function(e){
+			var fontSize = 30;
+			var moveY = 70;
+			textoVideojuegos = paper.text(  posInicialX, posInicialY,  "Programacion Videjuegos")
+			.attr({
+				'font-family': "Amatic SC, cursive",
+				opacity:0,			
+				fill:  "#000", 
+				'font-size': fontSize
+			})
+			.animate({
+				transform: "T0,"+moveY,
+				opacity:0.75,
+			},500,"linear");
+
+			textoSonido = paper.text(  posInicialX+difX, posInicialY , "Audio y Sonido")
+			.attr({
+				'font-family': "Amatic SC, cursive",
+				opacity:0,
+				fill:  "#000", 
+				'font-size': fontSize
+			})
+			.animate({
+				transform: "T0,"+moveY,
+				opacity:0.75,
+			},500,"linear");
+
+			textoDiseño = paper.text(  posInicialX+difX*2, posInicialY, "Diseño y Animación")
+			.attr({
+				'font-family': "Amatic SC, cursive",
+				opacity:0,				
+				fill:  "#000", 
+				'font-size': fontSize
+			})
+			.animate({
+				transform: "T0,"+moveY,
+				opacity:0.75,
+			},500,"linear");
+
+		});
+
+
+		circuloA.hover( function (e){
+			this.animate({
+				opacity:1,
+			},"linear",200);
+			textoVideojuegos.animate({
+				opacity:1,
+			},"linear",200);
+		}, function(e){
+			this.animate({
+				opacity:0.75,
+			},"linear",200);
+			textoVideojuegos.animate({
+				opacity:0.75,
+			},"linear",200);
+		});
+
+		circuloB.hover( function (e){
+			this.animate({
+				opacity:1,
+			},"linear",200);
+			textoSonido.animate({
+				opacity:1,
+			},"linear",200);
+		}, function(e){
+			this.animate({
+				opacity:0.75,
+			},"linear",200);
+			textoSonido.animate({
+				opacity:0.75,
+			},"linear",200);
+		});
+
+		circuloC.hover( function (e){
+			this.animate({
+				opacity:1,
+			},"linear",200);
+			textoDiseño.animate({
+				opacity:1,
+			},"linear",200);
+		}, function(e){
+			this.animate({
+				opacity:0.75,
+			},"linear",200);
+			textoDiseño.animate({
+				opacity:0.75,
+			},"linear",200);
+		});
 	};
 	var createCircle = function( id, x , y , r , color, text1, text2, text3) {
 		
@@ -274,9 +391,7 @@ var main=(function(){
 		});
 
 		circle.hover(function(e){
-			this.animate({
-				opacity:1,
-			},"linear",200);					
+				
 		}, function(e){
 			this.animate({
 				opacity:0.75,
@@ -286,11 +401,11 @@ var main=(function(){
 		return circle;
 	}
 	var clickRestart = function(){
-			circuloA.toFront();
+			/*circuloC.toFront();
 			circuloB.toFront();
-			circuloC.toFront();
 
 			circuloA.animate({
+			circuloA.toFront();
 				transform: "t0,0"
 			}, 200,"linear");
 
@@ -310,7 +425,9 @@ var main=(function(){
 
 			limpiarLineasContent();
 
-			estado = estados.inicio;
+			estado = estados.inicio;*/
+
+			location.reload(true);
 	}	
 	var circuloAclick = function(){
 		
@@ -323,6 +440,14 @@ var main=(function(){
 		
 			if (estado == estados.inicio){
 				estado = estados.clickCircleA;
+
+				var alto = textoTitulo.node.getBBox().height * 0.7;
+				
+				textoTitulo.animate({
+					transform: "t0,-"+alto,
+					'stroke-opacity':0
+				},velCircles,"linear");
+
 				circuloA.animate({
 					transform: "t-75,-125"
 				}, velCircles,"linear");
@@ -374,6 +499,13 @@ var main=(function(){
 
 			if (estado == estados.inicio){
 				estado = estados.clickCircleB;
+
+				var alto = textoTitulo.node.getBBox().height * 0.7;
+				
+				textoTitulo.animate({
+					transform: "t0,-"+alto,
+					'stroke-opacity':0
+				},velCircles,"linear");
 
 				circuloB.animate({
 					transform: "t-100, -125"
@@ -428,6 +560,13 @@ var main=(function(){
 
 			if (estado == estados.inicio){
 				estado = estados.clickCircleC;
+
+				var alto = textoTitulo.node.getBBox().height * 0.7;
+				textoTitulo.animate({
+					transform: "t0,-"+alto,
+					'stroke-opacity':0
+				},velCircles,"linear");
+
 				circuloA.animate({
 					transform: "t-75, -150 s"+scale
 				}, velCircles,"linear");
@@ -590,6 +729,9 @@ var main=(function(){
 		if (exist(contentLineC)){contentLineC.remove();}
 		if (exist(infoCurve1)){infoCurve1.remove();}		
 		if (exist(infoCurve2)){infoCurve2.remove();}		
+		if (exist(textoVideojuegos)){textoVideojuegos.remove();}
+		if (exist(textoSonido)){textoSonido.remove();}
+		if (exist(textoDiseño)){textoDiseño.remove();}
 	}
 	var contenidoA = function(){
 
@@ -611,18 +753,20 @@ var main=(function(){
 		textoCentral.santi_1 = paper.text( 230 , 65 , textoCentral.santi2)
 		.attr({
 			opacity:0,
-			"font-family": "Architects Daughter, sans-serif",
+			"font-weight":"bold",
+			"font-family": "Amatic SC, cursive",
 			 fill:  colores.rojito, 
-			 'font-size': 25
+			 'font-size': 40
 		}).animate({
 			opacity:1
 		},800,"linear", function(){
-			textoCentral.santi_2 = paper.text( 230 , 40 , textoCentral.santi1)
+			textoCentral.santi_2 = paper.text( 240 , 35 , textoCentral.santi1)
 			.attr({
+				"font-weight":"bold",
 				opacity:0,
-				"font-family": "Architects Daughter, sans-serif",
+				"font-family": "Amatic SC, cursive",
 				 fill:  colores.rojito, 
-				 'font-size': 20
+				 'font-size': 30
 			}).animate({
 				opacity:1
 			},800,"linear");			
@@ -659,18 +803,20 @@ var main=(function(){
 		textoCentral.gabo_1 = paper.text( 435 , 65 , textoCentral.gabo2)
 		.attr({
 			opacity:0,
-			"font-family": "Architects Daughter, sans-serif",
+			"font-weight":"bold",
+			"font-family": "Amatic SC, cursive",
 			 fill:  colores.rojito, 
-			 'font-size': 25
+			 'font-size': 40
 		}).animate({
 			opacity:1
 		},800,"linear", function(){
-			textoCentral.gabo_2 = paper.text( 435 , 40 , textoCentral.gabo1)
+			textoCentral.gabo_2 = paper.text( 435 , 35 , textoCentral.gabo1)
 			.attr({
 				opacity:0,
-				"font-family": "Architects Daughter, sans-serif",
+				"font-weight":"bold",
+				"font-family": "Amatic SC, cursive",
 				 fill:  colores.rojito, 
-				 'font-size': 20
+				 'font-size': 30
 			}).animate({
 				opacity:1
 			},800,"linear");			
@@ -710,24 +856,24 @@ var main=(function(){
 		textoCentral.jose_1 = paper.text( 525 , 65 , textoCentral.jose2)
 		.attr({
 			opacity:0,
-			"font-family": "Architects Daughter, sans-serif",
+			"font-weight":"bold",
+			"font-family": "Amatic SC, cursive",
 			 fill:  colores.rojito, 
-			 'font-size': 25
+			 'font-size': 40
 		}).animate({
 			opacity:1
 		},800,"linear", function(){
-			textoCentral.jose_2 = paper.text( 525 , 40 , textoCentral.jose1)
+			textoCentral.jose_2 = paper.text( 525 , 35 , textoCentral.jose1)
 			.attr({
 				opacity:0,
-				"font-family": "Architects Daughter, sans-serif",
+				"font-weight":"bold",
+				"font-family": "Amatic SC, cursive",
 				 fill:  colores.rojito, 
-				 'font-size': 20
+				 'font-size': 30
 			}).animate({
 				opacity:1
 			},800,"linear");	
 		});
-
-
 
 		var pathString = "m "+rx.C+","+ry.C +" l -200,0";
 		
