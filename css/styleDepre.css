@@ -2,12 +2,11 @@
 html, body, #depreload {
     height: 100%;
     width: 100%;
-/*    background:url('css/img/bgr.jpg') no-repeat center center fixed;*/
+	background:url('img/bgr.jpg') no-repeat center center fixed;
 }
 
 .table {
-	display: table;
-	background-image: url('img/bgr.jpg') no-repeat; 
+	display: table;	
 }
 
 .table-cell {
@@ -21,7 +20,7 @@ html, body, #depreload {
 
 #depreload {
     background-size: cover;
-    background-color: #ccc;
+    background-color: #fbaf47;
     position: fixed;
     text-align: center;
     z-index: 99;
@@ -43,7 +42,7 @@ html, body, #depreload {
 }
 
 #depreload .perc {
-	color: #ff0000;
+	color: #fbaf47;
 	font-size: 4.3em;
 	text-transform: uppercase;
 	margin-top: 15px;
@@ -53,7 +52,7 @@ html, body, #depreload {
 }
 
 #depreload .loading {
-	color: #fff;
+	color: #fbaf47;
 	font-size: 0.8em;
 	text-transform: uppercase;
 	margin-top: 110px;

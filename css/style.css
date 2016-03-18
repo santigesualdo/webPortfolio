@@ -6,8 +6,8 @@
     }
 
     html {      
-      
-      background-image: url('img/bgr.jpg');
+      background: #000;
+      /* background-image: url('img/bgr.jpg');*/
     }
 
 
