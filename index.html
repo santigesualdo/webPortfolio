@@ -3,18 +3,13 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Portfolio</title> 
-
     <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
     <script src="js/fancyBox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
-
     <link href="css/style.css" type="text/css" rel="stylesheet" />    
     <script type="text/javascript" src="js/jssor.slider.mini.js"></script>
-
     <link rel="stylesheet" href="js/fancyBox/source/jquery.fancybox.css" type="text/css" media="screen" />
-    
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
     <script>
       WebFont.load({
@@ -23,12 +18,55 @@
         }
       });
     </script>
-    <!--script type="text/javascript" src="js/queryloader2.min.js" ></script-->
     <script type="text/javascript" src="js/raphael.js"></script>      
     <script type="text/javascript" src="js/main.js"></script>  
-
+    <script type="text/javascript" src="js/jquery.DEPreLoad.js"></script>
+    <link rel="stylesheet" href="css/styleDepre.css"/>
     <script>
         $(document).ready(function(){
+              setTimeout(function(){
+                  $("#depreload .wrapper").animate({ opacity: 1 });
+              }, 400);
+
+              setTimeout(function(){
+                  $("#depreload .logo").animate({ opacity: 1 });
+              }, 800);
+
+              var canvas  = $("#depreload .line")[0],
+                  context = canvas.getContext("2d");
+
+              context.beginPath();
+              context.arc(280, 280, 260, Math.PI * 1.5, Math.PI * 1.6);
+              context.strokeStyle = '#fff';
+              context.lineWidth = 5;
+              context.stroke();
+
+              var loader = $("body").DEPreLoad({
+                  OnStep: function(percent) {
+                      console.log(percent + '%');
+
+                      $("#depreload .line").animate({ opacity: 1 });
+                      $("#depreload .perc").text(percent + "%");
+
+                      if (percent > 5) {
+                          context.clearRect(0, 0, canvas.width, canvas.height);
+                          context.beginPath();
+                          context.arc(280, 280, 260, Math.PI * 1.5, Math.PI * (1.5 + percent / 50), false);
+                          context.stroke();
+                      }
+                  },
+                  OnComplete: function() {
+                      console.log('Everything loaded!');
+
+                      $("#depreload .perc").text("done");
+                      $("#depreload .loading").animate({ opacity: 0 });
+                      $("#depreload").fadeOut();
+                      main.init();
+                  }
+              });
+          });           
+    </script>
+    <script>
             $('.fancybox').fancybox({
                 'openEffect': 'fade',
                 'closeEffect': 'fade',
@@ -83,26 +121,19 @@
                 height      : '70%',
                 autoSize    : false
             });
-
-
-            /*setInterval(function(){
-            $('#qLpercentage').html('loading');
-            $('#qLpercentage').css('background-image','data/santi/contenido1/image.png');//setting background image
-            },100)
-
-            QueryLoader2(document.querySelector("body"), {
-                barColor: "#fbaf47",
-                percentage: true,
-                barHeight: 3,
-                minimumTime: 500,
-                fadeOutTime: 2000,
-                onComplete: 
-            });   */
-            main.init();       
-        });
     </script>
   </head>  
   <body>  
+   <div id="depreload" style="background-image:url('css/img/bgr.jpg');" class="table">
+        <div class="table-cell wrapper">
+            <div class="circle">
+                <canvas class="line" width="560px" height="560px"></canvas>
+                <img src="css/img/logo.png" class="logo" alt="logo" />
+            </div>
+            <p class="perc"></p>
+            <p class="loading">Loading</p>
+        </div>
+   </div>
    <div id="c5" style="display:none;">
       <div id="conten5"class="contenidoText" style="width:100%;height:45%;" >
         <h2>  Wolverine Weapon X </h2>
