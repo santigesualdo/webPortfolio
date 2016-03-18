@@ -234,15 +234,8 @@ var main=(function(){
 		var difX = posInicial.difX;
 
 		circuloA = createCircle("a",posInicialX, posInicialY, sizeCircle, colores.rojito, textoCentral.santi1, textoCentral.santi2, textoCentral.santi3);
-		
-		circuloA.hover( function (e){}, function(e){});
-
 		circuloB = createCircle("b",posInicialX+difX, posInicialY, sizeCircle, colores.naranjita,textoCentral.gabo1, textoCentral.gabo2, textoCentral.gabo3);
 		circuloC = createCircle("c",posInicialX+difX*2, posInicialY, sizeCircle, colores.verdecin,textoCentral.jose1, textoCentral.jose2, textoCentral.jose3);
-
-		circuloA.mousedown(function(e){
-			circuloAclick();
-		});		
 
 		circuloB.mousedown(function(e){
 			circuloBclick();
@@ -281,7 +274,11 @@ var main=(function(){
 			.animate({
 				transform: "T0,"+moveY,
 				opacity:0.75,
-			},500,"linear");
+			},500,"linear", function(e){
+				circuloA.mousedown(function(e){
+					circuloAclick();
+				});		
+			});
 
 			textoSonido = paper.text(  posInicialX+difX, posInicialY , textoCentral.gabo1)
 			.attr({
@@ -293,7 +290,11 @@ var main=(function(){
 			.animate({
 				transform: "T0,"+moveY,
 				opacity:0.75,
-			},500,"linear");
+			},500,"linear", function(e){
+				circuloB.mousedown(function(e){
+					circuloBclick();
+				});		
+			});
 
 			textoDiseño = paper.text(  posInicialX+difX*2, posInicialY, textoCentral.jose1)
 			.attr({
@@ -305,10 +306,13 @@ var main=(function(){
 			.animate({
 				transform: "T0,"+moveY,
 				opacity:0.75,
-			},500,"linear");
+			},500,"linear", function(e){
+				circuloC.mousedown(function(e){
+					circuloCclick();
+				});		
+			});
 
 		});
-
 
 		circuloA.hover( function (e){
 			this.animate({
