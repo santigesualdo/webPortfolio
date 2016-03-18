@@ -6,9 +6,10 @@
     }
 
     html {      
-      /*background: url(images/bg.jpg) no-repeat center center fixed; */
-      background-size: cover;
+      
+      background-image: url('img/bgr.jpg');
     }
+
 
     #paper{
         width: 800px;

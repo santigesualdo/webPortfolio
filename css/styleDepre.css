@@ -2,10 +2,12 @@
 html, body, #depreload {
     height: 100%;
     width: 100%;
+/*    background:url('css/img/bgr.jpg') no-repeat center center fixed;*/
 }
 
 .table {
 	display: table;
+	background-image: url('img/bgr.jpg') no-repeat; 
 }
 
 .table-cell {
@@ -26,8 +28,8 @@ html, body, #depreload {
 }
 
 #depreload .circle {
-	width: 520px;
-	height: 520px;
+	width: 360px;
+	height: 360px;
 	border: 1px solid rgba(255,255,255,.5);
 	border-radius: 50%;
 	box-shadow: 0 0 1px 0px rgb(255,255,255);
@@ -41,11 +43,11 @@ html, body, #depreload {
 }
 
 #depreload .perc {
-	color: #fff;
+	color: #ff0000;
 	font-size: 4.3em;
 	text-transform: uppercase;
-	margin-top: 30px;
-	font-family: 'Source Sans Pro', sans-serif;
+	margin-top: 15px;
+	font-family: 'Amatic SC', cursive ;
 	font-weight: 300;
 	letter-spacing: 1px;
 }
@@ -55,8 +57,8 @@ html, body, #depreload {
 	font-size: 0.8em;
 	text-transform: uppercase;
 	margin-top: 110px;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
+	font-family: 'Amatic SC', cursive ;
+	font-weight: 200;
 	letter-spacing: 1px;
 }
 

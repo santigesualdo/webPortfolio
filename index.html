@@ -36,7 +36,7 @@
                   context = canvas.getContext("2d");
 
               context.beginPath();
-              context.arc(280, 280, 260, Math.PI * 1.5, Math.PI * 1.6);
+              context.arc(200, 200, 180, Math.PI * 1.5, Math.PI * 1.6);
               context.strokeStyle = '#fff';
               context.lineWidth = 5;
               context.stroke();
@@ -51,14 +51,14 @@
                       if (percent > 5) {
                           context.clearRect(0, 0, canvas.width, canvas.height);
                           context.beginPath();
-                          context.arc(280, 280, 260, Math.PI * 1.5, Math.PI * (1.5 + percent / 50), false);
+                          context.arc(200, 200, 180, Math.PI * 1.5, Math.PI * (1.5 + percent / 50), false);
                           context.stroke();
                       }
                   },
                   OnComplete: function() {
                       console.log('Everything loaded!');
 
-                      $("#depreload .perc").text("done");
+                      $("#depreload .perc").text("Listo.");
                       $("#depreload .loading").animate({ opacity: 0 });
                       $("#depreload").fadeOut();
                       main.init();
@@ -180,11 +180,26 @@
             });
     </script>
   </head>  
-  <body>  
-   <div id="depreload" style="background-image:url('css/img/bgr.jpg');" class="table">
+  <body>              
+    <div class="gallery" style="display:none">
+      <img src="data/icon_santi.png">
+      <img src="data/icon_gabo.png">
+      <img src="data/icon_jose.png">
+      <img src="data/santi/contenido1/image.png">
+      <img src="data/santi/contenido2/image.png">
+      <img src="data/santi/contenido3/image.png">
+      <img src="data/santi/contenido4/image.png">
+      <img src="data/santi/contenido5/image1.png">
+      <img src="data/santi/contenido5/image2.png">
+      <img src="data/santi/contenido5/image3.png">
+      <img src="data/santi/contenido6/image.png">
+      <img src="data/santi/contenido7/image.png">
+      <img src="data/santi/contenido8/image.png">
+   </div>
+   <div id="depreload" class="table">
         <div class="table-cell wrapper">
             <div class="circle">
-                <canvas class="line" width="560px" height="560px"></canvas>
+                <canvas class="line" width="400px" height="400px"></canvas>
                 <img src="css/img/logo.png" class="logo" alt="logo" />
             </div>
             <p class="perc"></p>
@@ -218,12 +233,6 @@
    <div id="container" >
       <div id="paper"></div>   
    </div>
-   
-     <script>
-        jQuery(document).ready(function ($) {
-            
-            
-    </script>
     <style>
         
         /* jssor slider bullet navigator skin 13 css */
