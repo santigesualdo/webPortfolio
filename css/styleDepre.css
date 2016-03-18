@@ -2,11 +2,13 @@
 html, body, #depreload {
     height: 100%;
     width: 100%;
-	background:url('img/bgr.jpg') no-repeat center center fixed;
+	background: #000;
+	/*background:url('img/bgr.jpg') no-repeat center center fixed;*/
 }
 
 .table {
 	display: table;	
+	background: #000;
 }
 
 .table-cell {
@@ -20,7 +22,7 @@ html, body, #depreload {
 
 #depreload {
     background-size: cover;
-    background-color: #fbaf47;
+    background-color: #000;
     position: fixed;
     text-align: center;
     z-index: 99;
