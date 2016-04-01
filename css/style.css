@@ -5,11 +5,15 @@
       src: url("http://fonts.googleapis.com/css?family=Chewy") format("truetype");
     }
 
-    html {      
-      background: #000;
-      /* background-image: url('img/bgr.jpg');*/
+    @font-face {
+      font-family: "Mosk";
+      src: url(fonts/Mosk.ttf) format("truetype");
     }
 
+    @font-face {
+      font-family: "Moskb";
+      src: url(fonts/Moskb.ttf) format("truetype");
+    }
 
     #paper{
         width: 800px;

@@ -9,14 +9,14 @@ var main=(function(){
 		colores.rojito= "#ef4e5c";
 		colores.verdecin= "#68be5e";
 		colores.violeton= "#92961e";
-
-
-
+		colores.celestin="#3ca38d";
+		colores.verdecincin = "#b7d5a1";
 
 	var posInicial = {};
-	posInicial.X = 150;
+	posInicial.X = 100;
 	posInicial.Y = 200;
 	posInicial.difX = 235;
+	posInicial.difY = 150;
 
 	var estados ={};
 	estados.inicio = "inicio";
@@ -27,21 +27,20 @@ var main=(function(){
 	var textoCentral={};
 	textoCentral.x = 400;
 	textoCentral.y = 225;
-	textoCentral.santi1 ="Programacion de Videojuegos";
-	textoCentral.gabo1 = "      Audio y Sonido    ";
-	textoCentral.gabo1 = "   Audio y Sonido  ";
+	textoCentral.santi1 ="PROGRAMACION DE VIDEOJUEGOS";
+
 	textoCentral.santi2 = "Santiago Gesualdo";
 	textoCentral.santi3 = "( Videogames Programing  )";
 	textoCentral.santi_1;
 	textoCentral.santi_2;
 	
-	textoCentral.gabo1 = "      Audio y Sonido    ";
+	textoCentral.gabo1 = "AUDIO Y SONIDO";
 	textoCentral.gabo2 = "Gabriel Barukel";
 	textoCentral.gabo3 = " ( Audio & Composiyon )";
 	textoCentral.gabo_1;
 	textoCentral.gabo_2;
 
-	textoCentral.jose1 = "    Diseño y Animación  ";
+	textoCentral.jose1 = "DISEÑO Y ANIMACIÓN";
 	textoCentral.jose2 = "Josefina Gimenez";
 	textoCentral.jose3 = "( Art & Design)";	
 	textoCentral.jose_1;
@@ -63,19 +62,6 @@ var main=(function(){
 
 	var fontNombres = "Shadows Into Light Two";
 	var fontNombres2 = "Kreon";
-	/*	
-	'font-family': "Amatic SC, cursive",
-	'font-family': "BenchNine, sans-serif",
-	'font-family': "Shadows Into Light Two, cursive",
-	'font-family': "Patrick Hand, cursive",
-	'font-family': "Teko, sans-serif",
-	'font-family': "Alegreya SC, serif",
-	'font-family': "Kelly Slab, cursive",
-	'font-family': "Just Me Again Down Here, cursive",
-	'font-family': "Bowlby One SC, cursive",
-	'font-family': "Oregano, cursive",
-	'font-family': "Jolly Lodger, cursive",
-	*/
 
 	//variables
 	var textIzq;
@@ -88,6 +74,7 @@ var main=(function(){
 	var rectA, rectB;
 
 	var textoTitulo;
+	var textoTituloBold;
 	var textoVideojuegos;
 	var textoSonido;
 	var textoDiseño;
@@ -123,6 +110,8 @@ var main=(function(){
 	var circuloB;
 	var circuloC;
 
+	var trama;
+
 	var contentLineA;
 	var contentLineB;
 	var contentLineC;
@@ -135,8 +124,6 @@ var main=(function(){
 	var velCircles = 250;
 
 	var init=function(){
-
-	
 		paper = null;
 
 		var div = document.getElementById("paper");
@@ -149,8 +136,6 @@ var main=(function(){
 		addGoogleFont(fontNombres);		
 		addGoogleFont(fontNombres2);
 		beginthings(); 			
- 	
-
 	};
 	var beginthings = function(){
 
@@ -180,12 +165,13 @@ var main=(function(){
 		var borde = paper.rect(0,0,mainOptions.paperwidth, mainOptions.paperheigth)
 		.attr({
 			'stroke-width':5,
-			stroke: 'grey',
+			stroke: colores.verdecincin,
 			'stroke-opacity': 1,
 			opacity: 1,
-			fill : colores.naranjita
+			fill : "#fff"
 		});
 
+		trama = paper.image("data/trama.png",0,0,800,100);
 
 		butcancel = paper.path(pathbutcancel).attr({
 			transform: "t770,0",
@@ -231,11 +217,11 @@ var main=(function(){
 		var posInicialY = posInicial.Y;
 
 		var sizeCircle = 100;
-		var difX = posInicial.difX;
+		var difY = posInicial.difY;
 
-		circuloA = createCircle("a",posInicialX, posInicialY, sizeCircle, colores.rojito, textoCentral.santi1, textoCentral.santi2, textoCentral.santi3);
-		circuloB = createCircle("b",posInicialX+difX, posInicialY, sizeCircle, colores.naranjita,textoCentral.gabo1, textoCentral.gabo2, textoCentral.gabo3);
-		circuloC = createCircle("c",posInicialX+difX*2, posInicialY, sizeCircle, colores.verdecin,textoCentral.jose1, textoCentral.jose2, textoCentral.jose3);
+		circuloA = createCircle("a",posInicialX, posInicialY, sizeCircle );
+		circuloB = createCircle("b",posInicialX, posInicialY+difY, sizeCircle);
+		circuloC = createCircle("c",posInicialX, posInicialY+difY*2, sizeCircle);
 
 		circuloB.mousedown(function(e){
 			circuloBclick();
@@ -245,67 +231,86 @@ var main=(function(){
 			circuloCclick();
 		});
 
-		textoTitulo = paper.text(  mainOptions.paperwidth * 0.5 , -50 , "Portfolio Digital")
-		.attr({
-			'font-family': "Amatic SC, cursive",
-			opacity:0,
-			"font-weight": "bold",
-			fill:  "#000", 
-			 'stroke': "#fff",
-			 'stroke-widht': 1,
-			'font-size': 80
-		});
 
-		var alto = textoTitulo.node.getBBox().height;
+
+		textoTitulo = paper.text(  mainOptions.paperwidth * 0.5-140 , -50 , "MULTI")
+		.attr({
+			'font-family': "Moskb",
+			opacity:0,
+			fill:  colores.celestin, 
+			 'stroke': "#000",
+			 'stroke-widht': 1,
+			'font-size': 60
+		})
+
+		var alto = textoTitulo.node.getBBox().height*1.5;
 
 		textoTitulo.animate({
 			transform: "T0,"+alto,
 			opacity:1,
+		},2500,"linear");
+
+		textoTituloBold = paper.text(  mainOptions.paperwidth * 0.5+100 , -50 , "PORTFOLIO")
+		.attr({
+			'font-family': "Mosk",
+			opacity:0,
+			fill:  colores.celestin, 
+			 'stroke': "#000",
+			 'stroke-widht': 1,
+			'font-size': 60
+		}).
+		animate({
+			transform: "T0,"+alto,
+			opacity:1,
 		}, 2500, "linear", function(e){
-			var fontSize = 30;
-			var moveY = 70;
-			textoVideojuegos = paper.text(  posInicialX, posInicialY,  textoCentral.santi1)
+			var fontSize = 35;
+			var moveX = 80;
+
+			textoVideojuegos = paper.text( posInicialX, posInicialY,  textoCentral.santi1)
 			.attr({
-				'font-family': "Amatic SC, cursive",
+				'text-anchor': "start",
+				'font-family': "Moskb",
 				opacity:0,			
-				fill:  "#000", 
+				fill:  colores.celestin, 
 				'font-size': fontSize
 			})
 			.animate({
-				transform: "T0,"+moveY,
-				opacity:0.75,
+				transform: "T"+moveX+",0",
+				opacity:0.75
 			},500,"linear", function(e){
 				circuloA.mousedown(function(e){
 					circuloAclick();
 				});		
 			});
 
-			textoSonido = paper.text(  posInicialX+difX, posInicialY , textoCentral.gabo1)
+			textoSonido = paper.text(  posInicialX, posInicialY+difY , textoCentral.gabo1)
 			.attr({
-				'font-family': "Amatic SC, cursive",
+				'text-anchor': "start",
+				'font-family': "Moskb",
 				opacity:0,
-				fill:  "#000", 
+				fill:  colores.celestin, 
 				'font-size': fontSize
 			})
 			.animate({
-				transform: "T0,"+moveY,
-				opacity:0.75,
+				transform: "T"+moveX+",0",
+				opacity:0.75
 			},500,"linear", function(e){
 				circuloB.mousedown(function(e){
 					circuloBclick();
 				});		
 			});
 
-			textoDiseño = paper.text(  posInicialX+difX*2, posInicialY, textoCentral.jose1)
+			textoDiseño = paper.text(  posInicialX, posInicialY+difY*2, textoCentral.jose1)
 			.attr({
-				'font-family': "Amatic SC, cursive",
+				'text-anchor': "start",
+				'font-family': "Moskb",
 				opacity:0,				
-				fill:  "#000", 
+				fill:  colores.celestin, 
 				'font-size': fontSize
 			})
 			.animate({
-				transform: "T0,"+moveY,
-				opacity:0.75,
+				transform: "T"+moveX+",0",
+				opacity:0.75
 			},500,"linear", function(e){
 				circuloC.mousedown(function(e){
 					circuloCclick();
@@ -362,7 +367,7 @@ var main=(function(){
 			},"linear",200);
 		});
 	};
-	var createCircle = function( id, x , y , r , color, text1, text2, text3) {
+	var createCircle = function( id, x , y , r ) {
 		
 		var circle;
 		var w = 100;
@@ -375,9 +380,6 @@ var main=(function(){
 		}else{
 			circle = paper.image ("data/icon_jose.png",x-w*0.5,y-w*0.5,w,w);
 		}
-		
-
-
 
 		circle.attr({
 			opacity:0
@@ -404,35 +406,9 @@ var main=(function(){
 		});		
 
 		return circle;
-	}
+	};
 	var clickRestart = function(){
-			/*circuloC.toFront();
-			circuloB.toFront();
-
-			circuloA.animate({
-			circuloA.toFront();
-				transform: "t0,0"
-			}, 200,"linear");
-
-			circuloB.animate({
-				transform: "t0, 0"
-			}, 200,"linear");
-
-			circuloC.animate({
-				transform: "t0, 0"
-			}, 200,"linear");
-
-			butinfo.toBack();
-
-			desaparecerRecuadro();
-
-			limpiarTextos();
-
-			limpiarLineasContent();
-
-			estado = estados.inicio;*/
-
-			location.reload(true);
+		location.reload(true);
 	}	
 	var circuloAclick = function(){
 		
@@ -449,6 +425,11 @@ var main=(function(){
 				var alto = textoTitulo.node.getBBox().height * 0.7;
 				
 				textoTitulo.animate({
+					transform: "t0,-"+alto,
+					'stroke-opacity':0
+				},velCircles,"linear");
+
+				textoTituloBold.animate({
 					transform: "t0,-"+alto,
 					'stroke-opacity':0
 				},velCircles,"linear");
@@ -512,6 +493,11 @@ var main=(function(){
 					'stroke-opacity':0
 				},velCircles,"linear");
 
+				textoTituloBold.animate({
+					transform: "t0,-"+alto,
+					'stroke-opacity':0
+				},velCircles,"linear");
+
 				circuloB.animate({
 					transform: "t-100, -125"
 				}, velCircles,"linear",crearContenido("b"));
@@ -567,7 +553,13 @@ var main=(function(){
 				estado = estados.clickCircleC;
 
 				var alto = textoTitulo.node.getBBox().height * 0.7;
+				
 				textoTitulo.animate({
+					transform: "t0,-"+alto,
+					'stroke-opacity':0
+				},velCircles,"linear");
+				
+				textoTituloBold.animate({
 					transform: "t0,-"+alto,
 					'stroke-opacity':0
 				},velCircles,"linear");
@@ -656,14 +648,14 @@ var main=(function(){
 		var rect = paper.rect(0,0,32,32)
 		.attr({
 			opacity: 1,
-			fill : colores.naranjita,
+			fill : "transparent",
 			'stroke-opacity':0
 		});
 
 		var but = paper.path(pathBoton).attr({
 			'stroke-opacity':0,
 			'fill-opacity': 1 , 
-			'fill': "white",
+			'fill': colores.verdecincin,
 			'opacity':0
 		});
 
@@ -681,7 +673,7 @@ var main=(function(){
 			},100, "linear");
 		}, function(e){
 			but.animate({
-				fill: 'white'
+				'fill': colores.verdecincin,
 			},100, "linear");
 		});
 
@@ -694,11 +686,7 @@ var main=(function(){
 			set.mousedown(function(e){
 				window.open(link);
 			});				
-		}
-
-			
-	
-			
+		}			
 
 		return set;
 	}
@@ -760,7 +748,7 @@ var main=(function(){
 			opacity:0,
 			"font-weight":"bold",
 			"font-family": "Amatic SC, cursive",
-			 fill:  colores.rojito, 
+			 fill:  colores.celestin ,
 			 'font-size': 40
 		}).animate({
 			opacity:1
@@ -770,7 +758,7 @@ var main=(function(){
 				"font-weight":"bold",
 				opacity:0,
 				"font-family": "Amatic SC, cursive",
-				 fill:  colores.rojito, 
+				 fill:  colores.celestintin, 
 				 'font-size': 30
 			}).animate({
 				opacity:1
@@ -781,7 +769,7 @@ var main=(function(){
 						paper,
 						pathString,
 						circleTagsTime,
-						{ stroke: "white", 'stroke-width': 2, 'stroke-opacity': 1 ,fill: "white","fill-opacity": 1},
+						{ stroke: colores.celestin, 'stroke-width': 2, 'stroke-opacity': 1 ,fill: "white","fill-opacity": 1},
 	        			function(e){
 	        				circuloA.toFront();
 	        				mostrarSlider();
@@ -1094,8 +1082,8 @@ var main=(function(){
 	
 		return contentSet;
 	};
-	var drawpath = function( canvas, pathstr, duration, attr, callback )
-	{
+
+	var drawpath = function( canvas, pathstr, duration, attr, callback )	{
 	    var guide_path = canvas.path( pathstr ).attr( { stroke: "none", fill: "none" } );
 	    var path = canvas.path( guide_path.getSubpath( 0, 1 ) ).attr( attr );
 	    var total_length = guide_path.getTotalLength( guide_path );
@@ -1119,6 +1107,7 @@ var main=(function(){
 	         }, interval_length );
 	     return result;
  	};
+
 	jQuery.fn.center = function () {
     	this.css("position","absolute");
     	this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
@@ -1127,10 +1116,12 @@ var main=(function(){
                                                 	$(window).scrollLeft()) + "px");
 	    return this;
 	};
+
 	var addGoogleFont= function(fontname) {
 	    $("head").append("<link href='https://fonts.googleapis.com/css?family=" + fontname + "' rel='stylesheet' type='text/css'>");
 	};
-	return {
-		init: init
-	}
+
+return {
+	init: init
+}
 }());
