@@ -19,7 +19,7 @@
       });
     </script>
     <script type="text/javascript" src="js/raphael.js"></script>      
-    <script type="text/javascript" src="js/main.js"></script>  
+    <!--script type="text/javascript" src="js/main.js"></script-->  
     <script type="text/javascript" src="js/jquery.DEPreLoad.js"></script>
 
     <script type='text/javascript' src='unitegallery/js/unitegallery.min.js'></script> 
@@ -68,7 +68,7 @@
                       $("#depreload .perc").text("Listo.");
                       $("#depreload .loading").animate({ opacity: 0 });
                       $("#depreload").fadeOut();
-                      main.init();
+                      //main.init();
                   }
               });      
         });          
@@ -204,18 +204,59 @@
    <a id="santigame8" class="fancypdf" style="display:none;" href="data/santi/cv.pdf"></a>
    <a id="santicv" class="fancypdf" style="display:none" href="data/santi/cv.pdf"></a>
 
-   <div id="container" >
-      <div id="recuadroInfoSanti"  style="display:none" class="recuadro"></div>
-      <div id="recuadroInfoGabo" style="display:none" class="recuadro"></div>
-      <div id="recuadroInfoJose" style="display:none" class="recuadro"></div>
+<div id="galleryUnity" style="margin: 0px auto; max-width: 100%; min-width: 150px; overflow: visible; height: 565px; width: auto;" class="ug-gallery-wrapper ug-theme-tilesfixed">
+  <div class="ug-overlay-disabled" style="display:none"></div>
+  <div class="ug-thumbs-grid" style="height: 510px; width: 500px; position: absolute; margin: 0px; left: 70px; top: 0px;">
+  <div class="ug-thumbs-grid-inner" style="width: 3990px; height: 500px; left: 0px;">
+  
+    <div class="ug-thumb-wrapper ug-tile ug-tile-clickable" style="width: 180px; height: 150px; border: 3px solid rgb(240, 240, 240); border-radius: 2px; box-shadow: rgb(139, 139, 139) 1px 1px 3px 2px; position: absolute; margin: 0px; left: 10px; top: 10px; opacity: 1;">
+      <img src="data/test1.png" alt="Lemon Slice" class="ug-thumb-image" style="width: 216px; height: 144px; left: -21px; top: 0px; position: absolute; margin: 0px; opacity: 1;">
+      <div class="ug-tile-image-overlay ug-trans-enabled" style="width: 168px; height: 138px; opacity: 1;">
+        <img src="data/test1.png" alt="Lemon Slice" class=" ug-bw-effect ug-trans-enabled" style="width: 216px; height: 144px; left: -21px; top: 0px;">
+      </div>
+    </div>
+    
+    <div class="ug-thumb-wrapper ug-tile ug-tile-clickable" style="width: 180px; height: 150px; border: 3px solid rgb(240, 240, 240); border-radius: 2px; box-shadow: rgb(139, 139, 139) 1px 1px 3px 2px; position: absolute; margin: 0px; left: 210px; top: 10px; opacity: 1;">
+    <img src="data/test1.png" alt="Peppers" class="ug-thumb-image" style="width: 174px; height: 174px; left: 0px; top: -15px; position: absolute; margin: 0px; opacity: 1;">
+    <div class="ug-tile-image-overlay ug-trans-enabled" style="width: 168px; height: 138px; opacity: 1;">
+      <img src="data/test1.png" alt="Peppers" class=" ug-bw-effect ug-trans-enabled" style="width: 174px; height: 174px; left: 0px; top: -15px;">
+      </div>
+    </div>
+    
+    <div class="ug-thumb-wrapper ug-tile ug-tile-clickable" style="width: 180px; height: 150px; border: 3px solid rgb(240, 240, 240); border-radius: 2px; box-shadow: rgb(139, 139, 139) 1px 1px 3px 2px; position: absolute; margin: 0px; left: 410px; top: 10px; opacity: 1;">
+    <img src="data/test1.png" alt="Keys" class="ug-thumb-image" style="width: 174px; height: 211px; left: 0px; top: -34px; position: absolute; margin: 0px; opacity: 1;"><div class="ug-tile-image-overlay ug-trans-enabled" style="width: 168px; height: 138px; opacity: 1;"><img src="data/test1.png" alt="Keys" class=" ug-bw-effect ug-trans-enabled" style="width: 174px; height: 211px; left: 0px; top: -34px;"></div></div>
+    
+    <div class="ug-thumb-wrapper ug-tile ug-tile-clickable" style="width: 180px; height: 150px; border: 3px solid rgb(240, 240, 240); border-radius: 2px; box-shadow: rgb(139, 139, 139) 1px 1px 3px 2px; position: absolute; margin: 0px; left: 610px; top: 10px; opacity: 1;"><img src="data/test1.png" alt="Friuts in cup" class="ug-thumb-image" style="width: 174px; height: 191px; left: 0px; top: -23px; position: absolute; margin: 0px; opacity: 1;"><div class="ug-tile-image-overlay ug-trans-enabled" style="width: 168px; height: 138px; opacity: 1;"><img src="data/test1.png" alt="Friuts in cup" class=" ug-bw-effect ug-trans-enabled" style="width: 174px; height: 191px; left: 0px; top: -23px;"></div></div>
+    
+    <div class="ug-thumb-wrapper ug-tile ug-tile-clickable" style="width: 180px; height: 150px; border: 3px solid rgb(240, 240, 240); border-radius: 2px; box-shadow: rgb(139, 139, 139) 1px 1px 3px 2px; position: absolute; margin: 0px; left: 810px; top: 10px; opacity: 1;">
+    <img src="data/test1.png" alt="Yellow Flowers" class="ug-thumb-image" style="width: 192px; height: 144px; left: -9px; top: 0px; position: absolute; margin: 0px; opacity: 1;"><div class="ug-tile-image-overlay ug-trans-enabled" style="width: 168px; height: 138px; opacity: 1;">
+    <img src="data/test1.png" alt="Yellow Flowers" class=" ug-bw-effect ug-trans-enabled" style="width: 192px; height: 144px; left: -9px; top: 0px;"></div></div>
+    
+
+    </div>
+  </div>
+  
+  <div class="ug-slider-control ug-bullets ug-skin-default ug-bullets-gray" style="position: absolute; margin: 0px; left: 522px; top: 550px;">
+    <div class="ug-bullet ug-bullet-active"></div>
+    <div class="ug-bullet" style="margin-left:12px"></div>
+    <div class="ug-bullet" style="margin-left:12px"></div>
+    <div class="ug-bullet" style="margin-left:12px"></div>
+  </div>
+  <div class="ug-tiles-preloader ug-preloader-trans" style="opacity: 0; position: absolute; margin: 0px; left: 554px; top: 50px;"></div>
+</div>
+
+
+    </div>
+
+   <!--div id="container" >
       <div id="paper"></div>   
-   </div>
+   </div-->
 
 
-  <div id="sliderContainer" style="position:absolute;">
+  <!--div id="sliderContainer" style="position:absolute;">
     <div id="jssor_1" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);  visibility: hidden; background-color: #fbaf47;">
         <!-- Loading Screen -->
-        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+        <!--div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
             <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center;top:0px;left:0px;width:100%;height:100%;"></div>
         </div>
@@ -266,14 +307,14 @@
                 <div style="position: absolute; top: 30px; left: 10px; width: 350px; height: 50px; font-family: Kreon; font-size: 20px;">Lenguaje: Action Script 3 - FlashPunk.
                 </div>
             </div>    
-            <div style="display:none">
+            <!--div style="display:none">
                 <a id="santigame7" class="fancyyoutube" style="display:none;" href="https://www.youtube.com/v/vhJroWmp_k8?fs=1&amp;autoplay=1">
                   <img data-u="image" src="data/santi/contenido1/image.png" />
                 </a>
                 <div style="position: absolute; top: 10px; left: 10px; width: 400px; height: 50px; background-color: rgba(255,255,255,0.5); border-radius: 2px; font-family: Kreon; font-size: 25px; color: #400000;">Prueba:</div>
                 <div style="position: absolute; top: 30px; left: 10px; width: 350px; height: 50px; font-family: Kreon; font-size: 20px;">Youtube</div>
             </div-->  
-            <div style="display:none">
+            <!--div style="display:none">
               <a target="_blank" href='player.html?game="data":"data/santi/contenido8/game.swf","titulo":"RepoTiledNape","width":"800","height": "600","tipo": "swf","help": [{ "text":"1. Mueve el personaje con las flechas de direccion."},{ "text":"2. Click ruedita de mouse para seleccionar armas."},{ "text":"3. R para reiniciar tutorial."}]'>
                 <img data-u="image" src="data/santi/contenido8/image.png" />    
               </a>                
@@ -282,18 +323,16 @@
               <div style="position: absolute; top: 30px; left: 10px; width: 350px; height: 50px; font-family: Kreon; font-size: 20px;">Lenguaje: HaxeFlixel.</div>
            </div>
           <!-- Bullet Navigator -->
-          <div data-u="navigator" class="jssorb13" style="top:85%; left:50%; transform: translate(-50%, -50%);" data-autocenter="1">
+          <!--div data-u="navigator" class="jssorb13" style="top:85%; left:50%; transform: translate(-50%, -50%);" data-autocenter="1">
               <!-- bullet navigator item prototype -->
-              <div data-u="prototype" style="width:21px;height:21px;"></div>
+              <!--div data-u="prototype" style="width:21px;height:21px;"></div>
           </div>
           <!-- Arrow Navigator -->
-          <span data-u="arrowleft" class="jssora13l" style="top:50%;left:9px;width:40px;height:50px;" data-autocenter="2"></span>
-          <span data-u="arrowright" class="jssora13r" style="top:50%;right:9px;width:40px;height:50px;" data-autocenter="2"></span-->
-        </div>
-    </div>
-   </div-->
-
-
+          <!--span data-u="arrowleft" class="jssora13l" style="top:50%;left:9px;width:40px;height:50px;" data-autocenter="2"></span>
+          <!--span data-u="arrowright" class="jssora13r" style="top:50%;right:9px;width:40px;height:50px;" data-autocenter="2"></span-->
+        <!--/div>
+    <!--/div>
+   <!--/div-->
 
   <script>
     jQuery.fn.center = function () {

@@ -14,7 +14,7 @@ var main=(function(){
 		colores.gricecito = "#969498";
 
 	var posInicial = {};
-	posInicial.X = 150;
+	posInicial.X = 170;
 	posInicial.Y = 250;
 	posInicial.difX = 235;
 	posInicial.difY = 150;
@@ -31,14 +31,14 @@ var main=(function(){
 
 	textoCentral.descrip;
 
-	textoCentral.santi1 ="PROGRAMACION | VIDEOJUEGOS";
+	textoCentral.santi1 ="PROGRAMACIÓN | VIDEOJUEGOS";
 	textoCentral.santi2 = "Santiago Gesualdo";
 	textoCentral.santi3 = "( Videogames Programing  )";
 	
 	textoCentral.santi_1;
 	textoCentral.santi_2;
 	
-	textoCentral.gabo1 = "AUDIO | SONIDO";
+	textoCentral.gabo1 = "AUDIO";
 	textoCentral.gabo2 = "Gabriel Barukel";
 	textoCentral.gabo3 = " ( Audio & Composiyon )";
 	
@@ -173,8 +173,8 @@ var main=(function(){
 		.attr({
 			'stroke-width':5,
 			stroke: colores.verdecincin,
-			'stroke-opacity': 1,
-			opacity: 1
+			'stroke-opacity': 0,
+			opacity: 0
 		});
 
 		//trama = paper.image("data/trama.png",0,0,800,100);
@@ -222,20 +222,20 @@ var main=(function(){
 		var posInicialX = posInicial.X;
 		var posInicialY = posInicial.Y;
 
-		var sizeCircle = 150;
+		var sizeCircle = 125;
 		var difX = posInicial.difX;
 
 		circuloA = createCircle("a",posInicialX, posInicialY, sizeCircle);
 		circuloB = createCircle("b",posInicialX+difX, posInicialY, sizeCircle);
 		circuloC = createCircle("c",posInicialX+difX*2, posInicialY, sizeCircle);
 
-		textoTitulo = paper.text(  mainOptions.paperwidth * 0.5-140 , -50 , "MULTI")
+		textoTitulo = paper.text(  mainOptions.paperwidth * 0.5-140 , 0 , "MULTI")
 		.attr({
 			'font-family': "Moskb",
 			opacity:0,
 			fill:  colores.celestin, 
-			 'stroke': "#000",
-			 'stroke-widht': 1,
+			 'stroke': "#fff",
+			 'stroke-widht': 0.5,
 			'font-size': 60
 		})
 
@@ -246,7 +246,7 @@ var main=(function(){
 			opacity:1,
 		},timeAnim,"linear");
 
-		textoTituloBold = paper.text(  mainOptions.paperwidth * 0.5+100 , -50 , "PORTFOLIO")
+		textoTituloBold = paper.text(  mainOptions.paperwidth * 0.5+100 , 0 , "PORTFOLIO")
 		.attr({
 			'font-family': "Mosk",
 			opacity:0,
@@ -264,7 +264,7 @@ var main=(function(){
 			.attr({
 				'font-family': "Mosk",
 				opacity:0,
-				fill:  colores.gricecito,
+				fill:  "#fff",
 				'font-size': 50,
 			});
 
@@ -384,7 +384,8 @@ var main=(function(){
 			limpiarLineasContent();
 		}
 
-		var scale = 0.75;
+		var scale = 0.5;
+		var scaleSelected= 0.75;
 		
 			if (estado == estados.inicio){
 				estado = estados.clickCircleA;
@@ -402,7 +403,7 @@ var main=(function(){
 				},velCircles,"linear");
 
 				circuloA.animate({
-					transform: "t-80,-175"
+					transform: "t-80,-175 s"+scaleSelected
 				}, velCircles,"linear");
 
 				circuloB.animate({
@@ -410,35 +411,35 @@ var main=(function(){
 				}, velCircles,"linear", crearContenido("a"));
 
 				circuloC.animate({
-					transform: "t125,-190 s"+scale
+					transform: "t105,-190 s"+scale
 				}, velCircles,"linear");
 			}else 
 			if (estado == estados.clickCircleB){
 				estado = estados.clickCircleA;
 				circuloA.animate({
-					transform: "t-80,-175 s1"
+					transform: "t-80,-175 s"+scaleSelected
 				}, velCircles,"linear",crearContenido("a"));
 
 				circuloB.animate({
-					transform: "t250,-185 s"+scale
+					transform: "t250,-190 s"+scale
 				}, velCircles,"linear");
 
 				circuloC.animate({
-					transform: "t125,-185 s"+scale
+					transform: "t105,-190 s"+scale
 				}, velCircles,"linear");				
 			}else 
 			if (estado == estados.clickCircleC){
 				estado = estados.clickCircleA;
 				circuloA.animate({
-					transform: "t-80,-175 s1"
+					transform: "t-80,-175 s"+scaleSelected
 				}, velCircles,"linear",crearContenido("a"));
 
 				circuloB.animate({
-					transform: "t250,-185 s"+scale
+					transform: "t250,-190 s"+scale
 				}, velCircles,"linear");
 
 				circuloC.animate({
-					transform: "t125,-185 s"+scale
+					transform: "t95,-190 s"+scale
 				}, velCircles,"linear");				
 			}
 	}
@@ -448,7 +449,8 @@ var main=(function(){
 			limpiarLineasContent();
 		}
 
-		var scale = 0.75;
+		var scale = 0.50;
+		var scaleSelected = 0.75;
 
 			if (estado == estados.inicio){
 				estado = estados.clickCircleB;
@@ -466,7 +468,7 @@ var main=(function(){
 				},velCircles,"linear");
 
 				circuloB.animate({
-					transform: "t-100, -175"
+					transform: "t-100, -175 s"+scaleSelected
 				}, velCircles,"linear",crearContenido("b"));
 
 				circuloA.animate({
@@ -476,7 +478,7 @@ var main=(function(){
 				setTextoCentralFade();
 
 				circuloC.animate({
-					transform: "t125,-190 s"+scale
+					transform: "t95,-190 s"+scale
 				}, velCircles,"linear");
 			} else
 			if (estado == estados.clickCircleA){
@@ -486,25 +488,25 @@ var main=(function(){
 				}, velCircles,"linear");
 
 				circuloB.animate({
-					transform:  "t-100, -175 s1"
+					transform:  "t-100, -175 s"+scaleSelected
 				}, velCircles,"linear",crearContenido("b"));
 
 				circuloC.animate({
-					transform: "t125,-190 s"+scale
+					transform: "t105,-190 s"+scale
 				}, velCircles,"linear");				
 			}else
 			if (estado == estados.clickCircleC){
 				estado = estados.clickCircleB;
 				circuloA.animate({
-					transform: "t-90, -190 s"+scale
+					transform: "t-85, -190 s"+scale
 				}, velCircles,"linear",crearContenido("b"));
 
 				circuloB.animate({
-					transform:  "t-100, -175 s1"
+					transform:  "t-100, -175 s"+scaleSelected
 				}, velCircles,"linear");
 
 				circuloC.animate({
-					transform: "t125,-190 s"+scale
+					transform: "t95,-190 s"+scale
 				}, velCircles,"linear");		
 			}
 	}
@@ -514,7 +516,8 @@ var main=(function(){
 			limpiarLineasContent();
 		}
 
-		var scale = 0.75;
+		var scale = 0.5;
+		var scaleSelected = 0.75;
 
 			if (estado == estados.inicio){
 				estado = estados.clickCircleC;
@@ -536,11 +539,11 @@ var main=(function(){
 				}, velCircles,"linear");
 
 				circuloB.animate({
-					transform: "t-195, -185 s"+scale
+					transform: "t-225, -185 s"+scale
 				}, velCircles,"linear");
 
 				circuloC.animate({
-					transform: "t100, -175"
+					transform: "t85, -175 s"+scaleSelected
 				}, velCircles,"linear",crearContenido("c"));
 			}else 
 			if (estado == estados.clickCircleA){
@@ -550,11 +553,11 @@ var main=(function(){
 				}, velCircles,"linear");
 
 				circuloB.animate({
-					transform: "t-195, -185 s"+scale
+					transform: "t-225, -185 s"+scale
 				}, velCircles,"linear");
 
 				circuloC.animate({
-					transform: "t100, -175 s1"
+					transform: "t80, -175 s"+scaleSelected
 				}, velCircles,"linear",crearContenido("c"));				
 			}else 
 			if (estado == estados.clickCircleB){
@@ -564,11 +567,11 @@ var main=(function(){
 				}, velCircles,"linear");
 
 				circuloB.animate({
-					transform: "t-195, -185 s"+scale
+					transform: "t-225, -185 s"+scale
 				}, velCircles,"linear");
 
 				circuloC.animate({
-					transform: "t100, -175 s1"
+					transform: "t90, -175 s"+scaleSelected
 				}, velCircles,"linear",crearContenido("c"));				
 			}
 	}
@@ -700,8 +703,11 @@ var main=(function(){
 		var mostrarSlider = function(e){
 			//var url = 'sliderNuevo.html';
 			//$('#contentiframe').prop('src', url);
-			$('#galleryUnity').css( "display", "inline");
+			$('#sliderContainer').css( "display", "inline");
+			$('#recuadroInfoSanti').css( "display", "inline");
 		};	
+
+		mostrarSlider();	
 
 		circuloA.unhover(function(e){}, function(e){});
 			textoCentral.descrip.attr({
@@ -710,44 +716,16 @@ var main=(function(){
 
 		var pathString = "m "+rx.A+","+ry.A +" l 200,0";
 
-		/*butinfo.animate({
-			transform: "t245,-40 s0.15",
-			opacity:1
-		},1000,"backOut").toFront();*/
-
-		textoCentral.santi_1 = paper.text( 200 , 10 , textoCentral.santi2)
+		textoCentral.santi_1 = paper.text( 360 , 75 , textoCentral.santi1)
 		.attr({
-			opacity:0,
-			"font-weight":"bold",
-			"font-family": "Amatic SC, cursive",
-			 fill:  colores.celestin ,
-			 'font-size': 40
+			opacity: 0,
+			'text-miterlimit': "1000",
+			"font-family": "Moskel",
+			 fill:  "#fff" ,
+			 'font-size': 30
 		}).animate({
-			opacity:1
-		},100,"linear", function(){
-			textoCentral.santi_2 = paper.text( 200 , 35 , textoCentral.santi1)
-			.attr({
-				"font-weight":"bold",
-				opacity:0,
-				"font-family": "Amatic SC, cursive",
-				 fill:  colores.celestintin, 
-				 'font-size': 30
-			}).animate({
-				opacity:1
-			},100,"linear");			
-		});
-
-		contentLineA = drawpath(
-						paper,
-						pathString,
-						circleTagsTime,
-						{ stroke: colores.celestin, 'stroke-width': 2, 'stroke-opacity': 1 ,fill: "white","fill-opacity": 1},
-	        			function(e){
-	        				circuloA.toFront();
-	        				mostrarSlider();
-	        				showSocial(rx.A, ry.A, "a");
-		        		}
-					);	
+			opacity:0.8
+		},1000,"linear");
 	}
 	var contenidoB = function(){
 
@@ -757,7 +735,20 @@ var main=(function(){
 			var url = 'slider.html';
 			$('#contentiframe').prop('src', url);
 			$('#contentiframe').css( "display", "inline");
+			$('#recuadroInfoGabo').css( "display", "inline");
 		};	
+
+		mostrarSlider();
+
+		textoCentral.gabo_1 = paper.text( 430 , 75 , textoCentral.gabo1)
+		.attr({
+			opacity: 0,
+			"font-family": "Moskel",
+			 fill:  "#fff" ,
+			 'font-size': 45
+		}).animate({
+			opacity:0.8
+		},1000,"linear");
 
 		/*butinfo.animate({
 			transform: "t440,-40 s0.15",
@@ -765,7 +756,7 @@ var main=(function(){
 		},1000,"backOut")
 		.toFront();*/
 
-		textoCentral.gabo_1 = paper.text( 435 , 65 , textoCentral.gabo2)
+		/*textoCentral.gabo_1 = paper.text( 435 , 65 , textoCentral.gabo2)
 		.attr({
 			opacity:0,
 			"font-weight":"bold",
@@ -799,7 +790,7 @@ var main=(function(){
 	        				mostrarSlider();
 	        				showSocial(rx.B, ry.B, "b");
 						}
-		);	
+		);	*/
 	}
 	var contenidoC = function(){
 
@@ -808,7 +799,21 @@ var main=(function(){
 			//var url = 'sliderNuevo.html';
 			//$('#contentiframe').prop('src', url);
 			$('#jssor_1').css( "display", "inline");
+			$('#recuadroInfoJose').css( "display", "inline");
 		};	
+
+		mostrarSlider();
+
+		textoCentral.jose_1 = paper.text( 670 , 75 , textoCentral.jose1)
+		.attr({
+			opacity: 0,
+			"text-anchor": "end",
+			"font-family": "Moskel",
+			 fill:  "#fff" ,
+			 'font-size': 45
+		}).animate({
+			opacity:0.8
+		},1000,"linear");
 
 		
 		/*butinfo.animate({
@@ -818,7 +823,7 @@ var main=(function(){
 		.toFront();	*/
 
 		
-		textoCentral.jose_1 = paper.text( 525 , 65 , textoCentral.jose2)
+		/*textoCentral.jose_1 = paper.text( 525 , 65 , textoCentral.jose2)
 		.attr({
 			opacity:0,
 			"font-weight":"bold",
@@ -852,7 +857,7 @@ var main=(function(){
 	        				mostrarSlider();
 	        				showSocial(rx.C, ry.C, "c");
 		        		}
-					);
+					);*/
 	}
 	var limpiarTextos = function(){
 
