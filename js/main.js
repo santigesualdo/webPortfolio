@@ -11,10 +11,11 @@ var main=(function(){
 		colores.violeton= "#92961e";
 		colores.celestin="#3ca38d";
 		colores.verdecincin = "#b7d5a1";
+		colores.gricecito = "#969498";
 
 	var posInicial = {};
-	posInicial.X = 100;
-	posInicial.Y = 200;
+	posInicial.X = 150;
+	posInicial.Y = 250;
 	posInicial.difX = 235;
 	posInicial.difY = 150;
 
@@ -27,22 +28,27 @@ var main=(function(){
 	var textoCentral={};
 	textoCentral.x = 400;
 	textoCentral.y = 225;
-	textoCentral.santi1 ="PROGRAMACION DE VIDEOJUEGOS";
 
+	textoCentral.descrip;
+
+	textoCentral.santi1 ="PROGRAMACION | VIDEOJUEGOS";
 	textoCentral.santi2 = "Santiago Gesualdo";
 	textoCentral.santi3 = "( Videogames Programing  )";
+	
 	textoCentral.santi_1;
 	textoCentral.santi_2;
 	
-	textoCentral.gabo1 = "AUDIO Y SONIDO";
+	textoCentral.gabo1 = "AUDIO | SONIDO";
 	textoCentral.gabo2 = "Gabriel Barukel";
 	textoCentral.gabo3 = " ( Audio & Composiyon )";
+	
 	textoCentral.gabo_1;
 	textoCentral.gabo_2;
 
-	textoCentral.jose1 = "DISEÑO Y ANIMACIÓN";
+	textoCentral.jose1 = "DISEÑO | ANIMACIÓN";
 	textoCentral.jose2 = "Josefina Gimenez";
 	textoCentral.jose3 = "( Art & Design)";	
+	
 	textoCentral.jose_1;
 	textoCentral.jose_2;
 
@@ -78,6 +84,7 @@ var main=(function(){
 	var textoVideojuegos;
 	var textoSonido;
 	var textoDiseño;
+	var textoCentral;
 
 	var pathbutcancel = "M27.812,16l-3.062-3.062V5.625h-2.625v4.688L16,4.188L4.188,16L7,15.933v11.942h17.875V16H27.812zM16,26.167h-5.833v-7H16V26.167zM21.667,23.167h-3.833v-4.042h3.833V23.167z";
 	var butcancel;
@@ -167,11 +174,10 @@ var main=(function(){
 			'stroke-width':5,
 			stroke: colores.verdecincin,
 			'stroke-opacity': 1,
-			opacity: 1,
-			fill : "#fff"
+			opacity: 1
 		});
 
-		trama = paper.image("data/trama.png",0,0,800,100);
+		//trama = paper.image("data/trama.png",0,0,800,100);
 
 		butcancel = paper.path(pathbutcancel).attr({
 			transform: "t770,0",
@@ -216,22 +222,12 @@ var main=(function(){
 		var posInicialX = posInicial.X;
 		var posInicialY = posInicial.Y;
 
-		var sizeCircle = 100;
-		var difY = posInicial.difY;
+		var sizeCircle = 150;
+		var difX = posInicial.difX;
 
-		circuloA = createCircle("a",posInicialX, posInicialY, sizeCircle );
-		circuloB = createCircle("b",posInicialX, posInicialY+difY, sizeCircle);
-		circuloC = createCircle("c",posInicialX, posInicialY+difY*2, sizeCircle);
-
-		circuloB.mousedown(function(e){
-			circuloBclick();
-		});
-		
-		circuloC.mousedown(function(e){
-			circuloCclick();
-		});
-
-
+		circuloA = createCircle("a",posInicialX, posInicialY, sizeCircle);
+		circuloB = createCircle("b",posInicialX+difX, posInicialY, sizeCircle);
+		circuloC = createCircle("c",posInicialX+difX*2, posInicialY, sizeCircle);
 
 		textoTitulo = paper.text(  mainOptions.paperwidth * 0.5-140 , -50 , "MULTI")
 		.attr({
@@ -244,11 +240,11 @@ var main=(function(){
 		})
 
 		var alto = textoTitulo.node.getBBox().height*1.5;
-
+		var timeAnim = 500;
 		textoTitulo.animate({
 			transform: "T0,"+alto,
 			opacity:1,
-		},2500,"linear");
+		},timeAnim,"linear");
 
 		textoTituloBold = paper.text(  mainOptions.paperwidth * 0.5+100 , -50 , "PORTFOLIO")
 		.attr({
@@ -262,115 +258,86 @@ var main=(function(){
 		animate({
 			transform: "T0,"+alto,
 			opacity:1,
-		}, 2500, "linear", function(e){
-			var fontSize = 35;
-			var moveX = 80;
+		}, timeAnim, "linear", function(e){
 
-			textoVideojuegos = paper.text( posInicialX, posInicialY,  textoCentral.santi1)
+			textoCentral.descrip = paper.text(mainOptions.paperwidth * 0.5 , posInicialY+200 , "")
 			.attr({
-				'text-anchor': "start",
-				'font-family': "Moskb",
-				opacity:0,			
-				fill:  colores.celestin, 
-				'font-size': fontSize
-			})
-			.animate({
-				transform: "T"+moveX+",0",
-				opacity:0.75
-			},500,"linear", function(e){
-				circuloA.mousedown(function(e){
-					circuloAclick();
-				});		
-			});
-
-			textoSonido = paper.text(  posInicialX, posInicialY+difY , textoCentral.gabo1)
-			.attr({
-				'text-anchor': "start",
-				'font-family': "Moskb",
+				'font-family': "Mosk",
 				opacity:0,
-				fill:  colores.celestin, 
-				'font-size': fontSize
-			})
-			.animate({
-				transform: "T"+moveX+",0",
-				opacity:0.75
-			},500,"linear", function(e){
-				circuloB.mousedown(function(e){
-					circuloBclick();
-				});		
+				fill:  colores.gricecito,
+				'font-size': 50,
 			});
 
-			textoDiseño = paper.text(  posInicialX, posInicialY+difY*2, textoCentral.jose1)
-			.attr({
-				'text-anchor': "start",
-				'font-family': "Moskb",
-				opacity:0,				
-				fill:  colores.celestin, 
-				'font-size': fontSize
-			})
-			.animate({
-				transform: "T"+moveX+",0",
-				opacity:0.75
-			},500,"linear", function(e){
-				circuloC.mousedown(function(e){
-					circuloCclick();
-				});		
+			circuloA.hover(function(e){
+				this.attr({
+					opacity:1
+				});
+				if (estado == estados.inicio){
+					textoCentral.descrip.attr({
+						opacity:1,
+						text: textoCentral.santi1
+					});					
+				}
+			}, function(e){
+				this.attr({
+					opacity:0.75
+				});
+				textoCentral.descrip.attr({
+					opacity:0
+				});
+			}).mousedown(function(e){
+				circuloAclick();
 			});
 
-		});
+			circuloB.hover(function(e){
+				this.attr({
+					opacity:1
+				});
+				if (estado == estados.inicio){
+					textoCentral.descrip.attr({
+						opacity:1,
+						text: textoCentral.gabo1
+					});					
+				}				
+			}, function(e){
+				this.attr({
+					opacity:0.75
+				});
+				textoCentral.descrip.attr({
+					opacity:0
+				});
+			}).mousedown(function(e){
+				circuloBclick();
+			});
 
-		circuloA.hover( function (e){
-			this.animate({
-				opacity:1,
-			},"linear",200);
-			textoVideojuegos.animate({
-				opacity:1,
-			},"linear",200);
-		}, function(e){
-			this.animate({
-				opacity:0.75,
-			},"linear",200);
-			textoVideojuegos.animate({
-				opacity:0.75,
-			},"linear",200);
-		});
+			circuloC.hover(function(e){
+				this.attr({
+					opacity:1
+				});
+				if (estado == estados.inicio){
+					textoCentral.descrip.attr({
+						opacity:1,
+						text: textoCentral.jose1
+					});					
+				}	
+			}, function(e){
+				this.attr({
+					opacity:0.75
+				});
+				textoCentral.descrip.attr({
+					opacity:0
+				});
+			}).mousedown(function(e){
+				circuloCclick();
+			});
 
-		circuloB.hover( function (e){
-			this.animate({
-				opacity:1,
-			},"linear",200);
-			textoSonido.animate({
-				opacity:1,
-			},"linear",200);
-		}, function(e){
-			this.animate({
-				opacity:0.75,
-			},"linear",200);
-			textoSonido.animate({
-				opacity:0.75,
-			},"linear",200);
-		});
 
-		circuloC.hover( function (e){
-			this.animate({
-				opacity:1,
-			},"linear",200);
-			textoDiseño.animate({
-				opacity:1,
-			},"linear",200);
-		}, function(e){
-			this.animate({
-				opacity:0.75,
-			},"linear",200);
-			textoDiseño.animate({
-				opacity:0.75,
-			},"linear",200);
 		});
 	};
 	var createCircle = function( id, x , y , r ) {
 		
 		var circle;
-		var w = 100;
+		var w = r;
 
 		if (id == "a") {
 			circle = paper.image ("data/icon_santi.png",x-w*0.5,y-w*0.5,w,w);
@@ -435,43 +402,43 @@ var main=(function(){
 				},velCircles,"linear");
 
 				circuloA.animate({
-					transform: "t-75,-125"
+					transform: "t-80,-175"
 				}, velCircles,"linear");
 
 				circuloB.animate({
-					transform: "t250,-150 s"+scale
+					transform: "t250,-190 s"+scale
 				}, velCircles,"linear", crearContenido("a"));
 
 				circuloC.animate({
-					transform: "t125,-150 s"+scale
+					transform: "t125,-190 s"+scale
 				}, velCircles,"linear");
 			}else 
 			if (estado == estados.clickCircleB){
 				estado = estados.clickCircleA;
 				circuloA.animate({
-					transform: "t-75,-125 s1"
+					transform: "t-80,-175 s1"
 				}, velCircles,"linear",crearContenido("a"));
 
 				circuloB.animate({
-					transform: "t250,-150 s"+scale
+					transform: "t250,-185 s"+scale
 				}, velCircles,"linear");
 
 				circuloC.animate({
-					transform: "t125,-150 s"+scale
+					transform: "t125,-185 s"+scale
 				}, velCircles,"linear");				
 			}else 
 			if (estado == estados.clickCircleC){
 				estado = estados.clickCircleA;
 				circuloA.animate({
-					transform: "t-75,-125 s1"
+					transform: "t-80,-175 s1"
 				}, velCircles,"linear",crearContenido("a"));
 
 				circuloB.animate({
-					transform: "t250,-150 s"+scale
+					transform: "t250,-185 s"+scale
 				}, velCircles,"linear");
 
 				circuloC.animate({
-					transform: "t125,-150 s"+scale
+					transform: "t125,-185 s"+scale
 				}, velCircles,"linear");				
 			}
 	}
@@ -499,45 +466,45 @@ var main=(function(){
 				},velCircles,"linear");
 
 				circuloB.animate({
-					transform: "t-100, -125"
+					transform: "t-100, -175"
 				}, velCircles,"linear",crearContenido("b"));
 
 				circuloA.animate({
-					transform: "t-75, -150 s"+scale
+					transform: "t-90, -190 s"+scale
 				}, velCircles,"linear");
 
 				setTextoCentralFade();
 
 				circuloC.animate({
-					transform: "t125,-150 s"+scale
+					transform: "t125,-190 s"+scale
 				}, velCircles,"linear");
 			} else
 			if (estado == estados.clickCircleA){
 				estado = estados.clickCircleB;
 				circuloA.animate({
-					transform: "t-75, -150 s"+scale
+					transform: "t-90, -190 s"+scale
 				}, velCircles,"linear");
 
 				circuloB.animate({
-					transform:  "t-100, -125 s1"
+					transform:  "t-100, -175 s1"
 				}, velCircles,"linear",crearContenido("b"));
 
 				circuloC.animate({
-					transform: "t125,-150 s"+scale
+					transform: "t125,-190 s"+scale
 				}, velCircles,"linear");				
 			}else
 			if (estado == estados.clickCircleC){
 				estado = estados.clickCircleB;
 				circuloA.animate({
-					transform: "t-75, -150 s"+scale
+					transform: "t-90, -190 s"+scale
 				}, velCircles,"linear",crearContenido("b"));
 
 				circuloB.animate({
-					transform:  "t-100, -125 s1"
+					transform:  "t-100, -175 s1"
 				}, velCircles,"linear");
 
 				circuloC.animate({
-					transform: "t125,-150 s"+scale
+					transform: "t125,-190 s"+scale
 				}, velCircles,"linear");		
 			}
 	}
@@ -565,43 +532,43 @@ var main=(function(){
 				},velCircles,"linear");
 
 				circuloA.animate({
-					transform: "t-75, -150 s"+scale
+					transform: "t-85, -185 s"+scale
 				}, velCircles,"linear");
 
 				circuloB.animate({
-					transform: "t-190, -150 s"+scale
+					transform: "t-195, -185 s"+scale
 				}, velCircles,"linear");
 
 				circuloC.animate({
-					transform: "t100, -125"
+					transform: "t100, -175"
 				}, velCircles,"linear",crearContenido("c"));
 			}else 
 			if (estado == estados.clickCircleA){
 				estado = estados.clickCircleC;
 				circuloA.animate({
-					transform: "t-75, -150 s"+scale
+					transform: "t-85, -185 s"+scale
 				}, velCircles,"linear");
 
 				circuloB.animate({
-					transform: "t-190, -150 s"+scale
+					transform: "t-195, -185 s"+scale
 				}, velCircles,"linear");
 
 				circuloC.animate({
-					transform: "t100, -125 s1"
+					transform: "t100, -175 s1"
 				}, velCircles,"linear",crearContenido("c"));				
 			}else 
 			if (estado == estados.clickCircleB){
 				estado = estados.clickCircleC;
 				circuloA.animate({
-					transform: "t-75, -150 s"+scale
+					transform: "t-85, -185 s"+scale
 				}, velCircles,"linear");
 
 				circuloB.animate({
-					transform: "t-190, -150 s"+scale
+					transform: "t-195, -185 s"+scale
 				}, velCircles,"linear");
 
 				circuloC.animate({
-					transform: "t100, -125 s1"
+					transform: "t100, -175 s1"
 				}, velCircles,"linear",crearContenido("c"));				
 			}
 	}
@@ -733,8 +700,13 @@ var main=(function(){
 		var mostrarSlider = function(e){
 			//var url = 'sliderNuevo.html';
 			//$('#contentiframe').prop('src', url);
-			$('#jssor_1').css( "display", "inline");
+			$('#galleryUnity').css( "display", "inline");
 		};	
+
+		circuloA.unhover(function(e){}, function(e){});
+			textoCentral.descrip.attr({
+				opacity:0
+		})
 
 		var pathString = "m "+rx.A+","+ry.A +" l 200,0";
 
@@ -743,7 +715,7 @@ var main=(function(){
 			opacity:1
 		},1000,"backOut").toFront();*/
 
-		textoCentral.santi_1 = paper.text( 230 , 65 , textoCentral.santi2)
+		textoCentral.santi_1 = paper.text( 200 , 10 , textoCentral.santi2)
 		.attr({
 			opacity:0,
 			"font-weight":"bold",
@@ -752,8 +724,8 @@ var main=(function(){
 			 'font-size': 40
 		}).animate({
 			opacity:1
-		},800,"linear", function(){
-			textoCentral.santi_2 = paper.text( 240 , 35 , textoCentral.santi1)
+		},100,"linear", function(){
+			textoCentral.santi_2 = paper.text( 200 , 35 , textoCentral.santi1)
 			.attr({
 				"font-weight":"bold",
 				opacity:0,
@@ -762,7 +734,7 @@ var main=(function(){
 				 'font-size': 30
 			}).animate({
 				opacity:1
-			},800,"linear");			
+			},100,"linear");			
 		});
 
 		contentLineA = drawpath(

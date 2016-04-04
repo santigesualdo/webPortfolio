@@ -10,9 +10,6 @@ var main=(function(){
 		colores.verdecin= "#68be5e";
 		colores.violeton= "#92961e";
 
-
-
-
 	var posInicial = {};
 	posInicial.X = 150;
 	posInicial.Y = 200;
@@ -28,9 +25,10 @@ var main=(function(){
 	textoCentral.x = 400;
 	textoCentral.y = 225;
 	textoCentral.santi1 ="Programacion de Videojuegos";
+	textoCentral.santi2 = "Santiago Gesualdo";
 	textoCentral.gabo1 = "      Audio y Sonido    ";
 	textoCentral.gabo1 = "   Audio y Sonido  ";
-	textoCentral.santi2 = "Santiago Gesualdo";
+	
 	textoCentral.santi3 = "( Videogames Programing  )";
 	textoCentral.santi_1;
 	textoCentral.santi_2;
@@ -63,21 +61,7 @@ var main=(function(){
 
 	var fontNombres = "Shadows Into Light Two";
 	var fontNombres2 = "Kreon";
-	/*	
-	'font-family': "Amatic SC, cursive",
-	'font-family': "BenchNine, sans-serif",
-	'font-family': "Shadows Into Light Two, cursive",
-	'font-family': "Patrick Hand, cursive",
-	'font-family': "Teko, sans-serif",
-	'font-family': "Alegreya SC, serif",
-	'font-family': "Kelly Slab, cursive",
-	'font-family': "Just Me Again Down Here, cursive",
-	'font-family': "Bowlby One SC, cursive",
-	'font-family': "Oregano, cursive",
-	'font-family': "Jolly Lodger, cursive",
-	*/
 
-	//variables
 	var textIzq;
 	var textDer;
 	var paper;
