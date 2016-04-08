@@ -135,6 +135,18 @@
     right: -7px;
     top: -7px;
   }
+    .recuadroIcono{
+      fill:white;
+    }
+
+    .recuadroIcono:hover {
+      fill: red;
+    }
+
+   .recuadroNombre{
+    font-family: "Moskl";
+   } 
+
 
   .button {
     background-color: #2B91AF;
@@ -153,8 +165,6 @@
     position: absolute;
     width: 258px;
     height: 500px;
-    border-radius: 10px;
-    border: 2px solid #fff;
     padding: -50px; 
     top: 140px;
     left: 25px;

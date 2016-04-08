@@ -662,6 +662,10 @@ var main=(function(){
 	}
 	var desaparecerRecuadro = function(){
 		
+		$('#recuadroInfoSanti').css("display","none");
+		$('#recuadroInfoJose').css("display","none");
+		$('#recuadroInfoGabo').css("display","none");
+
 		if (recuadroContenido!=undefined){
 			recuadroContenido.attr({
 				'stroke-opacity':0,
