@@ -31,6 +31,62 @@
   <script type='text/javascript' src='unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js'></script>
     <link rel="stylesheet" href="css/styleDepre.css"/>
     <script>
+      $('.fancybox').fancybox({
+          'openEffect': 'fade',
+          'closeEffect': 'fade',
+          overlay : {
+              closeClick : true,  // if true, fancyBox will be closed when user clicks on the overlay
+              speedOut   : 200,   // duration of fadeOut animation
+              showEarly  : true,  // indicates if should be opened immediately or wait until the content is ready
+              locked     : true   // if true, the content will be locked into overlay
+      }
+      });
+      
+      $('#santigame5').fancybox({
+          'autoDimensions': false,
+          'width': 200,
+          'height': 400,
+          'type': 'iframe', 
+      });
+      $('#santigame6').attr('href','player.html?game="data":"data/santi/contenido6/game.swf","titulo":"Pacman-Reversion","width":"640","height": "640","tipo": "swf","help": [{"text":"Mueve a Pac-Man con las flechas de direccion."},{ "text":"Con la comida, acumularas disparos para matar fantasmas."}, { "text":"Con la comida, acumularas disparos para matar fantasmas. Presiona la tecla I para realizar el disparo enloquecedor."},{ "text":"El nivel finaliza cuando se recolecta toda la comida y todo los fantasmas estan enloquecidos."}]');        
+
+      $(".fancypdf").click(function(){
+       $.fancybox({
+         type: 'html',
+         autoSize: false,
+         content: '<embed src="'+this.href+'#nameddest=self&page=1&view=FitH,0&zoom=80,0,0" type="application/pdf" height="99%" width="100%" />',
+         beforeClose: function() {
+           $(".fancybox-inner").unwrap();
+         }
+       }); //fancybox
+       return false;
+      }); //click
+      
+      $('.fancyyoutube').fancybox({
+          maxWidth: 800,
+          maxHeight: 600,
+          fitToView: false,
+          width: '70%',
+          height: '70%',
+          autoSize: false,
+          'type':'iframe'
+      });
+      $('.fancybox-buttons').fancybox({
+          helpers     : {
+              title   : { type : 'float' },
+              buttons : {}
+          }
+      });
+      $('.fancycontenido').fancybox({
+          maxWidth    : 800,
+          maxHeight   : 600,
+          fitToView   : false,
+          width       : '40%',
+          height      : '70%',
+          autoSize    : false
+      });
+    </script>
+    <script>
         $(document).ready(function(){
               setTimeout(function(){
                   $("#depreload .wrapper").animate({ opacity: 1 });
@@ -74,7 +130,8 @@
                       $("#gallerySanti").unitegallery({
                           tile_enable_image_effect:true,
                           tile_enable_overlay:false,
-                          tile_enable_icons:false,
+                          tile_as_link: true,
+                          tile_enable_action: false,   
                           gallery_width:"100%",       //gallery width
                           theme_navigation_align: "center",
                           grid_num_rows:2,
@@ -85,62 +142,6 @@
                   }
               });          
         });          
-    </script>
-    <script>
-            $('.fancybox').fancybox({
-                'openEffect': 'fade',
-                'closeEffect': 'fade',
-                overlay : {
-                    closeClick : true,  // if true, fancyBox will be closed when user clicks on the overlay
-                    speedOut   : 200,   // duration of fadeOut animation
-                    showEarly  : true,  // indicates if should be opened immediately or wait until the content is ready
-                    locked     : true   // if true, the content will be locked into overlay
-            }
-            });
-            
-            $('#santigame5').fancybox({
-                'autoDimensions': false,
-                'width': 200,
-                'height': 400,
-                'type': 'iframe', 
-            });
-            $('#santigame6').attr('href','player.html?game="data":"data/santi/contenido6/game.swf","titulo":"Pacman-Reversion","width":"640","height": "640","tipo": "swf","help": [{"text":"Mueve a Pac-Man con las flechas de direccion."},{ "text":"Con la comida, acumularas disparos para matar fantasmas."}, { "text":"Con la comida, acumularas disparos para matar fantasmas. Presiona la tecla I para realizar el disparo enloquecedor."},{ "text":"El nivel finaliza cuando se recolecta toda la comida y todo los fantasmas estan enloquecidos."}]');        
-
-            $(".fancypdf").click(function(){
-             $.fancybox({
-               type: 'html',
-               autoSize: false,
-               content: '<embed src="'+this.href+'#nameddest=self&page=1&view=FitH,0&zoom=80,0,0" type="application/pdf" height="99%" width="100%" />',
-               beforeClose: function() {
-                 $(".fancybox-inner").unwrap();
-               }
-             }); //fancybox
-             return false;
-            }); //click
-            
-            $('.fancyyoutube').fancybox({
-                maxWidth: 800,
-                maxHeight: 600,
-                fitToView: false,
-                width: '70%',
-                height: '70%',
-                autoSize: false,
-                'type':'iframe'
-            });
-            $('.fancybox-buttons').fancybox({
-                helpers     : {
-                    title   : { type : 'float' },
-                    buttons : {}
-                }
-            });
-            $('.fancycontenido').fancybox({
-                maxWidth    : 800,
-                maxHeight   : 600,
-                fitToView   : false,
-                width       : '40%',
-                height      : '70%',
-                autoSize    : false
-            });
     </script>
   </head>  
   <body>              
@@ -198,8 +199,8 @@
     <div id="recuadroInfoGabo" style="display:none; opacity:0" class="recuadro">
       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
            width="595.28px" height="841.89px" viewBox="0 0 595.28 841.89" enable-background="new 0 0 595.28 841.89" xml:space="preserve">
-        <path stroke="#F7F7F8" stroke-width="2" stroke-miterlimit="10" d="M258,495.931c0,2.247-2.063,4.069-4.605,4.069H4.605
-          C2.062,500,0,498.178,0,495.931V4.069C0,1.822,2.062,0,4.605,0h248.789C255.938,0,258,1.822,258,4.069V495.931z"/>
+        <!--path stroke="#F7F7F8" stroke-width="2" stroke-miterlimit="10" d="M258,495.931c0,2.247-2.063,4.069-4.605,4.069H4.605
+          C2.062,500,0,498.178,0,495.931V4.069C0,1.822,2.062,0,4.605,0h248.789C255.938,0,258,1.822,258,4.069V495.931z"/-->
         <g>
           <defs>
             <ellipse id="SVGID_1_" cx="129.013" cy="74.339" rx="46.73" ry="41.296"/>
@@ -269,8 +270,8 @@
     <div id="recuadroInfoJose"  style="display:none; opacity:0" class="recuadro">
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
            width="595.28px" height="841.89px" viewBox="0 0 595.28 841.89" enable-background="new 0 0 595.28 841.89" xml:space="preserve">
-        <path stroke="#F7F7F8" stroke-width="2" stroke-miterlimit="10" d="M258,495.931c0,2.247-2.062,4.069-4.605,4.069H4.605
-          C2.062,500,0,498.178,0,495.931V4.069C0,1.822,2.062,0,4.605,0h248.789C255.938,0,258,1.822,258,4.069V495.931z"/>
+        <!--path stroke="#F7F7F8" stroke-width="2" stroke-miterlimit="10" d="M258,495.931c0,2.247-2.062,4.069-4.605,4.069H4.605
+          C2.062,500,0,498.178,0,495.931V4.069C0,1.822,2.062,0,4.605,0h248.789C255.938,0,258,1.822,258,4.069V495.931z"/-->
         <g>
           <defs>
             <ellipse id="SVGID_1_" cx="129.013" cy="74.339" rx="46.73" ry="41.296"/>
@@ -340,8 +341,8 @@
     <div id="recuadroInfoSanti" style="display:none; opacity:0" class="recuadro">
       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="595.28px" height="841.89px" viewBox="0 0 595.28 841.89" enable-background="new 0 0 595.28 841.89" xml:space="preserve">
-      <path stroke="#F7F7F8" stroke-width="2" stroke-miterlimit="10" d="M258,495.931c0,2.247-2.063,4.069-4.605,4.069H4.605
-        C2.062,500,0,498.178,0,495.931V4.069C0,1.822,2.062,0,4.605,0h248.789C255.938,0,258,1.822,258,4.069V495.931z"/>
+      <!--path stroke="#F7F7F8" stroke-width="2" stroke-miterlimit="10" d="M258,495.931c0,2.247-2.063,4.069-4.605,4.069H4.605
+        C2.062,500,0,498.178,0,495.931V4.069C0,1.822,2.062,0,4.605,0h248.789C255.938,0,258,1.822,258,4.069V495.931z"/-->
       <g>
         <defs>
           <ellipse id="SVGID_1_" cx="129.013" cy="74.339" rx="46.73" ry="41.296"/>
@@ -431,8 +432,10 @@
              data-description="Those are keys"
              style="display:none">
         </a>
-        <a href="http://unitegallery.net">
-        <img alt="Friuts in cup"
+        
+        <a id="santigame5" target="_self" class="fancycontenido" href="#c5">
+        <img 
+             alt="Friuts in cup"
              src="data/santi/contenido5/image3.png"
              data-image="data/santi/contenido5/image3.png"
              data-description="Those are friuts in a cup"
