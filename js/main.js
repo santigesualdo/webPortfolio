@@ -142,6 +142,7 @@ var main=(function(){
 
 		addGoogleFont(fontNombres);		
 		addGoogleFont(fontNombres2);
+		$("#gallerySanti").css("overflow","hidden");
 		beginthings(); 			
 	};
 	var beginthings = function(){
@@ -662,9 +663,17 @@ var main=(function(){
 	}
 	var desaparecerRecuadro = function(){
 		
-		$('#recuadroInfoSanti').css("display","none");
-		$('#recuadroInfoJose').css("display","none");
-		$('#recuadroInfoGabo').css("display","none");
+		$('#recuadroInfoSanti').css("opacity","0");
+		$('#recuadroInfoJose').css("opacity","0");
+		$('#recuadroInfoGabo').css("opacity","0");
+
+		$('#recuadroInfoSanti').css( "display", "none");
+		$('#recuadroInfoGabo').css( "display", "none");
+		$('#recuadroInfoJose').css( "display", "none");
+
+		$('#gallerySanti').css("opacity","0");		
+		//$('#galleryJose').css("opacity","0");		
+		//$('#galleryGabo').css("opacity","0");		
 
 		if (recuadroContenido!=undefined){
 			recuadroContenido.attr({
@@ -705,13 +714,19 @@ var main=(function(){
 		limpiarTextos();
 
 		var mostrarSlider = function(e){
-			//var url = 'sliderNuevo.html';
-			//$('#contentiframe').prop('src', url);
-			$('#sliderContainer').css( "display", "inline");
-			$('#recuadroInfoSanti').css( "display", "inline");
+            $("#gallerySanti").css("position","relative");              
+            $("#gallerySanti").css("top","-450px");   
+            $('#recuadroInfoSanti').css( "display", "inline");
+			$("#gallerySanti").animate({
+				opacity:1
+			},500,"linear");
+
+			$("#recuadroInfoSanti").animate({
+				opacity:1
+			},500,"linear");	             				
 		};	
 
-		mostrarSlider();	
+		mostrarSlider();
 
 		circuloA.unhover(function(e){}, function(e){});
 			textoCentral.descrip.attr({
@@ -729,20 +744,37 @@ var main=(function(){
 			 'font-size': 30
 		}).animate({
 			opacity:0.8
-		},1000,"linear");
+		},1000,"linear",function(e){
+
+		});
 	}
 	var contenidoB = function(){
 
 		limpiarTextos();
 
 		var mostrarSlider = function(e){
-			var url = 'slider.html';
-			$('#contentiframe').prop('src', url);
-			$('#contentiframe').css( "display", "inline");
-			$('#recuadroInfoGabo').css( "display", "inline");
+            $("#gallerySanti").css("position","relative");              
+            $("#gallerySanti").css("top","-450px");   
+            $('#recuadroInfoGabo').css( "display", "inline");
+			$("#gallerySanti").animate({
+				opacity:1
+			},500,"linear");
+
+			$("#recuadroInfoGabo").animate({
+				opacity:1
+			},500,"linear");	             				
 		};	
 
 		mostrarSlider();
+
+
+		/*$("#gallerySanti").animate({
+			opacity:1
+		},500,"linear");*/
+
+		$("#recuadroInfoGabo").animate({
+			opacity:1
+		},500,"linear");
 
 		textoCentral.gabo_1 = paper.text( 430 , 75 , textoCentral.gabo1)
 		.attr({
@@ -800,10 +832,16 @@ var main=(function(){
 
 		limpiarTextos();
 		var mostrarSlider = function(e){
-			//var url = 'sliderNuevo.html';
-			//$('#contentiframe').prop('src', url);
-			$('#jssor_1').css( "display", "inline");
-			$('#recuadroInfoJose').css( "display", "inline");
+            $("#gallerySanti").css("position","relative");              
+            $("#gallerySanti").css("top","-450px");   
+            $('#recuadroInfoJose').css( "display", "inline");
+			$("#gallerySanti").animate({
+				opacity:1
+			},500,"linear");
+
+			$("#recuadroInfoJose").animate({
+				opacity:1
+			},500,"linear");	             				
 		};	
 
 		mostrarSlider();
