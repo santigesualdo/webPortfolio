@@ -15,7 +15,6 @@
       src: url(fonts/Moskb.ttf) format("truetype");
     }
 
-
     @font-face {
       font-family: "Moskeeb";
       src: url(fonts/Moskeb.ttf) format("truetype");
@@ -49,6 +48,26 @@
     @font-face {
       font-family: "Moskub";
       src: url(fonts/Moskub.ttf) format("truetype");
+    }
+
+    .itemgallery:hover {
+      -webkit-filter: grayscale(0%);
+      -webkit-transition: .5s ease-in-out;
+      -moz-filter: grayscale(0%);
+      -moz-transition: .5s ease-in-out;
+      -o-filter: grayscale(0%);
+      -o-transition: .5s ease-in-out;
+      filter: grayscale(0%);
+    } 
+
+    .itemgallery {
+      -webkit-filter: grayscale(100%);
+      -webkit-transition: .5s ease-in-out;
+      -moz-filter: grayscale(100%); 
+      -moz-transition: .5s ease-in-out;
+      -o-filter: grayscale(100%); 
+      -o-transition: .5s ease-in-out;
+      filter: grayscale(100%);
     }
 
     #paper{
@@ -167,3 +186,11 @@
     width: 100%;
     margin: 0 auto;
   }
+
+  #gallerySanti {
+    opacity: 1;
+    border-radius: 5px;
+    border-color: red;
+    display: inline-block;
+    margin-top: 20px;
+}

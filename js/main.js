@@ -66,9 +66,6 @@ var main=(function(){
 
 	var estado = "";
 
-	var fontNombres = "Shadows Into Light Two";
-	var fontNombres2 = "Kreon";
-
 	//variables
 	var textIzq;
 	var textDer;
@@ -140,10 +137,13 @@ var main=(function(){
 		mainOptions.halfwidth =  mainOptions.paperwidth*0.5;
 		mainOptions.halfheigth = mainOptions.paperheigth*0.5;
 
-		addGoogleFont(fontNombres);		
-		addGoogleFont(fontNombres2);
+
+
+		//addGoogleFont(fontNombres);		
+		//addGoogleFont(fontNombres2);
 		$("#gallerySanti").css("overflow","hidden");
 		beginthings(); 			
+		test();
 	};
 	var beginthings = function(){
 
@@ -260,7 +260,7 @@ var main=(function(){
 			transform: "T0,"+alto,
 			opacity:1,
 		}, timeAnim, "linear", function(e){
-
+			// Cuando el titulo llega a su lugar.
 			textoCentral.descrip = paper.text(mainOptions.paperwidth * 0.5 , posInicialY+200 , "")
 			.attr({
 				'font-family': "Mosk",
@@ -332,9 +332,15 @@ var main=(function(){
 				circuloCclick();
 			});
 
-
 		});
 	};
+
+	var test = function(){
+		$('img[alt="1"]').load(function() {
+			 $(this).addClass('.fancyContenido');
+		});
+	}
+
 	var createCircle = function( id, x , y , r ) {
 		
 		var circle;
@@ -714,9 +720,10 @@ var main=(function(){
 		limpiarTextos();
 
 		var mostrarSlider = function(e){
-            $("#gallerySanti").css("position","relative");              
-            $("#gallerySanti").css("top","-450px");   
             $('#recuadroInfoSanti').css( "display", "inline");
+            //$("#gallerySanti").css("position","relative");              
+            $("#gallerySanti").css( "display", "inline-block");
+            $("#gallerySanti").css("top","-450px");   
 			$("#gallerySanti").animate({
 				opacity:1
 			},500,"linear");
@@ -1135,6 +1142,10 @@ var main=(function(){
                                                 	$(window).scrollLeft()) + "px");
 	    return this;
 	};
+
+	var addFonts=function(){
+		$("head").append("<link href='https://fonts.googleapis.com/css?family=" + fontname + "' rel='stylesheet' type='text/css'>")
+	}	
 
 	var addGoogleFont= function(fontname) {
 	    $("head").append("<link href='https://fonts.googleapis.com/css?family=" + fontname + "' rel='stylesheet' type='text/css'>");
