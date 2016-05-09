@@ -235,8 +235,6 @@ var main=(function(){
 			'font-family': "Moskb",
 			opacity:0,
 			fill:  colores.celestin, 
-			 'stroke': "#fff",
-			 'stroke-widht': 0.5,
 			'font-size': 60
 		})
 
