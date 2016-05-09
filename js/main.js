@@ -721,9 +721,12 @@ var main=(function(){
 
 		var mostrarSlider = function(e){
             $('#recuadroInfoSanti').css( "display", "inline");
-            //$("#gallerySanti").css("position","relative");              
-            $("#gallerySanti").css( "display", "inline-block");
-            $("#gallerySanti").css("top","-450px");   
+            $("#gallerySanti").css("position","relative");              
+        	$("#gallerySanti").css( "display", "block-inline");
+        	$("#gallerySanti").css( "box-sizing", "border-box");
+            $("#gallerySanti").css("left","350px"); 
+            $("#gallerySanti").css("top","150px"); 
+              
 			$("#gallerySanti").animate({
 				opacity:1
 			},500,"linear");

@@ -1,0 +1,524 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Portfolio</title> 
+    
+    <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />    
+    
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {
+          families:  [ 'Amatic+SC:700,400:latin', 'BenchNine:400,300,700:latin', 'Shadows+Into+Light+Two::latin', 'Patrick+Hand::latin', 'Teko:400,700,600:latin', 'Alegreya+SC:900italic:latin', 'Kelly+Slab::latin', 'Just+Me+Again+Down+Here::latin', 'Bowlby+One+SC::latin', 'Oregano::latin', 'Jolly+Lodger::latin', 'Concert+One::latin' ] 
+        }
+      });
+    </script>
+    <script type="text/javascript" src="js/raphael.js"></script>      
+    <script type="text/javascript" src="js/main.js"></script>  
+    <script type="text/javascript" src="js/jquery.DEPreLoad.js"></script>
+   
+    <script src="js/fancyBox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="js/fancyBox/source/jquery.fancybox.css" type="text/css" media="screen" />
+   
+    <script type='text/javascript' src='unitegallery/js/unitegallery.min.js'></script>  
+    <link rel='stylesheet' href='unitegallery/css/unite-gallery.css' type='text/css' />
+  
+  <script type='text/javascript' src='unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js'></script>
+    <link rel="stylesheet" href="css/styleDepre.css"/>
+    <script>
+              $(document).ready(function(){
+                $('.fancybox').fancybox({
+                  'openEffect': 'fade',
+                  'closeEffect': 'fade',
+                  overlay : {
+                      closeClick : true,  // if true, fancyBox will be closed when user clicks on the overlay
+                      speedOut   : 200,   // duration of fadeOut animation
+                      showEarly  : true,  // indicates if should be opened immediately or wait until the content is ready
+                      locked     : true   // if true, the content will be locked into overlay
+                }
+              });
+              
+              $('#c5').fancybox({
+                  'autoDimensions': false,
+                  'width': 200,
+                  'height': 400,
+                  'type': 'iframe', 
+              });
+
+              $('#santigame6').attr('href','player.html?game="data":"data/santi/contenido6/game.swf","titulo":"Pacman-Reversion","width":"640","height": "640","tipo": "swf","help": [{"text":"Mueve a Pac-Man con las flechas de direccion."},{ "text":"Con la comida, acumularas disparos para matar fantasmas."}, { "text":"Con la comida, acumularas disparos para matar fantasmas. Presiona la tecla I para realizar el disparo enloquecedor."},{ "text":"El nivel finaliza cuando se recolecta toda la comida y todo los fantasmas estan enloquecidos."}]');        
+
+              $(".fancypdf").click(function(){
+               $.fancybox({
+                 type: 'html',
+                 autoSize: false,
+                 content: '<embed src="'+this.href+'#nameddest=self&page=1&view=FitH,0&zoom=80,0,0" type="application/pdf" height="99%" width="100%" />',
+                 beforeClose: function() {
+                   $(".fancybox-inner").unwrap();
+                 }
+               }); //fancybox
+               return false;
+              }); //click
+              
+              $('.fancyyoutube').fancybox({
+                  maxWidth: 800,
+                  maxHeight: 600,
+                  fitToView: false,
+                  width: '70%',
+                  height: '70%',
+                  autoSize: false,
+                  'type':'iframe'
+              });
+              $('.fancybox-buttons').fancybox({
+                  helpers     : {
+                      title   : { type : 'float' },
+                      buttons : {}
+                  }
+              });
+              $('.fancycontenido').fancybox({
+                  maxWidth    : 800,
+                  maxHeight   : 600,
+                  fitToView   : false,
+                  width       : '40%',
+                  height      : '70%',
+                  autoSize    : false
+              });
+
+              setTimeout(function(){
+                  $("#depreload .wrapper").animate({ opacity: 1 });
+              }, 400);
+
+              setTimeout(function(){
+                  $("#depreload .logo").animate({ opacity: 1 });
+              }, 800);
+
+              var canvas  = $("#depreload .line")[0],
+                  context = canvas.getContext("2d");
+
+              context.beginPath();
+              context.arc(200, 200, 180, Math.PI * 1.5, Math.PI * 1.6);
+              context.strokeStyle = '#fff';
+              context.lineWidth = 5;
+              context.stroke();
+
+              var loader = $("body").DEPreLoad({
+                  OnStep: function(percent) {
+                      console.log(percent + '%');
+
+                      $("#depreload .line").animate({ opacity: 1 });
+                      $("#depreload .perc").text(percent + "%");
+
+                      if (percent > 5) {
+                          context.clearRect(0, 0, canvas.width, canvas.height);
+                          context.beginPath();
+                          context.arc(200, 200, 180, Math.PI * 1.5, Math.PI * (1.5 + percent / 50), false);
+                          context.stroke();
+                      }
+                  },
+                  OnComplete: function() {
+                      console.log('Everything loaded!');
+
+                      $("#depreload .perc").text("Listo.");
+                      $("#depreload .loading").animate({ opacity: 0 });
+                      $("#depreload").fadeOut();
+                      main.init();
+                      $("#gallerySanti").unitegallery({
+                          tile_enable_image_effect:true,
+                          tile_enable_overlay:false,
+                          tile_enable_icons:false,
+                          tile_as_link: true,
+                          tile_link_newpage: false,
+                          gallery_width:"100%",       //gallery width
+                          theme_navigation_align: "center",
+                          theme_navigation_type: "arrows",
+                          grid_num_rows:2,
+                      });                        
+                      $("#gallerySanti").css("opacity","0");
+                      $("#gallerySanti").css("left","25px");
+
+                  }
+              });          
+        });          
+    </script>
+  </head>  
+  <body>            
+   <div class="gallery" style="display:none">
+      <img src="data/trama.png">
+      <img src="data/icon_santi.png">
+      <img src="data/icon_gabo.png">
+      <img src="data/icon_jose.png">
+      <img src="data/santi/contenido1/image.png">
+      <img src="data/santi/contenido2/image.png">
+      <img src="data/santi/contenido3/image.png">
+      <img src="data/santi/contenido4/image.png">
+      <img src="data/santi/contenido5/image1.png">
+      <img src="data/santi/contenido5/image2.png">
+      <img src="data/santi/contenido5/image3.png">
+      <img src="data/santi/contenido6/image.png">
+      <img src="data/santi/contenido7/image.png">
+      <img src="data/santi/contenido8/image.png">
+   </div>
+   <div id="depreload" class="table">
+        <div class="table-cell wrapper">
+            <div class="circle">
+                <canvas class="line" width="400px" height="400px"></canvas>
+                <img src="css/img/logo.png" class="logo" alt="logo" />
+            </div>
+            <p class="perc"></p>
+            <p class="loading">Loading</p>
+        </div>
+   </div>
+   <div id="c5" class="fancycontenido" style="display:none;">
+      <div id="conten5"class="contenidoText" style="width:100%;height:45%;" >
+        <h2>  Wolverine Weapon X </h2>
+        <p>   . Trabajo practico final para 'Programacion de Videojuegos 2' (C++ con Libreria SFML)</p>
+        <p>   . Juego de plataformas 2D, con diferentes enemigos y mecanicas, factor curación e items.  </p>
+        <p>. 3 Niveles con dificultad ascendente.</p>
+        <p>. <u>Controles:</u> </p>
+        <p>.. Movimiento: Flechas de direccion.</p>
+        <p>.. Ataque: Z , X , C .</p>
+        <p>. <u>Instalacion:</u> </p>
+        <p>.. Extraer archivo rar en la ubicacion que se prefiera. </p>
+        <p>.. Ejecutar 'Wolverine_Weapon_X.exe'. </p>
+        <p><a href="WolverineWeaponX.rar">(DESCARGAR DEMO)</a></p>
+        <p>
+            <a class="fancybox-buttons" data-fancybox-group="button" href="data/santi/contenido5/image1.png"><img src="data/santi/contenido5/thumb-image1.png" alt="hola"></a>
+            <a class="fancybox-buttons" data-fancybox-group="button" href="data/santi/contenido5/image2.png"><img src="data/santi/contenido5/thumb-image2.png" alt="hola2"></a>
+            <a class="fancybox-buttons" data-fancybox-group="button" href="data/santi/contenido5/image3.png"><img src="data/santi/contenido5/thumb-image3.png" alt="hola3"></a>
+        </p>  
+      </div>
+   </div>
+   <a id="santigame7" class="fancyyoutube" style="display:none;" href="https://www.youtube.com/embed/lRLVLb7zPZg?autoplay=1"></a>
+   <a id="santigame8" class="fancypdf" style="display:none;" href="data/santi/cv.pdf"></a>
+   <a id="santicv" class="fancypdf" style="display:none" href="data/santi/cv.pdf"></a>
+
+   <div id="container" width="100%" height="100%">
+    <div id="recuadroInfoGabo" style="display:none; opacity:0" class="recuadro">
+      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           width="595.28px" height="841.89px" viewBox="0 0 595.28 841.89" enable-background="new 0 0 595.28 841.89" xml:space="preserve">
+        <!--path stroke="#F7F7F8" stroke-width="2" stroke-miterlimit="10" d="M258,495.931c0,2.247-2.063,4.069-4.605,4.069H4.605
+          C2.062,500,0,498.178,0,495.931V4.069C0,1.822,2.062,0,4.605,0h248.789C255.938,0,258,1.822,258,4.069V495.931z"/-->
+        <g>
+          <defs>
+            <ellipse id="SVGID_1_" cx="129.013" cy="74.339" rx="46.73" ry="41.296"/>
+          </defs>
+          <clipPath id="SVGID_2_">
+            <use xlink:href="#SVGID_1_"  overflow="visible"/>
+          </clipPath>
+        </g>
+        <g>
+          
+            <text transform="matrix(1.1316 0 0 1 55.8335 153.4072)" fill="#444242" font-family="'Moskt'" font-size="27.1284" letter-spacing="-1.767">Gabriel Barukel</text>
+        </g>
+        <g>
+          <text transform="matrix(1.1316 0 0 1 85.9331 188.541)"><tspan x="0" y="0" fill="#9A999E" font-family="'Moskl'" font-size="13.5642">Audio</tspan><tspan x="0" y="20.007" fill="#9A999E" font-family="'Moskl'" font-size="13.5642">Sonido</tspan><tspan x="0" y="40.015" fill="#9A999E" font-family="'Moskl'" font-size="13.5642">Composición</tspan></text>
+        </g>
+        <line fill="none" display="none" stroke="#444242" stroke-miterlimit="10" x1="72.5" y1="177" x2="72.5" y2="235"/>
+        <line fill="none" stroke="#444242" stroke-miterlimit="10" x1="185.5" y1="177" x2="185.5" y2="235"/>
+        <rect x="40.635" y="289.049" fill="none" width="176.756" height="66.264"/>
+        <text transform="matrix(1.1316 0 0 1 40.6353 296.2227)"><tspan x="0" y="0" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">Logos | Tarjetas personales | Infografías </tspan><tspan x="0" y="16.956" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">Páginas web | Animaciones | Afiches</tspan><tspan x="155.005" y="16.956" fill="#9A999E" font-family="'Moskt'" font-size="10.1732"> </tspan><tspan x="0" y="33.911" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">Edición de videos | Videos institucionales</tspan><tspan x="155.433" y="33.911" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">    </tspan><tspan x="0" y="50.866" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">Flyers | Packaging | Diseño editorial </tspan><tspan x="158.209" y="50.866" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">   </tspan></text>
+        <g>
+          <ellipse id="XMLID_7_" cx="129.013" cy="449.916" rx="21.496" ry="18.995"/>
+          <path fill="#FFFFFF" d="M141.115,445.277c0,0-0.062-1.619-0.823-2.33c-0.97-0.932-1.962-0.797-2.457-0.854
+            c-3.565-0.236-8.815-0.094-8.815-0.094h-0.012c0,0-5.346-0.143-8.909,0.096c-0.497,0.055-1.581-0.012-2.551,0.923
+            c-0.763,0.712-0.653,2.295-0.653,2.295s0.104,1.863,0.104,3.762v0.229v1.55c0,1.901-0.104,3.8-0.104,3.8s0.07,1.616,0.833,2.327
+            c0.97,0.936,2.152,0.906,2.718,1.003c2.037,0.18,8.611,0.236,8.611,0.236s5.326-0.009,8.893-0.245
+            c0.495-0.055,1.57-0.059,2.538-0.995c0.764-0.711,0.633-2.327,0.633-2.327S141,452.755,141,450.854v-1.451v-0.327
+            C141,447.177,141.115,445.277,141.115,445.277z M133.263,449.729l-7.07,3.283L126,447.957v-1.537l3.293,1.492L133.263,449.729z"/>
+        </g>
+        <g>
+          <ellipse id="XMLID_1_" cx="62.131" cy="450.109" rx="21.496" ry="18.996"/>
+          <g>
+            <path fill="#FDFEFE" d="M49.799,442.171l12.424,10.549l12.298-10.542c0.044-0.041,0.102,0.221,0.154,0.189
+              c-0.578-0.4-1.296-0.367-2.087-0.367H51.674c-0.779,0-1.486-0.039-2.061,0.346C49.674,442.383,49.745,442.124,49.799,442.171z"/>
+            <path fill="#FDFEFE" d="M75.418,456.683c0.121,0.051,0.234,0.12,0.33,0.204c0.156-0.346,0.252-0.721,0.252-1.115v-11.322
+              c0-0.182-0.029-0.355-0.064-0.527l-7.554,6.477C71.428,453.219,74.708,456.172,75.418,456.683z"/>
+            <path fill="#FDFEFE" d="M66.657,451.876l-3.592,3.08c-0.233,0.2-0.535,0.3-0.835,0.3c-0.301,0-0.6-0.096-0.834-0.296l-3.692-3.136
+              l-7.557,6.231c0.462,0.206,0.976-0.056,1.527-0.056h20.915c0.548,0,1.058,0.264,1.518,0.059
+              C73.116,457.447,71.219,456.111,66.657,451.876z"/>
+            <path fill="#FDFEFE" d="M48.198,443.871c-0.039,0.188-0.198,0.38-0.198,0.578v11.322c0,0.395,0.225,0.768,0.382,1.111l7.452-6.529
+              L48.198,443.871z"/>
+          </g>
+        </g>
+        <ellipse id="XMLID_76_" cx="197.239" cy="450.403" rx="21.496" ry="18.997"/>
+        <path fill="#FFFFFF" d="M209.363,452.304c0.184-0.733,0.279-1.491,0.279-2.271c0-0.269-0.015-0.533-0.038-0.796
+          c-0.468-5.472-5.708-9.783-12.106-9.783c-0.707,0-1.4,0.053-2.074,0.153c-1.089-0.596-2.37-0.942-3.748-0.942
+          c-3.891,0-7.043,2.747-7.043,6.139c0,1.133,0.353,2.191,0.967,3.104c-0.09,0.383-0.153,0.773-0.194,1.169
+          c-0.032,0.315-0.052,0.634-0.052,0.958c0,5.845,5.438,10.581,12.145,10.581c0.76,0,1.503-0.062,2.225-0.176
+          c0.992,0.464,2.127,0.728,3.329,0.728c3.893,0,7.044-2.747,7.044-6.139C210.096,454.05,209.831,453.126,209.363,452.304z
+           M203.728,455.09c-0.562,0.692-1.392,1.242-2.468,1.631c-1.066,0.387-2.34,0.582-3.794,0.582c-1.745,0-3.207-0.268-4.349-0.795
+          c-0.814-0.385-1.49-0.902-2.001-1.548c-0.515-0.645-0.776-1.29-0.776-1.911c0-0.387,0.171-0.723,0.507-0.997
+          c0.331-0.273,0.759-0.412,1.269-0.412c0.418,0,0.776,0.109,1.07,0.324c0.278,0.207,0.52,0.512,0.712,0.907
+          c0.216,0.431,0.45,0.793,0.697,1.077c0.237,0.275,0.58,0.507,1.017,0.687c0.441,0.18,1.034,0.274,1.764,0.274
+          c1.004,0,1.829-0.188,2.447-0.556c0.605-0.358,0.899-0.791,0.899-1.32c0-0.418-0.151-0.746-0.47-1.003
+          c-0.331-0.271-0.769-0.479-1.297-0.625c-0.551-0.149-1.301-0.313-2.227-0.481c-1.262-0.234-2.333-0.514-3.184-0.828
+          c-0.869-0.323-1.572-0.771-2.086-1.33c-0.167-0.182-0.305-0.383-0.419-0.593c-0.243-0.448-0.369-0.958-0.369-1.528
+          c0-0.799,0.278-1.521,0.827-2.142c0.541-0.616,1.336-1.096,2.355-1.423c1.012-0.325,2.208-0.492,3.566-0.492
+          c1.085,0,2.036,0.111,2.832,0.326c0.802,0.218,1.475,0.512,2.008,0.872c0.533,0.362,0.932,0.751,1.18,1.156
+          c0.252,0.407,0.38,0.813,0.38,1.205c0,0.379-0.168,0.723-0.497,1.023c-0.333,0.3-0.753,0.452-1.248,0.452
+          c-0.45,0-0.802-0.096-1.046-0.281c-0.226-0.178-0.462-0.451-0.726-0.844c-0.303-0.5-0.67-0.895-1.088-1.175
+          c-0.41-0.271-1.092-0.407-2.031-0.407c-0.867,0-1.576,0.152-2.102,0.453c-0.506,0.29-0.754,0.62-0.754,1.014
+          c0,0.241,0.08,0.442,0.243,0.617c0.173,0.184,0.417,0.344,0.724,0.479c0.32,0.14,0.649,0.25,0.979,0.329
+          c0.061,0.015,0.133,0.032,0.209,0.051c0.345,0.077,0.836,0.181,1.473,0.308c0.982,0.185,1.885,0.39,2.683,0.614
+          c0.811,0.226,1.509,0.502,2.077,0.826c0.584,0.33,1.043,0.752,1.371,1.26c0.326,0.508,0.493,1.136,0.493,1.863
+          C204.578,453.6,204.291,454.396,203.728,455.09z"/>
+        </svg>
+    </div>
+    <div id="recuadroInfoJose"  style="display:none; opacity:0" class="recuadro">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           width="595.28px" height="841.89px" viewBox="0 0 595.28 841.89" enable-background="new 0 0 595.28 841.89" xml:space="preserve">
+        <!--path stroke="#F7F7F8" stroke-width="2" stroke-miterlimit="10" d="M258,495.931c0,2.247-2.062,4.069-4.605,4.069H4.605
+          C2.062,500,0,498.178,0,495.931V4.069C0,1.822,2.062,0,4.605,0h248.789C255.938,0,258,1.822,258,4.069V495.931z"/-->
+        <g>
+          <defs>
+            <ellipse id="SVGID_1_" cx="129.013" cy="74.339" rx="46.73" ry="41.296"/>
+          </defs>
+          <clipPath id="SVGID_2_">
+            <use xlink:href="#SVGID_1_"  overflow="visible"/>
+          </clipPath>
+        </g>
+        <g>
+          
+            <text transform="matrix(1.1316 0 0 1 42.5698 153.4072)" fill="#444242" font-family="'Moskt'" font-size="27.1284" letter-spacing="-1.767">Josefina Gimenez</text>
+        </g>
+        <g>
+          <text transform="matrix(1.1316 0 0 1 85.9331 188.541)"><tspan x="0" y="0" fill="#9A999E" font-family="'Moskl'" font-size="13.5642">Diseño gráfico</tspan><tspan x="0" y="20.007" fill="#9A999E" font-family="'Moskl'" font-size="13.5642">Motion Graphic</tspan><tspan x="0" y="40.015" fill="#9A999E" font-family="'Moskl'" font-size="13.5642">Comunicación</tspan></text> 
+        </g>
+        <line fill="none" stroke="#444242" stroke-miterlimit="10" x1="72.5" y1="177" x2="72.5" y2="235"/>
+        <line fill="none" stroke="#444242" stroke-miterlimit="10" x1="185.5" y1="177" x2="185.5" y2="235"/>
+        <rect x="40.635" y="289.049" fill="none" width="176.756" height="66.264"/>
+        <text transform="matrix(1.1316 0 0 1 40.6353 296.2227)"><tspan x="0" y="0" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">Logos | Tarjetas personales | Infografías </tspan><tspan x="0" y="16.956" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">Páginas web | Animaciones | Afiches</tspan><tspan x="155.005" y="16.956" fill="#9A999E" font-family="'Moskt'" font-size="10.1732"> </tspan><tspan x="0" y="33.911" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">Edición de videos | Videos institucionales</tspan><tspan x="155.433" y="33.911" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">    </tspan><tspan x="0" y="50.866" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">Flyers | Packaging | Diseño editorial </tspan><tspan x="158.209" y="50.866" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">   </tspan></text>
+        <g>
+          <ellipse id="XMLID_7_" cx="129.013" cy="449.916" rx="21.496" ry="18.995"/>
+          <path class="recuadroIcono" fill="#FFFFFF" d="M141.115,445.277c0,0-0.062-1.619-0.823-2.33c-0.97-0.932-1.962-0.797-2.457-0.854
+            c-3.565-0.236-8.815-0.094-8.815-0.094h-0.012c0,0-5.346-0.143-8.909,0.096c-0.497,0.055-1.581-0.012-2.551,0.923
+            c-0.763,0.712-0.653,2.295-0.653,2.295s0.104,1.863,0.104,3.762v0.229v1.55c0,1.901-0.104,3.8-0.104,3.8s0.07,1.616,0.833,2.327
+            c0.97,0.936,2.152,0.906,2.718,1.003c2.037,0.18,8.611,0.236,8.611,0.236s5.326-0.009,8.893-0.245
+            c0.495-0.055,1.57-0.059,2.538-0.995c0.764-0.711,0.633-2.327,0.633-2.327S141,452.755,141,450.854v-1.451v-0.327
+            C141,447.177,141.115,445.277,141.115,445.277z M133.263,449.729l-7.07,3.283L126,447.957v-1.537l3.293,1.492L133.263,449.729z"/>
+        </g>
+        <g>
+          <ellipse id="XMLID_1_" cx="62.131" cy="450.109" rx="21.496" ry="18.996"/>
+          <g class="recuadroIcono fancycontenido" href="#c5" class="fancycontenido">
+            <path  fill="#FDFEFE" d="M49.799,442.171l12.424,10.549l12.298-10.542c0.044-0.041,0.102,0.221,0.154,0.189
+              c-0.578-0.4-1.296-0.367-2.087-0.367H51.674c-0.779,0-1.486-0.039-2.061,0.346C49.674,442.383,49.745,442.124,49.799,442.171z"/>
+            <path  fill="#FDFEFE" d="M75.418,456.683c0.121,0.051,0.234,0.12,0.33,0.204c0.156-0.346,0.252-0.721,0.252-1.115v-11.322
+              c0-0.182-0.029-0.355-0.064-0.527l-7.554,6.477C71.428,453.219,74.708,456.172,75.418,456.683z"/>
+            <path  fill="#FDFEFE" d="M66.657,451.876l-3.592,3.08c-0.233,0.2-0.535,0.3-0.835,0.3c-0.301,0-0.6-0.096-0.834-0.296l-3.692-3.136
+              l-7.557,6.231c0.462,0.206,0.976-0.056,1.527-0.056h20.915c0.548,0,1.058,0.264,1.518,0.059
+              C73.116,457.447,71.219,456.111,66.657,451.876z"/>
+            <path  fill="#FDFEFE" d="M48.198,443.871c-0.039,0.188-0.198,0.38-0.198,0.578v11.322c0,0.395,0.225,0.768,0.382,1.111l7.452-6.529
+              L48.198,443.871z"/>
+          </g>
+        </g>
+        <ellipse id="XMLID_76_" cx="197.239" cy="450.403" rx="21.495" ry="18.997"/>
+        <path class="recuadroIcono" fill="#FFFFFF" d="M209.364,452.304c0.183-0.733,0.279-1.491,0.279-2.271c0-0.269-0.015-0.533-0.039-0.796
+          c-0.468-5.472-5.708-9.783-12.106-9.783c-0.708,0-1.4,0.053-2.075,0.153c-1.088-0.596-2.37-0.942-3.748-0.942
+          c-3.891,0-7.043,2.747-7.043,6.139c0,1.133,0.353,2.191,0.967,3.104c-0.09,0.383-0.154,0.773-0.195,1.169
+          c-0.032,0.315-0.052,0.634-0.052,0.958c0,5.845,5.438,10.581,12.145,10.581c0.76,0,1.503-0.062,2.225-0.176
+          c0.992,0.464,2.126,0.728,3.329,0.728c3.893,0,7.044-2.747,7.044-6.139C210.096,454.05,209.831,453.126,209.364,452.304z
+           M203.728,455.09c-0.562,0.692-1.391,1.242-2.468,1.631c-1.065,0.387-2.34,0.582-3.793,0.582c-1.745,0-3.207-0.268-4.349-0.795
+          c-0.814-0.385-1.49-0.902-2-1.548c-0.515-0.645-0.777-1.29-0.777-1.911c0-0.387,0.171-0.723,0.507-0.997
+          c0.332-0.273,0.758-0.412,1.269-0.412c0.418,0,0.776,0.109,1.07,0.324c0.279,0.207,0.52,0.512,0.712,0.907
+          c0.215,0.431,0.451,0.793,0.697,1.077c0.237,0.275,0.58,0.507,1.017,0.687c0.441,0.18,1.034,0.274,1.764,0.274
+          c1.003,0,1.829-0.188,2.447-0.556c0.606-0.358,0.899-0.791,0.899-1.32c0-0.418-0.152-0.746-0.47-1.003
+          c-0.331-0.271-0.768-0.479-1.296-0.625c-0.551-0.149-1.3-0.313-2.227-0.481c-1.262-0.234-2.333-0.514-3.183-0.828
+          c-0.87-0.323-1.573-0.771-2.086-1.33c-0.167-0.182-0.305-0.383-0.419-0.593c-0.243-0.448-0.369-0.958-0.369-1.528
+          c0-0.799,0.279-1.521,0.827-2.142c0.542-0.616,1.336-1.096,2.356-1.423c1.011-0.325,2.208-0.492,3.566-0.492
+          c1.084,0,2.036,0.111,2.832,0.326c0.801,0.218,1.474,0.512,2.007,0.872c0.534,0.362,0.933,0.751,1.181,1.156
+          c0.252,0.407,0.379,0.813,0.379,1.205c0,0.379-0.168,0.723-0.498,1.023c-0.333,0.3-0.752,0.452-1.247,0.452
+          c-0.451,0-0.802-0.096-1.046-0.281c-0.226-0.178-0.462-0.451-0.725-0.844c-0.304-0.5-0.67-0.895-1.089-1.175
+          c-0.41-0.271-1.092-0.407-2.03-0.407c-0.868,0-1.577,0.152-2.102,0.453c-0.505,0.29-0.754,0.62-0.754,1.014
+          c0,0.241,0.08,0.442,0.243,0.617c0.172,0.184,0.417,0.344,0.724,0.479c0.321,0.14,0.649,0.25,0.978,0.329
+          c0.062,0.015,0.133,0.032,0.209,0.051c0.345,0.077,0.836,0.181,1.472,0.308c0.982,0.185,1.886,0.39,2.683,0.614
+          c0.811,0.226,1.508,0.502,2.077,0.826c0.584,0.33,1.044,0.752,1.371,1.26s0.494,1.136,0.494,1.863
+          C204.578,453.6,204.291,454.396,203.728,455.09z"/>
+        </svg>
+    </div>
+    <div id="recuadroInfoSanti" style="display:none; opacity:0" class="recuadro">
+      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="595.28px" height="841.89px" viewBox="0 0 595.28 841.89" enable-background="new 0 0 595.28 841.89" xml:space="preserve">
+      <!--path stroke="#F7F7F8" stroke-width="2" stroke-miterlimit="10" d="M258,495.931c0,2.247-2.063,4.069-4.605,4.069H4.605
+        C2.062,500,0,498.178,0,495.931V4.069C0,1.822,2.062,0,4.605,0h248.789C255.938,0,258,1.822,258,4.069V495.931z"/-->
+      <g>
+        <defs>
+          <ellipse id="SVGID_1_" cx="129.013" cy="74.339" rx="46.73" ry="41.296"/>
+        </defs>
+        <clipPath id="SVGID_2_">
+          <use xlink:href="#SVGID_1_"  overflow="visible"/>
+        </clipPath>
+      </g>
+      <g>
+        
+          <text transform="matrix(1.1316 0 0 1 42.5698 153.4072)" fill="#444242" font-family="'Moskt'" font-size="27.1284" letter-spacing="-1.767">Santiago Gesualdo</text>
+      </g>
+      <g>
+        <text transform="matrix(1.1316 0 0 1 85.9331 188.541)"><tspan x="0" y="0" fill="#9A999E" font-family="'Moskl'" font-size="13.5642">Programacion</tspan><tspan x="0" y="20.007" fill="#9A999E" font-family="'Moskl'" font-size="13.5642">  Videojuegos</tspan><tspan x="0" y="40.015" fill="#9A999E" font-family="'Moskl'" font-size="13.5642">         Web</tspan></text>
+      </g>
+      <line fill="none" stroke="#444242" stroke-miterlimit="10" x1="72.5" y1="177" x2="72.5" y2="235"/>
+      <line fill="none" stroke="#444242" stroke-miterlimit="10" x1="185.5" y1="177" x2="185.5" y2="235"/>
+      <rect x="40.635" y="289.049" fill="none" width="176.756" height="66.264"/>
+      <text transform="matrix(1.1316 0 0 1 40.6353 296.2227)"><tspan x="0" y="0" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">Logos | Tarjetas personales | Infografías </tspan><tspan x="0" y="16.956" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">Páginas web | Animaciones | Afiches</tspan><tspan x="155.005" y="16.956" fill="#9A999E" font-family="'Moskt'" font-size="10.1732"> </tspan><tspan x="0" y="33.911" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">Edición de videos | Videos institucionales</tspan><tspan x="155.433" y="33.911" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">    </tspan><tspan x="0" y="50.866" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">Flyers | Packaging | Diseño editorial </tspan><tspan x="158.209" y="50.866" fill="#9A999E" font-family="'Moskt'" font-size="10.1732">   </tspan></text>
+      <g>
+        <ellipse id="XMLID_7_" cx="129.013" cy="449.916" rx="21.496" ry="18.995"/>
+        <path fill="#FFFFFF" d="M141.115,445.277c0,0-0.062-1.619-0.823-2.33c-0.97-0.932-1.962-0.797-2.457-0.854
+          c-3.565-0.236-8.815-0.094-8.815-0.094h-0.012c0,0-5.346-0.143-8.909,0.096c-0.497,0.055-1.581-0.012-2.551,0.923
+          c-0.763,0.712-0.653,2.295-0.653,2.295s0.104,1.863,0.104,3.762v0.229v1.55c0,1.901-0.104,3.8-0.104,3.8s0.07,1.616,0.833,2.327
+          c0.97,0.936,2.152,0.906,2.718,1.003c2.037,0.18,8.611,0.236,8.611,0.236s5.326-0.009,8.893-0.245
+          c0.495-0.055,1.57-0.059,2.538-0.995c0.764-0.711,0.633-2.327,0.633-2.327S141,452.755,141,450.854v-1.451v-0.327
+          C141,447.177,141.115,445.277,141.115,445.277z M133.263,449.729l-7.07,3.283L126,447.957v-1.537l3.293,1.492L133.263,449.729z"/>
+      </g>
+      <g>
+        <ellipse id="XMLID_1_" cx="62.131" cy="450.109" rx="21.496" ry="18.996"/>
+        <g>
+          <path fill="#FDFEFE" d="M49.799,442.171l12.424,10.549l12.298-10.542c0.044-0.041,0.102,0.221,0.154,0.189
+            c-0.578-0.4-1.296-0.367-2.087-0.367H51.674c-0.779,0-1.486-0.039-2.061,0.346C49.674,442.383,49.745,442.124,49.799,442.171z"/>
+          <path fill="#FDFEFE" d="M75.418,456.683c0.121,0.051,0.234,0.12,0.33,0.204c0.156-0.346,0.252-0.721,0.252-1.115v-11.322
+            c0-0.182-0.029-0.355-0.064-0.527l-7.554,6.477C71.428,453.219,74.708,456.172,75.418,456.683z"/>
+          <path fill="#FDFEFE" d="M66.657,451.876l-3.592,3.08c-0.233,0.2-0.535,0.3-0.835,0.3c-0.301,0-0.6-0.096-0.834-0.296l-3.692-3.136
+            l-7.557,6.231c0.462,0.206,0.976-0.056,1.527-0.056h20.915c0.548,0,1.058,0.264,1.518,0.059
+            C73.116,457.447,71.219,456.111,66.657,451.876z"/>
+          <path fill="#FDFEFE" d="M48.198,443.871c-0.039,0.188-0.198,0.38-0.198,0.578v11.322c0,0.395,0.225,0.768,0.382,1.111l7.452-6.529
+            L48.198,443.871z"/>
+        </g>
+      </g>
+      <ellipse id="XMLID_76_" cx="197.239" cy="450.403" rx="21.496" ry="18.997"/>
+      <path fill="#FFFFFF" d="M209.363,452.304c0.184-0.733,0.279-1.491,0.279-2.271c0-0.269-0.015-0.533-0.038-0.796
+        c-0.468-5.472-5.708-9.783-12.106-9.783c-0.707,0-1.4,0.053-2.074,0.153c-1.089-0.596-2.37-0.942-3.748-0.942
+        c-3.891,0-7.043,2.747-7.043,6.139c0,1.133,0.353,2.191,0.967,3.104c-0.09,0.383-0.153,0.773-0.194,1.169
+        c-0.032,0.315-0.052,0.634-0.052,0.958c0,5.845,5.438,10.581,12.145,10.581c0.76,0,1.503-0.062,2.225-0.176
+        c0.992,0.464,2.127,0.728,3.329,0.728c3.893,0,7.044-2.747,7.044-6.139C210.096,454.05,209.831,453.126,209.363,452.304z
+         M203.728,455.09c-0.562,0.692-1.392,1.242-2.468,1.631c-1.066,0.387-2.34,0.582-3.794,0.582c-1.745,0-3.207-0.268-4.349-0.795
+        c-0.814-0.385-1.49-0.902-2.001-1.548c-0.515-0.645-0.776-1.29-0.776-1.911c0-0.387,0.171-0.723,0.507-0.997
+        c0.331-0.273,0.759-0.412,1.269-0.412c0.418,0,0.776,0.109,1.07,0.324c0.278,0.207,0.52,0.512,0.712,0.907
+        c0.216,0.431,0.45,0.793,0.697,1.077c0.237,0.275,0.58,0.507,1.017,0.687c0.441,0.18,1.034,0.274,1.764,0.274
+        c1.004,0,1.829-0.188,2.447-0.556c0.605-0.358,0.899-0.791,0.899-1.32c0-0.418-0.151-0.746-0.47-1.003
+        c-0.331-0.271-0.769-0.479-1.297-0.625c-0.551-0.149-1.301-0.313-2.227-0.481c-1.262-0.234-2.333-0.514-3.184-0.828
+        c-0.869-0.323-1.572-0.771-2.086-1.33c-0.167-0.182-0.305-0.383-0.419-0.593c-0.243-0.448-0.369-0.958-0.369-1.528
+        c0-0.799,0.278-1.521,0.827-2.142c0.541-0.616,1.336-1.096,2.355-1.423c1.012-0.325,2.208-0.492,3.566-0.492
+        c1.085,0,2.036,0.111,2.832,0.326c0.802,0.218,1.475,0.512,2.008,0.872c0.533,0.362,0.932,0.751,1.18,1.156
+        c0.252,0.407,0.38,0.813,0.38,1.205c0,0.379-0.168,0.723-0.497,1.023c-0.333,0.3-0.753,0.452-1.248,0.452
+        c-0.45,0-0.802-0.096-1.046-0.281c-0.226-0.178-0.462-0.451-0.726-0.844c-0.303-0.5-0.67-0.895-1.088-1.175
+        c-0.41-0.271-1.092-0.407-2.031-0.407c-0.867,0-1.576,0.152-2.102,0.453c-0.506,0.29-0.754,0.62-0.754,1.014
+        c0,0.241,0.08,0.442,0.243,0.617c0.173,0.184,0.417,0.344,0.724,0.479c0.32,0.14,0.649,0.25,0.979,0.329
+        c0.061,0.015,0.133,0.032,0.209,0.051c0.345,0.077,0.836,0.181,1.473,0.308c0.982,0.185,1.885,0.39,2.683,0.614
+        c0.811,0.226,1.509,0.502,2.077,0.826c0.584,0.33,1.043,0.752,1.371,1.26c0.326,0.508,0.493,1.136,0.493,1.863
+        C204.578,453.6,204.291,454.396,203.728,455.09z"/>
+      </svg>
+    </div>    
+    <div id="paper">
+    <div id="gallerySanti">
+        <a href="http://unitegallery.net">
+        <img alt="1"
+             src="data/santi/contenido3/image.png"
+             data-image="data/santi/contenido3/image.png"
+             data-description="This is a Lemon Slice"
+             style="display:none">
+        </a>
+        <a href="http://unitegallery.net">
+        <img alt="2"
+             src="data/santi/contenido2/image.png"
+             data-image="data/santi/contenido2/image.png"
+             data-description="Those are peppers"
+             style="display:none">
+        </a>
+        <a href="http://unitegallery.net">
+        <img alt="3"
+             src="data/test1.png"
+             data-image="data/santi/contenido1/image.png"
+             data-description="Those are keys"
+             style="display:none">
+        </a>
+        
+        <a id="kk" href="" class="fancycontenido" onclick="console.log('kk');">
+          <img alt="Friuts in cup"
+                       onclick="alert('kk');"
+                       src="data/santi/contenido5/image3.png"
+                       data-image="data/santi/contenido5/image3.png"
+                       data-description="Those are friuts in a cup"             
+                       style="display:none">
+        </a>
+        <a href="http://unitegallery.net">
+        <img alt="Yellow Flowers"
+             src="data/santi/contenido6/image.png"
+             data-image="data/santi/contenido6/image.png"
+             data-description="Those are yellow flowers"
+             style="display:none">
+        </a>
+        <a href="http://unitegallery.net">
+        <img alt="Butterfly"
+             src="data/santi/contenido8/image.png"
+             data-image="data/santi/contenido8/image.png"
+             data-description="This is butterfly"
+             style="display:none">
+        </a>
+        <a href="http://unitegallery.net">
+        <img alt="Butterfly"
+             src="data/santi/contenido8/image.png"
+             data-image="data/santi/contenido8/image.png"
+             data-description="This is butterfly"
+             style="display:none">
+        </a>
+        <a href="http://unitegallery.net">
+        <img alt="Butterfly"
+             src="data/santi/contenido8/image.png"
+             data-image="data/santi/contenido8/image.png"
+             data-description="This is butterfly"
+             style="display:none">
+        </a>
+        <a href="http://unitegallery.net">
+        <img alt="Butterfly"
+             src="data/santi/contenido8/image.png"
+             data-image="data/santi/contenido8/image.png"
+             data-description="This is butterfly"
+             style="display:none">
+        </a>
+        <a href="http://unitegallery.net">
+        <img alt="Butterfly"
+             src="data/santi/contenido8/image.png"
+             data-image="data/santi/contenido8/image.png"
+             data-description="This is butterfly"
+             style="display:none">
+        </a>
+        <a href="http://unitegallery.net">
+        <img alt="Butterfly"
+             src="data/santi/contenido8/image.png"
+             data-image="data/santi/contenido8/image.png"
+             data-description="This is butterfly"
+             style="display:none">
+        </a>    
+        <img alt="Butterfly"
+             src="data/santi/contenido8/image.png"
+             data-image="data/santi/contenido8/image.png"
+             data-description="This is butterfly"
+             style="display:none">
+        </a>  
+        <img alt="Butterfly"
+             src="data/santi/contenido8/image.png"
+             data-image="data/santi/contenido8/image.png"
+             data-description="This is butterfly"
+             style="display:none">
+        </a>                                                      
+    </div>  
+    </div> <!-- fin div paper -->  
+   </div> <!-- fin div container -->
+
+  <script>
+    jQuery.fn.center = function () {
+      this.css("position","absolute");
+      this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
+                                                  $(window).scrollTop()) + "px");
+      this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + 
+                                                  $(window).scrollLeft()) + "px");
+      return this;
+    };
+    $( window ).resize(function() {
+      $('#paper').center();
+      $('#contentiframe').center();
+    });
+  </script> 
+ </body>
+</html>

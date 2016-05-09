@@ -58,7 +58,10 @@
       -o-filter: grayscale(0%);
       -o-transition: .5s ease-in-out;
       filter: grayscale(0%);
+      transform: scale(0.95,0.95);
+      border: 2px solid blue;
     } 
+
 
     .itemgallery {
       -webkit-filter: grayscale(100%);
@@ -68,6 +71,23 @@
       -o-filter: grayscale(100%); 
       -o-transition: .5s ease-in-out;
       filter: grayscale(100%);
+    }
+
+    .rcorners {
+      border-radius: 5px;
+      border: 2px solid grey;
+      padding: 2px; 
+      width: 150px;
+      height: 150px; 
+    }
+
+    .divInfo { 
+       height: 20%; width: 100%; position: relative; 
+    }
+    .imgInfo {
+      border: 3px solid #fff;
+      border-radius: 50%;
+      position: relative; left: 20%;
     }
 
     #paper{
@@ -87,37 +107,18 @@
         border-width: 1px;   
     }
 
-    #textslide_title{
-      position: fixed; 
-      top: 530px; 
-      left: 325px; 
-      width: 500px;
-      height: 200px;
-      font-family: 'Chewy', cursive;
-      font-size: 26px;
-      color: grey;
-      text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 2px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; 
+    .fancycontenido{
+      font-family: "Moskl"
     }
 
-    #textslide_sub{
-      position: fixed; 
-      top: 565px; 
-      left: 325px; 
-      width: 750px;
-      height: 200px;
-      font-family: 'Chewy', cursive;
-      font-size: 18px;
-      color: green;
-      text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 2px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
-    }
 
   .contenidoText p {
-    font: normal 14px Chewy;
+    font: normal 14px Mosk;
     line-height:80%; 
   }
 
   .contenidoText h2 {
-    font: normal 25px Chewy;
+    font: normal 25px Mosk;
     line-height:30%; 
   }
 
