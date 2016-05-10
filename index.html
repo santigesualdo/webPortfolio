@@ -25,6 +25,8 @@
 	<script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js"></script>
 	<link   type="text/css" href="fancybox/source/jquery.fancybox.css" media="screen" rel="stylesheet">
 
+	<link href="css/style.css" type="text/css" rel="stylesheet" />    
+
     <!-- Add mousewheel plugin (this is optional) -->
 	<script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 
@@ -42,7 +44,9 @@
   <link rel="stylesheet" href="css/styleDepre.css"/>
     <script>
               $(document).ready(function(){
+                
                 $('.fancybox').fancybox({
+                  padding : 10 ,
                   'openEffect': 'fade',
                   'closeEffect': 'fade',
                   'mouseWheel': false,
@@ -52,28 +56,18 @@
                   helpers : {
 				        overlay : {
 				            css : {
-				                'background' : 'rgba(255, 255, 255, 0.2)'
+				                'background' : 'rgba(65, 179, 130, 0.2)'
 				  			}
 				      	}
 				  }
               });
               
-              $('.fancycontenido').fancybox({
-                  'hideOnContentClick'    : true, 
-                  'autoDimensions': true,
-				  'scrolling': 'yes',
-                  'type': 'iframe', 
-              });              
-
-
-              $('.fancycontenido').fancybox({
-                  'hideOnContentClick'    : true, 
-                  'autoDimensions': true,
-				  'scrolling': 'yes',
-                  'type': 'iframe', 
+	          $('#c1').click(function(){
+		          $.fancybox({
+	                 type: 'iframe',
+	                 autoSize: true,		          	
+		          });
               });
-
-              $('#santigame6').attr('href','player.html?game="data":"data/santi/contenido6/game.swf","titulo":"Pacman-Reversion","width":"640","height": "640","tipo": "swf","help": [{"text":"Mueve a Pac-Man con las flechas de direccion."},{ "text":"Con la comida, acumularas disparos para matar fantasmas."}, { "text":"Con la comida, acumularas disparos para matar fantasmas. Presiona la tecla I para realizar el disparo enloquecedor."},{ "text":"El nivel finaliza cuando se recolecta toda la comida y todo los fantasmas estan enloquecidos."}]');        
 
               $(".fancypdf").click(function(){
                $.fancybox({
@@ -102,14 +96,6 @@
                       buttons : {}
                   }
               });
-              /*$('.fancycontenido').fancybox({
-                  maxWidth    : 800,
-                  maxHeight   : 600,
-                  fitToView   : false,
-                  width       : '40%',
-                  height      : '70%',
-                  autoSize    : false
-              });*/
 
               setTimeout(function(){
                   $("#depreload .wrapper").animate({ opacity: 1 });
@@ -149,20 +135,6 @@
                       $("#depreload .loading").animate({ opacity: 0 });
                       $("#depreload").fadeOut();
                       main.init();
-                      /*$("#gallerySanti").unitegallery({
-                          tile_enable_image_effect:true,
-                          tile_enable_overlay:false,
-                          tile_enable_icons:false,
-                          tile_as_link: true,
-                          tile_link_newpage: false,
-                          gallery_width:"100%",       //gallery width
-                          theme_navigation_align: "center",
-                          theme_navigation_type: "arrows",
-                          grid_num_rows:2,
-                      });                        
-                      $("#gallerySanti").css("opacity","0");
-                      $("#gallerySanti").css("left","25px");*/
-
                   }
               });          
         });          
@@ -195,50 +167,83 @@
         </div>
    </div>
 
-   <div id="c1" class="fancycontenido" style="display:none;">
-      <div id="conten1" class="contenidoText" style="width:100%;height:50%;" >
-        <h1> Ficha de Juego: <h1>
-        <h2> TP Birds </h2>
+   <div id="c1" style="display:none;">
+      <div id="conten1" class="contenidoText" style="width:100%;height:100%;" >
+        <h2> Ficha de Juego:<h1> TP Birds </h1><h2>      
         <p>   . Trabajo practico para 'Programacion de Videojuegos 3' (HaxeFlixel - Flash)</p>
+        <p>   . Año: 2014.
         <p>   . Mini Juego 2D.
         <p>. <u>Controles:</u> </p>
 		<p>.. Click & Arrastrar pajaros.</p>
         <p>. <u>Objetivo:</u> </p>
 		<p>.. Esquivar disparos.</p>
         <p>
-        	<a target="_blank" href='player.html?game="data":"data/santi/contenido1/game.swf","titulo":"Birds","width":"640","height":"480","tipo": "swf","help": [{"text":"Mantiene el click izquierdo sobre el pajaro que quieras mover y desplaza el mouse."},{"text": "Deberás esquivar los disparos que vienen volando y llegar con la mayor cantidad de pajaros al final."},{"text": "Si queda solo un pajaro vivo, se activa el modo FRENZY. Cuidado!"}]'>
-        		<center>
-        		Jugar
-        		</center>
-        	</a>
-        </p>
-        <p><img src="data/santi/contenido1/image.png" alt="TP Birds"/></p>  
+        	<a target="_blank" href='player.html?game="data":"data/santi/contenido1/game.swf","titulo":"Birds","width":"640","height":"480","tipo": "swf","help": [{"text":"Mantiene el click izquierdo sobre el pajaro que quieras mover y desplaza el mouse."},{"text": "Deberás esquivar los disparos que vienen volando y llegar con la mayor cantidad de pajaros al final."},{"text": "Si queda solo un pajaro vivo, se activa el modo FRENZY. Cuidado!"}]'><center><h2>Jugar</h2></center></a></p>
+        	<p><img src="data/santi/contenido1/image.png" alt="TP Birds"/></p>  
       </div>
    </div>
 
-   <div id="c2" class="fancycontenido" style="display:none;">
+   <div id="c2" style="display:none;">
       <div id="conten2" class="contenidoText" style="width:100%;height:50%;" >
         <h1> Ficha de Juego: <h1>
         <h2> TP Frenetic </h2>
-        <p>   . Trabajo practico para 'Prototipado Rapido' ( Action Script 3 - FlashPunk- Flash)</p>
-        <p>   . Mini Juego 2D.
+        <p>   . Trabajo practico para 'Prototipado Rapido' (Action Script 3 - FlashPunk)</p>
+        <p>   . Año: 2015.</p>
+        <p>   . Mini Juego 2D. </p>
         <p>. <u>Controles:</u> </p>
 		<p>.. Flechas de direccion para mover personaje (color verde). </p>
 		<p>.. Tecla T: Intercambiar posicion con tu enemigo. </p>
         <p>. <u>Objetivo:</u> </p>
 		<p>.. Juntar mas comida que tu adversario (color rosa).</p>
-        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido2/game.swf","titulo":"Frenetic","width":"400","height": "600","tipo": "swf","help": [{"text":"Mueve el personaje con las flechas de direccion."},{ "text":"Consigue la comida antes que tu oponente."},{ "text":"Presiona T para intercambiar la posicion con el enemigo."}]'><h1><center>Jugar</center></h1></a></p>
-        <p>
-            <img src="data/santi/contenido2/image.png" alt="TP Frenetic"/>
-        </p>  
+        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido2/game.swf","titulo":"Frenetic","width":"400","height": "600","tipo": "swf","help": [{"text":"Mueve el personaje con las flechas de direccion."},{ "text":"Consigue la comida antes que tu oponente."},{ "text":"Presiona T para intercambiar la posicion con el enemigo."}]'><center><h2>Jugar</h2></center></a></p>
+        <p><img src="data/santi/contenido2/image.png" alt="TP Frenetic"/></p>  
       </div>
    </div>
 
-   <div id="c5" class="fancycontenido" style="display:none;">
+   <div id="c3"  style="display:none;">
+      <div id="conten3" class="contenidoText" style="width:100%;height:50%;" >
+        <h1> Ficha de Juego: <h1>
+        <h2> Gollem Job </h2>
+        <p>   . Trabajo practico final para 'Programacion de Videojuegos 3' (Haxeflixel - Flash)</p>
+        <p>   . Año: 2015.
+        <p>   . Desarrolado en conjunto con Maximiliamo Adamo y Josefina Gimenez (Graficos y Menues).        <p> 
+        <p>   . Musica compuesta por Gabriel Barukel.        <p> 
+        <p>. <u>Controles:</u></p>
+		<p>.. Flechas de direccion para mover personaje (color verde). </p>
+		<p>.. Flecha hacia abajo (cuando el personaje se para encima de un punto de vida) para curar punto de vida. </p>
+        <p>. <u>Objetivo:</u> </p>
+		<p>.. Proteger los puntos de vida del terreno.</p>
+		<p>	  . Colocarte entre los enemigos y el punto de vida para ser un escudo.</p>
+		<p>	  . Sobrevivir el tiempo necesario.</p>
+        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido3/game.swf","titulo":"GollemJob","width":"640","height": "640","tipo": "swf","help": [{"text":"Ubicar las trampas: con el click izquierdo selecciona el obstaculo a posicionar y colocalo para protegerte. Al finalizar presiona ENTER."},{ "text":"El personaje se mueve con las flechas de direccion, deberas proteger los puntos de vida. (estilo Arkanoid)"},{ "text":"Puedes curar un punto de vida dañado presionando la flecha hacia ABAJO, cuando el PJ esta encima del mismo."},{ "text":"Tu objetivo es proteger a tu tierra durante el ataque!!."}]'><center><h2>Jugar</h2></center></a></p>
+        <p><center><img src="data/santi/contenido3/image.png" alt="Gollem Job"/></center></p>  
+      </div>
+   </div>
+
+   <div id="c4" style="display:none;">
+      <div id="conten4" class="contenidoText" style="width:100%;height:50%;" >
+        <h1> Ficha de Juego: <h1>
+        <h2> GravityGuy </h2>
+        <p>   . Trabajo practico para 'Prototipado Rapido' (Action Script 3 - FlashPunk)</p>
+        <p>   . Año: 2013. </p>
+        <p>   . Mini Juego 2D </p>
+        <p>. <u>Controles:</u></p>
+        <p>.. Click del mouse para posicionar personaje. </p>
+		<p>.. Flechas de direccion para mover personaje (color verde). </p>
+		<p>.. Espacio (SPACE) para cambiar la gravedad. </p>
+        <p>. <u>Objetivo:</u> </p>
+		<p>.. Usar la gravedad para esquivar asteroides.</p>
+        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido4/game.swf","titulo":"GravityGuy","width":"640","height": "480","tipo": "swf","help": [{"text":"Posiciona al astronauta con click izquierdo."},{ "text":"La barra espaciadora cambia el sentido de la gravedad, usalo para esquivar asteroides!!"},{ "text":"Puedes moverte horizontalmente con las flechas de direccion."}]'><h2><center>Jugar</center></h2></a></p>
+        <p><center><img src="data/santi/contenido4/image.png" alt="TP GravityGuy"/></center></p>  
+      </div>
+   </div>
+
+   <div id="c5" style="display:none;">
       <div id="conten5"class="contenidoText" style="width:100%;height:50%;" >
         <h1> Ficha de Juego: <h1>
         <h2> Wolverine Weapon X </h2>
         <p>   . Trabajo practico final para 'Programacion de Videojuegos 2' (C++ con Libreria SFML)</p>
+        <p>   . Año: 2013.</p>
         <p>   . Juego de plataformas 2D, con diferentes enemigos y mecanicas, factor curación e items.  </p>
         <p>. 3 Niveles con dificultad ascendente.</p>
         <p>. <u>Controles:</u> </p>
@@ -247,12 +252,32 @@
         <p>. <u>Instalacion:</u> </p>
         <p>.. Extraer archivo rar en la ubicacion que se prefiera. </p>
         <p>.. Ejecutar 'Wolverine_Weapon_X.exe'. </p>
-        <p><a href="WolverineWeaponX.rar">(DESCARGAR DEMO)</a></p>
         <p>
+        	<a href="data/santi/contenido5/WolverineWeaponX.rar"><h2><center>(DESCARGAR DEMO)</center></h2></a>
             <center><img src="data/santi/contenido5/image1.png" alt="Wolverine Weapon X"/></center>
         </p>  
       </div>
    </div>
+
+   <div id="c6" style="display:none;">
+      <div id="conten6" class="contenidoText" style="width:100%;height:50%;" >
+        <h1> Ficha de Juego: <h1>
+        <h2> Pacman Reversion </h2>
+        <p>   . Trabajo practico final para 'Prototipado Rapido' (Action Script 3 - FlashPunk - Flash)</p>
+        <p>   . Año: 2015.</p>
+        <p>   . Reversion del clasico juego Pacman.</p>
+        <p>   . Musica compuesta por Gabriel Barukel. <p> 
+        <p>. <u>Controles:</u></p>
+		<p>.. Flechas de direccion para mover personaje.</p>
+		<p>.. Tecla I para disparo enloquecedor. </p>
+        <p>. <u>Objetivo:</u> </p>
+		<p>.. Proteger los puntos de vida del terreno.</p>
+		<p>	  . Recolectar todas las comidas. </p>
+		<p>	  . Enloquecer a todos los fantasmas.</p>
+        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido6/game.swf","titulo":"Pacman-Reversion","width":"640","height": "640","tipo": "swf","help": [{"text":"Mueve a Pac-Man con las flechas de direccion."},{ "text":"Con la comida, acumularas disparos para matar fantasmas."}, { "text":"Con la comida, acumularas disparos para matar fantasmas. Presiona la tecla I para realizar el disparo enloquecedor."},{ "text":"El nivel finaliza cuando se recolecta toda la comida y todo los fantasmas estan enloquecidos."}]'><center><h2>Jugar</h2></center></a></p>
+        <p><center><img src="data/santi/contenido6/image.png" alt="Pacman Reversion"/></center></p>  
+      </div>
+   </div>  
 
    <a id="santigame7" class="fancyyoutube" style="display:none;" href="https://www.youtube.com/embed/lRLVLb7zPZg?autoplay=1"></a>
    <a id="santigame8" class="fancypdf" style="display:none;" href="data/santi/cv.pdf"></a>
@@ -402,9 +427,9 @@
 	        </svg>
 	    </div>
 	    <div id="recuadroInfoSanti" style="display:none; opacity:0;" class="recuadro">
-	      <div class ="divInfo">
+	      <!--div class ="divInfo">
 	      	<img class = "imgInfo itemgallery" src="data/santi/imgInfo.png">
-	      </div>
+	      </div-->
 	      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	         width="595.28px" height="841.89px" viewBox="0 0 595.28 841.89" enable-background="new 0 0 595.28 841.89" xml:space="preserve">
 	      <!--path stroke="#F7F7F8" stroke-width="2" stroke-miterlimit="10" d="M258,495.931c0,2.247-2.063,4.069-4.605,4.069H4.605
@@ -479,13 +504,21 @@
 		<div id="paper"></div>
 	    <div id="gallerySanti" style="display:none; opacity:0; width:50%; height:100%;">
 			<p >
-				<a class="fancybox " href="#c1" data-fancybox-group="gallery" title="1"><img class="itemgallery rcorners itemwithplay" src="data/santi/contenido1/image150x150.png" alt=""></a>
-				<a class="fancybox " href="#c2" data-fancybox-group="gallery" title="2"><img class="itemgallery rcorners" src="data/santi/contenido2/image150x150.jpg" alt=""></a>
-				<a class="fancybox " href="data/santi/contenido3/image.png" data-fancybox-group="gallery" title="3"><img class="itemgallery rcorners" src="data/santi/contenido3/image150x150.png" alt=""></a>
-				<a class="fancybox " href="data/santi/contenido4/image.png" data-fancybox-group="gallery" title="4"><img class= "itemgallery rcorners" src="data/santi/contenido4/image150x150.png" alt=""></a>
-				<a class="fancybox " href="#c5" data-fancybox-group="gallery" title="5"><img class= "itemgallery rcorners" src="data/santi/contenido5/image150x150.png" alt=""></a>
-				<a class="fancybox " href="data/santi/contenido6/image.png" data-fancybox-group="gallery" title="6"><img class= "itemgallery rcorners" src="data/santi/contenido6/image150x150.png" alt=""></a>
-				<a class="fancybox " href="data/santi/contenido7/image.png" data-fancybox-group="gallery" title="7"><img class= "itemgallery rcorners" src="data/santi/contenido7/image150x150.png" alt=""></a>		
+				
+				<a class="fancybox" href="#c1" data-fancybox-group="gallery" title="1"><img class="itemgallery rcorners itemwithplay" src="data/santi/contenido1/image150x150.png" alt=""></a>
+
+				<a class="fancybox" href="#c2" data-fancybox-group="gallery" title="2"><img class="itemgallery rcorners" src="data/santi/contenido2/image150x150.jpg" alt=""></a>
+ 
+				<a class="fancybox" href="#c3" data-fancybox-group="gallery" title="3"><img class="itemgallery rcorners" src="data/santi/contenido3/image150x150.png" alt=""></a>
+
+				<a class="fancybox" href="#c4" data-fancybox-group="gallery" title="4"><img class= "itemgallery rcorners" src="data/santi/contenido4/image150x150.png" alt=""></a>
+
+				<a class="fancybox" href="#c5" data-fancybox-group="gallery" title="5"><img class= "itemgallery rcorners" src="data/santi/contenido5/image150x150.png" alt=""></a>
+
+				<a class="fancybox" href="#c6" data-fancybox-group="gallery" title="6"><img class= "itemgallery rcorners" src="data/santi/contenido6/image150x150.png" alt=""></a>
+
+				<a class="fancybox" href="data/santi/contenido7/image.png" data-fancybox-group="gallery" title="7"><img class= "itemgallery rcorners" src="data/santi/contenido7/image150x150.png" alt=""></a>		
+
 			</p>
 		</div> <!-- fin div container gallery -->
     </div> <!-- fin container-->  

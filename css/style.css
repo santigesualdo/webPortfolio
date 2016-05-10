@@ -58,7 +58,7 @@
       -o-filter: grayscale(0%);
       -o-transition: .5s ease-in-out;
       filter: grayscale(0%);
-      transform: scale(0.95,0.95);
+      transform: scale(0.98,0.98);
       border: 2px solid #41b382;
     } 
 
@@ -111,87 +111,98 @@
       font-family: "Moskl"
     }
 
-
-  .contenidoText p {
-    font: normal 14px Mosk;
-    line-height:80%; 
-  }
-
-  .contenidoText h2 {
-    font: normal 25px Mosk;
-    line-height:30%; 
-  }
-
-  #popup, .bMulti {
-    background-color: #FFF;
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 0 0 10px 10px #fbaf47;
-    color: #111;
-    display: none;
-    min-width: 650px;
-    min-height: 480;
-    padding: 25px;
-    offset-y: auto;
-  }
-
-  #popup, .logo {
-    color: #2B91AF;
-    font: bold 325% 'Petrona',sans;
-  }
-
-  .button.b-close, .button.bClose {
-    border-radius: 7px 7px 7px 7px;
-    box-shadow: none;
-    font: bold 131% sans-serif;
-    padding: 0 6px 2px;
-    position: absolute;
-    right: -7px;
-    top: -7px;
-  }
-    .recuadroIcono{
-      fill:white;
+    .fancybox-next {
+        right: -60px;
     }
 
-    .recuadroIcono:hover {
-      fill: red;
+    .fancybox-prev {
+        left: -60px;
+    }
+    .contenidoText p {
+      font: normal 14px Mosk;
+      line-height:80%; 
     }
 
-   .recuadroNombre{
-    font-family: "Moskl";
-   } 
+    .contenidoText h2 {
+      font: normal 25px Mosk;
+      line-height:30%; 
+    }
+
+    .contenidoText h1 {
+      font: normal 30px Mosk;
+      line-height:30%; 
+    }
+
+    #popup, .bMulti {
+      background-color: #FFF;
+      border-radius: 3px 3px 3px 3px;
+      box-shadow: 0 0 10px 10px #fbaf47;
+      color: #111;
+      display: none;
+      min-width: 650px;
+      min-height: 480;
+      padding: 25px;
+      offset-y: auto;
+    }
+
+    #popup, .logo {
+      color: #2B91AF;
+      font: bold 325% 'Petrona',sans;
+    }
+
+    .button.b-close, .button.bClose {
+      border-radius: 7px 7px 7px 7px;
+      box-shadow: none;
+      font: bold 131% sans-serif;
+      padding: 0 6px 2px;
+      position: absolute;
+      right: -7px;
+      top: -7px;
+    }
+      .recuadroIcono{
+        fill:white;
+      }
+
+      .recuadroIcono:hover {
+        fill: red;
+      }
+
+     .recuadroNombre{
+      font-family: "Moskl";
+     } 
 
 
-  .button {
-    background-color: #2B91AF;
-    border-radius: 10px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
-    color: #FFF;
-    cursor: pointer;
-    display: inline-block;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
+    .button {
+      background-color: #2B91AF;
+      border-radius: 10px;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+      color: #FFF;
+      cursor: pointer;
+      display: inline-block;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+    }
+    
+    .recuadro{
+
+      position: absolute;
+      width: 258px;
+      height: 500px;
+      padding: -50px; 
+      top: 140px;
+      left: 25px;
+    }
+
+    .contentCenter {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    #gallerySanti {
+      opacity: 1;
+      border-radius: 5px;
+      border-color: red;
+      display: inline-block;
+      margin-top: 20px;
   }
-  
-  .recuadro{
-
-    position: absolute;
-    width: 258px;
-    height: 500px;
-    padding: -50px; 
-    top: 140px;
-    left: 25px;
-  }
-
-  .contentCenter {
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  #gallerySanti {
-    opacity: 1;
-    border-radius: 5px;
-    border-color: red;
-    display: inline-block;
-    margin-top: 20px;
-}
