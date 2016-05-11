@@ -44,22 +44,11 @@
   <link rel="stylesheet" href="css/styleDepre.css"/>
     <script>
               $(document).ready(function(){
-                
-                $('.fancybox').fancybox({
-                  padding : 10 ,
-                  'openEffect': 'fade',
-                  'closeEffect': 'fade',
-                  'mouseWheel': false,
-                  overlay : {
-                      speedOut   : 500,   // duration of fadeOut animation
-                  },
-                  helpers : {
-				        overlay : {
-				            css : {
-				                'background' : 'rgba(65, 179, 130, 0.2)'
-				  			}
-				      	}
-				  }
+
+              $('#cjflyers').click(function(){
+              	$.fancybox({
+              		'fitToView': true
+              	});
               });
               
 	          $('#c1').click(function(){
@@ -96,6 +85,24 @@
                       buttons : {}
                   }
               });
+
+                
+              $('.fancybox').fancybox({
+                  padding : 10 ,
+                  'openEffect': 'fade',
+                  'closeEffect': 'fade',
+                  'mouseWheel': false,
+                  overlay : {
+                      speedOut   : 500,   // duration of fadeOut animation
+                  },
+                  helpers : {
+				        overlay : {
+				            css : {
+				                'background' : 'rgba(65, 179, 130, 0.2)'
+				  			}
+				      	}
+				  }
+              });              
 
               setTimeout(function(){
                   $("#depreload .wrapper").animate({ opacity: 1 });
@@ -146,15 +153,35 @@
       <img src="data/icon_santi.png">
       <img src="data/icon_gabo.png">
       <img src="data/icon_jose.png">
-      <img src="data/santi/contenido1/image.png">
+      <img src="data/santi/contenido1/image.png">  
       <img src="data/santi/contenido2/image.png">
       <img src="data/santi/contenido3/image.png">
       <img src="data/santi/contenido4/image.png">
       <img src="data/santi/contenido5/image1.png">
-      <img src="data/santi/contenido5/image2.png">
-      <img src="data/santi/contenido5/image3.png">
       <img src="data/santi/contenido6/image.png">
       <img src="data/santi/contenido7/image.png">
+
+      <img src="data/santi/contenido1/image150x150.png">
+      <img src="data/santi/contenido2/image150x150.jpg">
+      <img src="data/santi/contenido3/image150x150.png">
+      <img src="data/santi/contenido4/image150x150.png">
+      <img src="data/santi/contenido5/image150x150.png">
+      <img src="data/santi/contenido6/image150x150.png">
+      <img src="data/santi/contenido7/image150x150.png">
+
+      <img src="data/santi/imgInfo.png">
+
+      <font src="css/fonts/Mosk.ttf"/>
+      <font src="css/fonts/Moskb.ttf"/>
+      <font src="css/fonts/Moskeb.ttf"/>
+      <font src="css/fonts/Moskel.ttf"/>
+      <font src="css/fonts/Moskl.ttf"/>
+      <font src="css/fonts/Moskm.ttf"/>
+      <font src="css/fonts/Mosksb.ttf"/>
+      <font src="css/fonts/Mosksb.ttf"/>
+      <font src="css/fonts/Moskt.ttf"/>
+      <font src="css/fonts/Moskub.ttf"/>
+
    </div>
    <div id="depreload" class="table">
         <div class="table-cell wrapper">
@@ -178,7 +205,7 @@
         <p>. <u>Objetivo:</u> </p>
 		<p>.. Esquivar disparos.</p>
         <p>
-        	<a target="_blank" href='player.html?game="data":"data/santi/contenido1/game.swf","titulo":"Birds","width":"640","height":"480","tipo": "swf","help": [{"text":"Mantiene el click izquierdo sobre el pajaro que quieras mover y desplaza el mouse."},{"text": "Deberás esquivar los disparos que vienen volando y llegar con la mayor cantidad de pajaros al final."},{"text": "Si queda solo un pajaro vivo, se activa el modo FRENZY. Cuidado!"}]'><center><h2>Jugar</h2></center></a></p>
+        	<a target="_blank" href='player.html?game="data":"data/santi/contenido1/game.swf","titulo":"Birds","width":"640","height":"480","tipo": "swf","help": [{"text":"Mantiene el click izquierdo sobre el pajaro que quieras mover y desplaza el mouse."},{"text": "Deberás esquivar los disparos que vienen volando y llegar con la mayor cantidad de pajaros al final."},{"text": "Si queda solo un pajaro vivo, se activa el modo FRENZY. Cuidado!"}]'><center><h2 class="link">Jugar</h2></center></a></p>
         	<p><img src="data/santi/contenido1/image.png" alt="TP Birds"/></p>  
       </div>
    </div>
@@ -195,8 +222,8 @@
 		<p>.. Tecla T: Intercambiar posicion con tu enemigo. </p>
         <p>. <u>Objetivo:</u> </p>
 		<p>.. Juntar mas comida que tu adversario (color rosa).</p>
-        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido2/game.swf","titulo":"Frenetic","width":"400","height": "600","tipo": "swf","help": [{"text":"Mueve el personaje con las flechas de direccion."},{ "text":"Consigue la comida antes que tu oponente."},{ "text":"Presiona T para intercambiar la posicion con el enemigo."}]'><center><h2>Jugar</h2></center></a></p>
-        <p><img src="data/santi/contenido2/image.png" alt="TP Frenetic"/></p>  
+        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido2/game.swf","titulo":"Frenetic","width":"400","height": "600","tipo": "swf","help": [{"text":"Mueve el personaje con las flechas de direccion."},{ "text":"Consigue la comida antes que tu oponente."},{ "text":"Presiona T para intercambiar la posicion con el enemigo."}]'><center><h2 class="link">Jugar</h2></center></a></p>
+        <p><center><img src="data/santi/contenido2/image.png" alt="TP Frenetic"/></center></p>  
       </div>
    </div>
 
@@ -215,7 +242,7 @@
 		<p>.. Proteger los puntos de vida del terreno.</p>
 		<p>	  . Colocarte entre los enemigos y el punto de vida para ser un escudo.</p>
 		<p>	  . Sobrevivir el tiempo necesario.</p>
-        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido3/game.swf","titulo":"GollemJob","width":"640","height": "640","tipo": "swf","help": [{"text":"Ubicar las trampas: con el click izquierdo selecciona el obstaculo a posicionar y colocalo para protegerte. Al finalizar presiona ENTER."},{ "text":"El personaje se mueve con las flechas de direccion, deberas proteger los puntos de vida. (estilo Arkanoid)"},{ "text":"Puedes curar un punto de vida dañado presionando la flecha hacia ABAJO, cuando el PJ esta encima del mismo."},{ "text":"Tu objetivo es proteger a tu tierra durante el ataque!!."}]'><center><h2>Jugar</h2></center></a></p>
+        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido3/game.swf","titulo":"GollemJob","width":"640","height": "640","tipo": "swf","help": [{"text":"Ubicar las trampas: con el click izquierdo selecciona el obstaculo a posicionar y colocalo para protegerte. Al finalizar presiona ENTER."},{ "text":"El personaje se mueve con las flechas de direccion, deberas proteger los puntos de vida. (estilo Arkanoid)"},{ "text":"Puedes curar un punto de vida dañado presionando la flecha hacia ABAJO, cuando el PJ esta encima del mismo."},{ "text":"Tu objetivo es proteger a tu tierra durante el ataque!!."}]'><center><h2 class="link">Jugar</h2></center></a></p>
         <p><center><img src="data/santi/contenido3/image.png" alt="Gollem Job"/></center></p>  
       </div>
    </div>
@@ -233,7 +260,7 @@
 		<p>.. Espacio (SPACE) para cambiar la gravedad. </p>
         <p>. <u>Objetivo:</u> </p>
 		<p>.. Usar la gravedad para esquivar asteroides.</p>
-        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido4/game.swf","titulo":"GravityGuy","width":"640","height": "480","tipo": "swf","help": [{"text":"Posiciona al astronauta con click izquierdo."},{ "text":"La barra espaciadora cambia el sentido de la gravedad, usalo para esquivar asteroides!!"},{ "text":"Puedes moverte horizontalmente con las flechas de direccion."}]'><h2><center>Jugar</center></h2></a></p>
+        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido4/game.swf","titulo":"GravityGuy","width":"640","height": "480","tipo": "swf","help": [{"text":"Posiciona al astronauta con click izquierdo."},{ "text":"La barra espaciadora cambia el sentido de la gravedad, usalo para esquivar asteroides!!"},{ "text":"Puedes moverte horizontalmente con las flechas de direccion."}]'><h2 class="link"><center>Jugar</center></h2></a></p>
         <p><center><img src="data/santi/contenido4/image.png" alt="TP GravityGuy"/></center></p>  
       </div>
    </div>
@@ -253,7 +280,7 @@
         <p>.. Extraer archivo rar en la ubicacion que se prefiera. </p>
         <p>.. Ejecutar 'Wolverine_Weapon_X.exe'. </p>
         <p>
-        	<a href="data/santi/contenido5/WolverineWeaponX.rar"><h2><center>(DESCARGAR DEMO)</center></h2></a>
+        	<a href="data/santi/contenido5/WolverineWeaponX.rar"><h2 class="link"><center>(DESCARGAR DEMO)</center></h2></a>
             <center><img src="data/santi/contenido5/image1.png" alt="Wolverine Weapon X"/></center>
         </p>  
       </div>
@@ -274,10 +301,22 @@
 		<p>.. Proteger los puntos de vida del terreno.</p>
 		<p>	  . Recolectar todas las comidas. </p>
 		<p>	  . Enloquecer a todos los fantasmas.</p>
-        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido6/game.swf","titulo":"Pacman-Reversion","width":"640","height": "640","tipo": "swf","help": [{"text":"Mueve a Pac-Man con las flechas de direccion."},{ "text":"Con la comida, acumularas disparos para matar fantasmas."}, { "text":"Con la comida, acumularas disparos para matar fantasmas. Presiona la tecla I para realizar el disparo enloquecedor."},{ "text":"El nivel finaliza cuando se recolecta toda la comida y todo los fantasmas estan enloquecidos."}]'><center><h2>Jugar</h2></center></a></p>
+        <p><a target="_blank" href='player.html?game="data":"data/santi/contenido6/game.swf","titulo":"Pacman-Reversion","width":"640","height": "640","tipo": "swf","help": [{"text":"Mueve a Pac-Man con las flechas de direccion."},{ "text":"Con la comida, acumularas disparos para matar fantasmas."}, { "text":"Con la comida, acumularas disparos para matar fantasmas. Presiona la tecla I para realizar el disparo enloquecedor."},{ "text":"El nivel finaliza cuando se recolecta toda la comida y todo los fantasmas estan enloquecidos."}]'><center class="link"><h2>Jugar</h2></center></a></p>
         <p><center><img src="data/santi/contenido6/image.png" alt="Pacman Reversion"/></center></p>  
       </div>
    </div>  
+
+   <!--div id="cjflyers" rel="galleryFlyers" style="display:none"/>
+	<img class="fancybox" rel="galleryFlyers"  style="display:none" src="data/jose/contenido3/c1.jpg" alt="aa">
+	<img class="fancybox" rel="galleryFlyers"  style="display:none" src="data/jose/contenido3/c2.jpg" alt="bb">
+	<img class="fancybox" rel="galleryFlyers"  style="display:none" src="data/jose/contenido3/c3.jpg" alt="cc">
+	<img class="fancybox" rel="galleryFlyers"  style="display:none" src="data/jose/contenido3/c4.jpg" alt="dd">
+	<img class="fancybox" rel="galleryFlyers"  style="display:none" src="data/jose/contenido3/c5.jpg" alt="ee">
+	<img class="fancybox" rel="galleryFlyers"  style="display:none" src="data/jose/contenido3/c6.jpg" alt="ff">
+	<img class="fancybox" rel="galleryFlyers"  style="display:none" src="data/jose/contenido3/c7.jpg" alt="gg">
+	<img class="fancybox" rel="galleryFlyers"  style="display:none" src="data/jose/contenido3/c8.jpg" alt="hh">
+	<img class="fancybox" rel="galleryFlyers"  style="display:none" src="data/jose/contenido3/c9.jpg" alt="ii">
+	<img class="fancybox" rel="galleryFlyers"  style="display:none" src="data/jose/contenido3/c10.jpg" alt="jj"-->			
 
    <a id="santigame7" class="fancyyoutube" style="display:none;" href="https://www.youtube.com/embed/lRLVLb7zPZg?autoplay=1"></a>
    <a id="santigame8" class="fancypdf" style="display:none;" href="data/santi/cv.pdf"></a>
@@ -519,6 +558,21 @@
 
 				<a class="fancybox" href="data/santi/contenido7/image.png" data-fancybox-group="gallery" title="7"><img class= "itemgallery rcorners" src="data/santi/contenido7/image150x150.png" alt=""></a>		
 
+			</p>
+		</div> <!-- fin div container gallery -->
+		<div id="galleryJose" style="display:none; opacity:0; width:50%; height:100%;">
+			<p >
+				<a class="fancybox" data-fancybox-group="galleryTarjetas" href="#cj1" title="1">
+				<img class="itemgallery rcorners " src="data/jose/contenido1/image150x150.png" alt="">
+				</a>
+				
+				<a class="fancybox" data-fancybox-group="galleryLibros" href="#cj2" title="2">
+				<img class="itemgallery rcorners" src="data/jose/contenido2/image150x150.png" alt="">
+				</a>
+				
+				<a class="fancybox" data-fancybox-group="galleryFlyers" href="#cj3" title="2">
+				<img class="itemgallery rcorners" src="data/jose/contenido3/image150x150.png" alt="00">	
+				</a>
 			</p>
 		</div> <!-- fin div container gallery -->
     </div> <!-- fin container-->  

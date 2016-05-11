@@ -1,11 +1,6 @@
     @import url(https://fonts.googleapis.com/css?family=Amatic+SC:700,400|BenchNine:400,300,700|Shadows+Into+Light+Two|Patrick+Hand|Teko:400,700,600|Alegreya+SC:900italic|Kelly+Slab|Just+Me+Again+Down+Here|Bowlby+One+SC|Oregano|Jolly+Lodger|Concert+One);
 
     @font-face {
-      font-family: 'Chewy', cursive;
-      src: url("http://fonts.googleapis.com/css?family=Chewy") format("truetype");
-    }
-
-    @font-face {
       font-family: "Mosk";
       src: url(fonts/Mosk.ttf) format("truetype");
     }
@@ -199,10 +194,15 @@
       margin: 0 auto;
     }
 
-    #gallerySanti {
+    #galleryJose {
       opacity: 1;
-      border-radius: 5px;
-      border-color: red;
       display: inline-block;
       margin-top: 20px;
-  }
+    }  
+
+
+    #gallerySanti {
+      opacity: 1;
+      display: inline-block;
+      margin-top: 20px;
+    }  
