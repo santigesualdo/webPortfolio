@@ -196,13 +196,21 @@
 
     #galleryJose {
       opacity: 1;
-      display: inline-block;
       margin-top: 20px;
     }  
 
 
     #gallerySanti {
       opacity: 1;
-      display: inline-block;
       margin-top: 20px;
     }  
+
+    #galleryGabo {
+      opacity: 1;
+      margin-top: 20px;
+    }  
+
+
+    #fancybox-overlay[style] {
+    background-color: white !important;
+    }

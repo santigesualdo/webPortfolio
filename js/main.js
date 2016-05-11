@@ -682,7 +682,11 @@ var main=(function(){
 
 		$('#gallerySanti').css("opacity","0");		
 		$('#galleryJose').css("opacity","0");		
-		//$('#galleryGabo').css("opacity","0");		
+		$('#galleryGabo').css("opacity","0");		
+
+		$('#gallerySanti').css( "display", "none");
+		$('#galleryJose').css( "display", "none");
+		$('#galleryGabo').css( "display", "none");
 
 		if (recuadroContenido!=undefined){
 			recuadroContenido.attr({
@@ -724,6 +728,7 @@ var main=(function(){
 
 		var mostrarSlider = function(e){
             $('#recuadroInfoSanti').css( "display", "inline");
+
             $("#gallerySanti").css("position","relative");              
         	$("#gallerySanti").css( "display", "block-inline");
         	$("#gallerySanti").css( "box-sizing", "border-box");
@@ -768,13 +773,14 @@ var main=(function(){
 
 		var mostrarSlider = function(e){
             $('#recuadroInfoGabo').css( "display", "inline");
-            $("#gallerySanti").css("position","relative");              
-        	$("#gallerySanti").css( "display", "block-inline");
-        	$("#gallerySanti").css( "box-sizing", "border-box");
-            $("#gallerySanti").css("left","350px"); 
-            $("#gallerySanti").css("top","150px"); 
+
+            $("#galleryGabo").css("position","relative");              
+        	$("#galleryGabo").css( "display", "block-inline");
+        	$("#galleryGabo").css( "box-sizing", "border-box");
+            $("#galleryGabo").css("left","350px"); 
+            $("#galleryGabo").css("top","150px"); 
               
-			$("#gallerySanti").animate({
+			$("#galleryGabo").animate({
 				opacity:1
 			},500,"linear");
 
@@ -784,15 +790,6 @@ var main=(function(){
 		};	
 
 		mostrarSlider();
-
-
-		/*$("#gallerySanti").animate({
-			opacity:1
-		},500,"linear");
-
-		$("#recuadroInfoGabo").animate({
-			opacity:1
-		},500,"linear");*/
 
 		textoCentral.gabo_1 = paper.text( 430 , 75 , textoCentral.gabo1)
 		.attr({
@@ -804,47 +801,6 @@ var main=(function(){
 			opacity:0.8
 		},1000,"linear");
 
-		/*butinfo.animate({
-			transform: "t440,-40 s0.15",
-			opacity:1
-		},1000,"backOut")
-		.toFront();*/
-
-		/*textoCentral.gabo_1 = paper.text( 435 , 65 , textoCentral.gabo2)
-		.attr({
-			opacity:0,
-			"font-weight":"bold",
-			"font-family": "Amatic SC, cursive",
-			 fill:  colores.rojito, 
-			 'font-size': 40
-		}).animate({
-			opacity:1
-		},800,"linear", function(){
-			textoCentral.gabo_2 = paper.text( 435 , 35 , textoCentral.gabo1)
-			.attr({
-				opacity:0,
-				"font-weight":"bold",
-				"font-family": "Amatic SC, cursive",
-				 fill:  colores.rojito, 
-				 'font-size': 30
-			}).animate({
-				opacity:1
-			},800,"linear");			
-		});
-
-		var pathString = "m "+rx.B+","+ry.B +" l 200,0";
-		
-		contentLineB = drawpath(
-						paper,
-						pathString,
-						circleTagsTime,
-						{ stroke: "white", 'stroke-width': 2, 'stroke-opacity': 1 ,fill: "black","fill-opacity": 1},
-	        			function(e){
-	        				circuloB.toFront();
-	        				mostrarSlider();
-	        				showSocial(rx.B, ry.B, "b");
-						}
-		);	*/
 	}
 	var contenidoC = function(){
 
@@ -857,10 +813,7 @@ var main=(function(){
         	$("#galleryJose").css( "display", "block-inline");
         	$("#galleryJose").css( "box-sizing", "border-box");
             $("#galleryJose").css("left","350px"); 
-            if (galleryJoseClicked===false){
-            	$("#galleryJose").css("top","150px"); 	
-            	galleryJoseClicked= true;
-            }            
+            $("#galleryJose").css("top","150px"); 	
               
 			$("#galleryJose").animate({
 				opacity:1
