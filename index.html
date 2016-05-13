@@ -55,7 +55,7 @@
 		          $.fancybox({
 	                 type: 'iframe',
 	                 autoSize: true,		          	
-		          });
+		            });
               });
 
               $(".fancypdf").click(function(){
@@ -88,7 +88,7 @@
 
                 
               $('.fancybox').fancybox({
-                  padding : 10 ,
+                  padding : 0 ,
                   'openEffect': 'fade',
                   'closeEffect': 'fade',
                   'mouseWheel': false,
@@ -96,12 +96,13 @@
                       speedOut   : 500,   // duration of fadeOut animation
                   },
                   helpers : {
-				        overlay : {
-				            css : {
-				                'background' : 'rgba(65, 179, 130, 0.2)'
-				  			}
-				      	}
-				  }
+				           overlay : {
+				                 css : {
+                          /* Color fuera de la ventana modal */
+				                   'background' : 'rgba(255, 255, 255, 0.3)'
+				  		           }
+				      	   }
+				          }
               });              
 
               setTimeout(function(){

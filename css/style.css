@@ -210,7 +210,13 @@
       margin-top: 20px;
     }  
 
-
-    #fancybox-overlay[style] {
-    background-color: white !important;
+    .fancybox-inner {
+      position: relative;
+      /* Redondeo de borde */
+      border-radius: 5px;
+      /* Tamaño de borde, estilo, color */
+      border: 5px dotted  #fff;
+      /* Color de fondo de la ventana modal */
+      background-color: #000;
     }
+
