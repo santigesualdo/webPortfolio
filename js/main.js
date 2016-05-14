@@ -727,7 +727,7 @@ var main=(function(){
 		limpiarTextos();
 
 		var mostrarSlider = function(e){
-            $('#recuadroInfoSanti').css( "display", "inline");
+            $('#recuadroInfoSanti').css( "display", "relative");
 
             $("#gallerySanti").css("position","relative");              
         	$("#gallerySanti").css( "display", "block-inline");
@@ -772,7 +772,7 @@ var main=(function(){
 
 
 		var mostrarSlider = function(e){
-            $('#recuadroInfoGabo').css( "display", "inline");
+            $('#recuadroInfoGabo').css( "display", "relative");
 
             $("#galleryGabo").css("position","relative");              
         	$("#galleryGabo").css( "display", "block-inline");
@@ -807,7 +807,7 @@ var main=(function(){
 		limpiarTextos();
 
 		var mostrarSlider = function(e){
-            $("#recuadroInfoJose").css( "display", "inline");
+            $("#recuadroInfoJose").css( "display", "relative");
 
             $("#galleryJose").css("position","relative");              
         	$("#galleryJose").css( "display", "block-inline");

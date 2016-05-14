@@ -68,6 +68,34 @@
       filter: grayscale(100%);
     }
 
+    .imgInfo {
+      border: 3px solid #fff;
+      border-radius: 5%;
+      position: relative; left: 15%;
+    }
+
+    .imgInfoSanti{
+      border: 3px solid #41b382;
+    }
+    .imgInfoGabo{
+      border: 3px solid #4cbdc1;
+    }
+    .imgInfoJose{
+      border: 3px solid #e94354;
+    }
+
+    .itemgallerySanti:hover{
+      border: 2px solid #41b382;
+    }
+
+    .itemgalleryGabo:hover{
+      border: 2px solid #4cbdc1;
+    }
+
+    .itemgalleryJose:hover{
+      border: 2px solid #e94354;
+    }
+
     .rcorners {
       border-radius: 5px;
       border: 2px solid grey;
@@ -79,11 +107,7 @@
     .divInfo { 
        height: 20%; width: 100%; position: relative; 
     }
-    .imgInfo {
-      border: 3px solid #fff;
-      border-radius: 50%;
-      position: relative; left: 20%;
-    }
+
 
     #paper{
         width: 800px;
@@ -114,17 +138,20 @@
         left: -60px;
     }
     .contenidoText p {
-      font: normal 14px Mosk;
+      color: #fff;
+      font: normal 14px Moskl;
       line-height:80%; 
     }
 
     .contenidoText h2 {
-      font: normal 25px Mosk;
+      color: #fff;
+      font: normal 25px Moskm;
       line-height:30%; 
     }
 
     .contenidoText h1 {
-      font: normal 30px Mosk;
+      color: #fff;
+      font: normal 30px Mosksb;
       line-height:30%; 
     }
 
@@ -211,11 +238,13 @@
     }  
 
     .fancybox-inner {
+      padding: 25px;
+
       position: relative;
       /* Redondeo de borde */
       border-radius: 5px;
       /* Tamaño de borde, estilo, color */
-      border: 5px dotted  #fff;
+      border: 2px solid  #fff;
       /* Color de fondo de la ventana modal */
       background-color: #000;
     }
