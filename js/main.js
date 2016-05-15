@@ -18,6 +18,7 @@ var main=(function(){
 	posInicial.Y = 250;
 	posInicial.difX = 235;
 	posInicial.difY = 150;
+	posInicial.sizeCircle = 125;
 
 	var estados ={};
 	estados.inicio = "inicio";
@@ -131,21 +132,11 @@ var main=(function(){
 
 	var init=function(){
 		paper = null;
-
-		var div = document.getElementById("paper");
-		mainOptions.paperwidth = div.clientWidth;
-		mainOptions.paperheigth = div.clientHeight;		
-		
-		mainOptions.halfwidth =  mainOptions.paperwidth*0.5;
-		mainOptions.halfheigth = mainOptions.paperheigth*0.5;
-
-
-
 		//addGoogleFont(fontNombres);		
 		//addGoogleFont(fontNombres2);
 		$("#gallerySanti").css("overflow","hidden");
 		$("#galleryJose").css("overflow","hidden");
-		beginthings(); 			
+		beginthings(); 
 		test();
 	};
 	var beginthings = function(){
@@ -171,6 +162,14 @@ var main=(function(){
 		paper= Raphael("paper", "100%","100%");
 
 		$('#paper').center();
+
+		var div = document.getElementById("paper");
+		mainOptions.paperwidth = div.clientWidth;
+		mainOptions.paperheight = div.clientHeight;		
+		mainOptions.halfwidth =  mainOptions.paperwidth*0.5;
+		mainOptions.paperheigth = div.clientHeight;	
+		mainOptions.halfheigth = mainOptions.paperheigth*0.5;
+
 		$('#contentiframe').center();
 		$('#sliderContainer').center();
 
@@ -179,7 +178,7 @@ var main=(function(){
 		.attr({
 			'stroke-width':5,
 			stroke: colores.verdecincin,
-			'stroke-opacity': 0,
+			'stroke-opacity': 1,
 			opacity: 0
 		});
 
@@ -228,7 +227,7 @@ var main=(function(){
 		var posInicialX = posInicial.X;
 		var posInicialY = posInicial.Y;
 
-		var sizeCircle = 125;
+		var sizeCircle = posInicial.sizeCircle;
 		var difX = posInicial.difX;
 
 		circuloA = createCircle("a",posInicialX, posInicialY, sizeCircle);
@@ -250,13 +249,15 @@ var main=(function(){
 			opacity:1,
 		},timeAnim,"linear");
 
+		var textoCentralSize = 50;
+
 		textoTituloBold = paper.text(  mainOptions.paperwidth * 0.5+100 , 0 , "PORTFOLIO")
 		.attr({
 			'font-family': "Mosk",
 			opacity:0,
 			fill:  colores.celestin, 
 			 'stroke': "#000",
-			 'stroke-widht': 1,
+			 'stroke-width': 1,
 			'font-size': 60
 		}).
 		animate({
@@ -264,12 +265,13 @@ var main=(function(){
 			opacity:1,
 		}, timeAnim, "linear", function(e){
 			// Cuando el titulo llega a su lugar.
-			textoCentral.descrip = paper.text(mainOptions.paperwidth * 0.5 , posInicialY+200 , "")
+			textoCentral.descrip = paper.text( mainOptions.halfwidth , mainOptions.halfheigth + mainOptions.halfheigth*0.25, "")
 			.attr({
 				'font-family': "Mosk",
 				opacity:0,
 				fill:  "#fff",
 				'font-size': 50,
+				'text-anchor': "middle"
 			});
 
 			circuloA.hover(function(e){
@@ -585,7 +587,7 @@ var main=(function(){
 				}, velCircles,"linear",crearContenido("c"));				
 			}
 	}
-	var clickedInfo = function(){
+	/*var clickedInfo = function(){
 		desaparecerRecuadro();
 
 		if (estado === estados.clickCircleA) {
@@ -595,8 +597,8 @@ var main=(function(){
 		}else if (estado === estados.clickCircleC){
 			showSocial(rx.C, ry.C, "c");
 		}
-	}	
-	var showSocial = function(x,y, letra){
+	}	*/
+	/*var showSocial = function(x,y, letra){
 		
 		var difx = 45;
 
@@ -623,8 +625,9 @@ var main=(function(){
 			  setSocialC = paper.set();
 			  setSocialC.push(infoMail);
 		}
-	}
-	var infoButton = function(x,y,link, pathBoton,isDiv){
+	}*/
+	
+	/*var infoButton = function(x,y,link, pathBoton,isDiv){
 		var rect = paper.rect(0,0,32,32)
 		.attr({
 			opacity: 1,
@@ -669,7 +672,7 @@ var main=(function(){
 		}			
 
 		return set;
-	}
+	}*/
 	var desaparecerRecuadro = function(){
 		
 		$('#recuadroInfoSanti').css("opacity","0");
@@ -730,8 +733,8 @@ var main=(function(){
             $('#recuadroInfoSanti').css( "display", "relative");
 
             $("#gallerySanti").css("position","relative");              
-        	$("#gallerySanti").css( "display", "block-inline");
-        	$("#gallerySanti").css( "box-sizing", "border-box");
+        	$("#gallerySanti").css("display", "block-inline");
+        	$("#gallerySanti").css("box-sizing", "border-box");
             $("#gallerySanti").css("left","350px"); 
             $("#gallerySanti").css("top","150px"); 
               
@@ -751,20 +754,19 @@ var main=(function(){
 				opacity:0
 		})
 
-		var pathString = "m "+rx.A+","+ry.A +" l 200,0";
 
-		textoCentral.santi_1 = paper.text( 360 , 75 , textoCentral.santi1)
+		textoCentral.santi_1 = paper.text( mainOptions.halfwidth * 0.35 , mainOptions.halfheigth * 0.20 , textoCentral.santi1)
 		.attr({
 			opacity: 0,
 			'text-miterlimit': "1000",
 			"font-family": "Moskel",
 			 fill:  "#fff" ,
-			 'font-size': 30
+			 'font-size': 30,
+			 'text-anchor': "start"
 		}).animate({
-			opacity:0.8
-		},1000,"linear",function(e){
+			opacity:0.8	
+		},1000,"linear");
 
-		});
 	}
 	var contenidoB = function(){
 
@@ -791,16 +793,16 @@ var main=(function(){
 
 		mostrarSlider();
 
-		textoCentral.gabo_1 = paper.text( 430 , 75 , textoCentral.gabo1)
+		textoCentral.gabo_1 = paper.text( mainOptions.halfwidth * 0.9  , mainOptions.halfheigth * 0.20 , textoCentral.gabo1)
 		.attr({
 			opacity: 0,
 			"font-family": "Moskel",
 			 fill:  "#fff" ,
-			 'font-size': 45
+			 'font-size': 45,
+			 'text-anchor': "start"
 		}).animate({
 			opacity:0.8
 		},1000,"linear");
-
 	}
 	var contenidoC = function(){
 
@@ -826,7 +828,7 @@ var main=(function(){
 
 		mostrarSlider();
 
-		textoCentral.jose_1 = paper.text( 670 , 75 , textoCentral.jose1)
+		textoCentral.jose_1 = paper.text( mainOptions.paperwidth * 0.77, mainOptions.halfheigth * 0.20 , textoCentral.jose1)
 		.attr({
 			opacity: 0,
 			"text-anchor": "end",
@@ -836,8 +838,8 @@ var main=(function(){
 		}).animate({
 			opacity:0.8
 		},1000,"linear");
-
 	}
+
 	var limpiarTextos = function(){
 
 		if (exist(textoCentral.jose_1)) textoCentral.jose_1.remove();
