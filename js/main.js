@@ -18,13 +18,13 @@ var main=(function(){
 	posInicial.Y = 250;
 	posInicial.difX = 235;
 	posInicial.difY = 150;
-	posInicial.sizeCircle = 125;
 
 	var estados ={};
 	estados.inicio = "inicio";
 	estados.clickCircleA = "clickA";
 	estados.clickCircleB = "clickB";
 	estados.clickCircleC = "clickC";
+	estados.firstLap = false;
 
 	var textoCentral={};
 	textoCentral.x = 400;
@@ -132,11 +132,21 @@ var main=(function(){
 
 	var init=function(){
 		paper = null;
+
+		var div = document.getElementById("paper");
+		mainOptions.paperwidth = div.clientWidth;
+		mainOptions.paperheigth = div.clientHeight;		
+		
+		mainOptions.halfwidth =  mainOptions.paperwidth*0.5;
+		mainOptions.halfheigth = mainOptions.paperheigth*0.5;
+
+
+
 		//addGoogleFont(fontNombres);		
 		//addGoogleFont(fontNombres2);
 		$("#gallerySanti").css("overflow","hidden");
 		$("#galleryJose").css("overflow","hidden");
-		beginthings(); 
+		beginthings(); 			
 		test();
 	};
 	var beginthings = function(){
@@ -145,6 +155,7 @@ var main=(function(){
 		fderover = false;
 
 		estado = estados.inicio;
+		estados.firstLap = true;
 
 		recuadroContenido = undefined;
 
@@ -162,14 +173,6 @@ var main=(function(){
 		paper= Raphael("paper", "100%","100%");
 
 		$('#paper').center();
-
-		var div = document.getElementById("paper");
-		mainOptions.paperwidth = div.clientWidth;
-		mainOptions.paperheight = div.clientHeight;		
-		mainOptions.halfwidth =  mainOptions.paperwidth*0.5;
-		mainOptions.paperheigth = div.clientHeight;	
-		mainOptions.halfheigth = mainOptions.paperheigth*0.5;
-
 		$('#contentiframe').center();
 		$('#sliderContainer').center();
 
@@ -178,7 +181,7 @@ var main=(function(){
 		.attr({
 			'stroke-width':5,
 			stroke: colores.verdecincin,
-			'stroke-opacity': 1,
+			'stroke-opacity': 0,
 			opacity: 0
 		});
 
@@ -227,7 +230,7 @@ var main=(function(){
 		var posInicialX = posInicial.X;
 		var posInicialY = posInicial.Y;
 
-		var sizeCircle = posInicial.sizeCircle;
+		var sizeCircle = 125;
 		var difX = posInicial.difX;
 
 		circuloA = createCircle("a",posInicialX, posInicialY, sizeCircle);
@@ -249,15 +252,13 @@ var main=(function(){
 			opacity:1,
 		},timeAnim,"linear");
 
-		var textoCentralSize = 50;
-
 		textoTituloBold = paper.text(  mainOptions.paperwidth * 0.5+100 , 0 , "PORTFOLIO")
 		.attr({
 			'font-family': "Mosk",
 			opacity:0,
 			fill:  colores.celestin, 
 			 'stroke': "#000",
-			 'stroke-width': 1,
+			 'stroke-widht': 1,
 			'font-size': 60
 		}).
 		animate({
@@ -265,13 +266,12 @@ var main=(function(){
 			opacity:1,
 		}, timeAnim, "linear", function(e){
 			// Cuando el titulo llega a su lugar.
-			textoCentral.descrip = paper.text( mainOptions.halfwidth , mainOptions.halfheigth + mainOptions.halfheigth*0.25, "")
+			textoCentral.descrip = paper.text(mainOptions.paperwidth * 0.5 , posInicialY+200 , "")
 			.attr({
 				'font-family': "Mosk",
 				opacity:0,
 				fill:  "#fff",
 				'font-size': 50,
-				'text-anchor': "middle"
 			});
 
 			circuloA.hover(function(e){
@@ -587,7 +587,7 @@ var main=(function(){
 				}, velCircles,"linear",crearContenido("c"));				
 			}
 	}
-	/*var clickedInfo = function(){
+	var clickedInfo = function(){
 		desaparecerRecuadro();
 
 		if (estado === estados.clickCircleA) {
@@ -597,8 +597,8 @@ var main=(function(){
 		}else if (estado === estados.clickCircleC){
 			showSocial(rx.C, ry.C, "c");
 		}
-	}	*/
-	/*var showSocial = function(x,y, letra){
+	}	
+	var showSocial = function(x,y, letra){
 		
 		var difx = 45;
 
@@ -625,9 +625,8 @@ var main=(function(){
 			  setSocialC = paper.set();
 			  setSocialC.push(infoMail);
 		}
-	}*/
-	
-	/*var infoButton = function(x,y,link, pathBoton,isDiv){
+	}
+	var infoButton = function(x,y,link, pathBoton,isDiv){
 		var rect = paper.rect(0,0,32,32)
 		.attr({
 			opacity: 1,
@@ -672,7 +671,7 @@ var main=(function(){
 		}			
 
 		return set;
-	}*/
+	}
 	var desaparecerRecuadro = function(){
 		
 		$('#recuadroInfoSanti').css("opacity","0");
@@ -733,11 +732,10 @@ var main=(function(){
             $('#recuadroInfoSanti').css( "display", "relative");
 
             $("#gallerySanti").css("position","relative");              
-        	$("#gallerySanti").css("display", "block-inline");
-        	$("#gallerySanti").css("box-sizing", "border-box");
+        	$("#gallerySanti").css( "display", "block-inline");
+        	$("#gallerySanti").css( "box-sizing", "border-box");
             $("#gallerySanti").css("left","350px"); 
-            $("#gallerySanti").css("top","150px"); 
-              
+          	$("#gallerySanti").css("top",e); 	              
 			$("#gallerySanti").animate({
 				opacity:1
 			},500,"linear");
@@ -747,26 +745,36 @@ var main=(function(){
 			},500,"linear");	             				
 		};	
 
-		mostrarSlider();
+		var alto=0;
+        if (estados.firstLap){
+        	estados.firstLap = false;
+        	alto =circuloA.getBBox().height * 1.5 ;	 
+        }else{
+			alto = circuloA.getBBox().height * 3 ;	
+		}
+
+		mostrarSlider(alto + "px");
 
 		circuloA.unhover(function(e){}, function(e){});
-			textoCentral.descrip.attr({
+		
+		textoCentral.descrip.attr({
 				opacity:0
 		})
 
+		var pathString = "m "+rx.A+","+ry.A +" l 200,0";
 
-		textoCentral.santi_1 = paper.text( mainOptions.halfwidth * 0.35 , mainOptions.halfheigth * 0.20 , textoCentral.santi1)
+		textoCentral.santi_1 = paper.text( 360 , 75 , textoCentral.santi1)
 		.attr({
 			opacity: 0,
 			'text-miterlimit': "1000",
 			"font-family": "Moskel",
 			 fill:  "#fff" ,
-			 'font-size': 30,
-			 'text-anchor': "start"
+			 'font-size': 30
 		}).animate({
-			opacity:0.8	
-		},1000,"linear");
+			opacity:0.8
+		},1000,"linear",function(e){
 
+		});
 	}
 	var contenidoB = function(){
 
@@ -780,8 +788,7 @@ var main=(function(){
         	$("#galleryGabo").css( "display", "block-inline");
         	$("#galleryGabo").css( "box-sizing", "border-box");
             $("#galleryGabo").css("left","350px"); 
-            $("#galleryGabo").css("top","150px"); 
-              
+           	$("#galleryGabo").css("top",e); 	         
 			$("#galleryGabo").animate({
 				opacity:1
 			},500,"linear");
@@ -791,15 +798,22 @@ var main=(function(){
 			},500,"linear");	             				
 		};	
 
-		mostrarSlider();
+		var alto=0;
+        if (estados.firstLap){
+        	estados.firstLap = false;
+        	alto =circuloB.getBBox().height * 1.5 ;	 
+        }else{
+			alto = circuloB.getBBox().height * 3 ;	
+		}
 
-		textoCentral.gabo_1 = paper.text( mainOptions.halfwidth * 0.9  , mainOptions.halfheigth * 0.20 , textoCentral.gabo1)
+		mostrarSlider(alto + "px");
+
+		textoCentral.gabo_1 = paper.text( 430 , 75 , textoCentral.gabo1)
 		.attr({
 			opacity: 0,
 			"font-family": "Moskel",
 			 fill:  "#fff" ,
-			 'font-size': 45,
-			 'text-anchor': "start"
+			 'font-size': 45
 		}).animate({
 			opacity:0.8
 		},1000,"linear");
@@ -811,12 +825,11 @@ var main=(function(){
 		var mostrarSlider = function(e){
             $("#recuadroInfoJose").css( "display", "relative");
 
-            $("#galleryJose").css("position","relative");              
-        	$("#galleryJose").css( "display", "block-inline");
-        	$("#galleryJose").css( "box-sizing", "border-box");
+        	$("#galleryJose").css( "display", "inline-block");
+        	//$("#galleryJose").css( "box-sizing", "border-box");
             $("#galleryJose").css("left","350px"); 
-            $("#galleryJose").css("top","150px"); 	
-              
+           	$("#galleryJose").css("top",e); 	
+           
 			$("#galleryJose").animate({
 				opacity:1
 			},500,"linear");
@@ -826,9 +839,17 @@ var main=(function(){
 			},500,"linear");	             				
 		};	
 
-		mostrarSlider();
+		var alto=0;
+        if (estados.firstLap){
+        	estados.firstLap = false;
+        	alto =circuloC.getBBox().height * 1.5 ;	 
+        }else{
+			alto = circuloC.getBBox().height * 3 ;	
+		}
 
-		textoCentral.jose_1 = paper.text( mainOptions.paperwidth * 0.77, mainOptions.halfheigth * 0.20 , textoCentral.jose1)
+		mostrarSlider(alto + "px");
+
+		textoCentral.jose_1 = paper.text( 670 , 75 , textoCentral.jose1)
 		.attr({
 			opacity: 0,
 			"text-anchor": "end",
@@ -837,9 +858,9 @@ var main=(function(){
 			 'font-size': 45
 		}).animate({
 			opacity:0.8
+
 		},1000,"linear");
 	}
-
 	var limpiarTextos = function(){
 
 		if (exist(textoCentral.jose_1)) textoCentral.jose_1.remove();
