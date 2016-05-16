@@ -110,8 +110,8 @@
 
 
     #paper{
-        width: 60%;
-        height: 90%;
+        width: 800px;
+        height: 600px;
     }
     
     #containerframe{
@@ -222,17 +222,23 @@
     }
 
     #galleryJose {
+      display: inline-block;
+      position: relative;
       opacity: 1;
       margin-top: 20px;
     }  
 
 
     #gallerySanti {
+      display: inline-block;
+      position: relative;
       opacity: 1;
       margin-top: 20px;
     }  
 
     #galleryGabo {
+      display: inline-block;
+      position: relative;
       opacity: 1;
       margin-top: 20px;
     }  
