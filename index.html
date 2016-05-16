@@ -70,15 +70,6 @@
                return false;
               }); //click
               
-              $('.fancyyoutube').fancybox({
-                  maxWidth: 800,
-                  maxHeight: 600,
-                  fitToView: false,
-                  width: '70%',
-                  height: '70%',
-                  autoSize: false,
-                  'type':'iframe'
-              });
               $('.fancybox-buttons').fancybox({
                   helpers     : {
                       title   : { type : 'float' },
@@ -196,7 +187,6 @@
       <font src="css/fonts/Mosksb.ttf"/>
       <font src="css/fonts/Moskt.ttf"/>
       <font src="css/fonts/Moskub.ttf"/>
-
    </div>
    <div id="depreload" class="table">
         <div class="table-cell wrapper">
@@ -534,69 +524,34 @@
   
 		<div id="paper"></div>
       <div style="position:inherited;">
-        <div id="galleryJose" style="display:none; opacity:0; width:50%; height:100%;">
-          <p >
-            <a class="fancybox" data-fancybox-group="galleryTarjetas" href="#cj1" title="1">
-              <img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido1/image150x150.png" alt="cj1">
-            </a>
-            
-            <a class="fancybox" data-fancybox-group="galleryLibros" href="#cj2" title="2">
-              <img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido2/image150x150.png" alt="cj2">
-            </a>
-            
-            <a class="fancybox" data-fancybox-group="galleryFlyers" href="#cj3" title="3">
-              <img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido3/image150x150.png" alt="cj3"> 
-            </a>
-            
-            <a class="fancybox" data-fancybox-group="galleryFlyers" href="#cj4" title="4">
-              <img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido4/image150x150.png" alt="cj4"> 
-            </a>
-
-            <a class="fancybox" data-fancybox-group="galleryFlyers" href="#cj5" title="5">
-              <img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido5/image150x150.png" alt="cj5"> 
-            </a>
-
+        <div  id="galleryJose" style="display:none; opacity:0; width:50%; height:100%;">
+          <p>
+            <a class="fancybox" data-fancybox-group="galleryTarjetas" href="#cj1" title="1"><img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido1/image150x150.png" alt="asd"></a>
+            <a class="fancybox" data-fancybox-group="galleryLibros" href="#cj2" title="2"><img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido2/image150x150.png" alt="asd"></a>
+            <a class="fancybox" data-fancybox-group="galleryFlyers" href="#cj3" title="3"><img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido3/image150x150.png" alt="ads"></a>
+            <a class="fancybox" data-fancybox-group="galleryFlyers" href="#cj4" title="4"><img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido4/image150x150.png" alt="asd"></a>
+            <a class="fancybox" data-fancybox-group="galleryFlyers" href="#cj5" title="5"><img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido5/image150x150.png" alt="asd"></a>
           </p>
         </div> <!-- fin div container gallery -->
-
   	    <div id="gallerySanti" style="display:none; opacity:0; width:50%; height:100%;">
-  			 <p >
-  				
-  				<a class="fancybox" href="#c1" data-fancybox-group="gallery" title="1"><img class="itemgallery rcorners itemgallerySanti" src="data/santi/contenido1/image150x150.png" alt=""></a>
-
-  				<a class="fancybox" href="#c2" data-fancybox-group="gallery" title="2"><img class="itemgallery rcorners itemgallerySanti" src="data/santi/contenido2/image150x150.jpg" alt=""></a>
-   
-  				<a class="fancybox" href="#c3" data-fancybox-group="gallery" title="3"><img class="itemgallery rcorners itemgallerySanti" src="data/santi/contenido3/image150x150.png" alt=""></a>
-
-  				<a class="fancybox" href="#c4" data-fancybox-group="gallery" title="4"><img class= "itemgallery rcorners itemgallerySanti" src="data/santi/contenido4/image150x150.png" alt=""></a>
-
-  				<a class="fancybox" href="#c5" data-fancybox-group="gallery" title="5"><img class= "itemgallery rcorners itemgallerySanti" src="data/santi/contenido5/image150x150.png" alt=""></a>
-
-  				<a class="fancybox" href="#c6" data-fancybox-group="gallery" title="6"><img class= "itemgallery rcorners itemgallerySanti" src="data/santi/contenido6/image150x150.png" alt=""></a>
-
-  				<a class="fancybox" href="#c7" data-fancybox-group="gallery" title="7"><img class= "itemgallery rcorners itemgallerySanti" src="data/santi/contenido7/image150x150.png" alt=""></a>		
-
+  			 <p>
+  				<a class="fancybox" href="#c1" data-fancybox-group="gallerySantiImg" title="1"><img class="itemgallery rcorners itemgallerySanti" src="data/santi/contenido1/image150x150.png" alt=""></a>
+  				<a class="fancybox" href="#c2" data-fancybox-group="gallerySantiImg" title="2"><img class="itemgallery rcorners itemgallerySanti" src="data/santi/contenido2/image150x150.jpg" alt=""></a>
+  				<a class="fancybox" href="#c3" data-fancybox-group="gallerySantiImg" title="3"><img class="itemgallery rcorners itemgallerySanti" src="data/santi/contenido3/image150x150.png" alt=""></a>
+  				<a class="fancybox" href="#c4" data-fancybox-group="gallerySantiImg" title="4"><img class= "itemgallery rcorners itemgallerySanti" src="data/santi/contenido4/image150x150.png" alt=""></a>
+  				<a class="fancybox" href="#c5" data-fancybox-group="gallerySantiImg" title="5"><img class= "itemgallery rcorners itemgallerySanti" src="data/santi/contenido5/image150x150.png" alt=""></a>
+  				<a class="fancybox" href="#c6" data-fancybox-group="gallerySantiImg" title="6"><img class= "itemgallery rcorners itemgallerySanti" src="data/santi/contenido6/image150x150.png" alt=""></a>
+  				<a class="fancybox" href="#c7" data-fancybox-group="gallerySantiImg" title="7"><img class= "itemgallery rcorners itemgallerySanti" src="data/santi/contenido7/image150x150.png" alt=""></a>		
   			 </p>
   		  </div> <!-- fin div container gallery -->
-
-        <div id="galleryGabo" style="display:none; opacity:0; width:50%; height:100%;">
-         <p >
-          
-          <a class="fancybox" href="#c1" data-fancybox-group="gallery" title="1"><img class="itemgallery rcorners itemgalleryGabo" src="data/santi/contenido1/image150x150.png" alt=""></a>
-
-          <a class="fancybox" href="#c2" data-fancybox-group="gallery" title="2"><img class="itemgallery rcorners itemgalleryGabo" src="data/santi/contenido2/image150x150.jpg" alt=""></a>
-   
-          <a class="fancybox" href="#c3" data-fancybox-group="gallery" title="3"><img class="itemgallery rcorners itemgalleryGabo" src="data/santi/contenido3/image150x150.png" alt=""></a>
-
-          <a class="fancybox" href="#c4" data-fancybox-group="gallery" title="4"><img class= "itemgallery rcorners itemgalleryGabo" src="data/santi/contenido4/image150x150.png" alt=""></a>
-
-          <a class="fancybox" href="#c5" data-fancybox-group="gallery" title="5"><img class= "itemgallery rcorners itemgalleryGabo" src="data/santi/contenido5/image150x150.png" alt=""></a>
-
-          <a class="fancybox" href="#c6" data-fancybox-group="gallery" title="6"><img class= "itemgallery rcorners itemgalleryGabo" src="data/santi/contenido6/image150x150.png" alt=""></a>
-
-          <a class="fancybox" href="data/santi/contenido7/image.png" data-fancybox-group="gallery" title="7"><img class= "itemgallery rcorners itemgalleryGabo" src="data/santi/contenido7/image150x150.png" alt=""></a>    
-
-         </p>
+        <div  id="galleryGabo" style="display:none; opacity:0; width:50%; height:100%;">
+          <p>
+            <a class="fancybox" data-fancybox-group="galleryTarjetas" href="#cj1" title="1"><img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido1/image150x150.png" alt=""></a>
+            <a class="fancybox" data-fancybox-group="galleryLibros" href="#cj2" title="2"><img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido2/image150x150.png" alt=""></a>
+            <a class="fancybox" data-fancybox-group="galleryFlyers" href="#cj3" title="3"><img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido3/image150x150.png" alt=""></a>
+            <a class="fancybox" data-fancybox-group="galleryFlyers" href="#cj4" title="4"><img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido4/image150x150.png" alt=""></a>
+            <a class="fancybox" data-fancybox-group="galleryFlyers" href="#cj5" title="5"><img class="itemgallery rcorners itemgalleryJose" src="data/jose/contenido5/image150x150.png" alt=""></a>
+          </p>
         </div> <!-- fin div container gallery -->
       </div>
     </div> <!-- fin container-->  
