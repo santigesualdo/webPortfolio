@@ -19,15 +19,7 @@ Eventos culturales - Santa Fe
 Animación vectorial 2D
 Año: 2015
 
-Contenido Gabo:
-- Miniaturas de cada item 150x150.
-- Hablar con marite, para ver de subir todos los videos a youtube.
-- maria rayada x2 vimeo https://vimeo.com/129982194 - https://vimeo.com/122366994
- x1 facebook (ver facebook maria rayada) (ver si se pueden subir a youtube, sin molestar)
-- tizana spot https://www.youtube.com/watch?v=WUuzJH158bA
-- Ficha de videojuego (Gollem, Pacman, RunningTeddy).
-
-Contenido Santi:
+Contenido Santi: 
 - RunningTeddy. Descarga + Video.
 - IA TP Final. Descarga + Video.
 
