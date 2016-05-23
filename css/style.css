@@ -143,6 +143,12 @@
       line-height:80%; 
     }
 
+    .contenidoText h3 {
+      color: #fff;
+      font: normal 18px Moskm;
+      line-height:30%; 
+    }
+
     .contenidoText h2 {
       color: #fff;
       font: normal 25px Moskm;
@@ -181,12 +187,29 @@
       right: -7px;
       top: -7px;
     }
-      .recuadroIcono{
-        fill:white;
+
+      .recuadroIconoSanti{
+        fill: black;
       }
 
-      .recuadroIcono:hover {
-        fill: red;
+      .recuadroIconoSanti:hover {
+        fill: #41b382;
+      }
+
+      .recuadroIconoGabo{
+        fill: black;
+      }
+
+      .recuadroIconoGabo:hover {
+        fill: #4cbdc1;
+      }
+
+      .recuadroIconoJose{
+        fill: black;
+      }
+
+      .recuadroIconoJose:hover {
+        fill: #e94354;
       }
 
      .recuadroNombre{

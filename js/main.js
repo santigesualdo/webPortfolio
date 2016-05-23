@@ -822,7 +822,7 @@ var main=(function(){
             $("#recuadroInfoJose").css( "display", "relative");
 
         	$("#galleryJose").css( "display", "inline-block");
-        	//$("#galleryJose").css( "box-sizing", "border-box");
+        	$("#galleryJose").css( "box-sizing", "border-box");
             $("#galleryJose").css("left","350px"); 
            	$("#galleryJose").css("top",e); 	
            
@@ -866,9 +866,6 @@ var main=(function(){
 		if (exist(textoCentral.santi_1)) textoCentral.santi_1.remove();
 		if (exist(textoCentral.santi_2)) textoCentral.santi_2.remove();
 
-		if (exist(infoLinke)) infoLinke.remove();
-		if (exist(infoCv)) infoCv.remove();
-		if (exist(infoMail)) infoMail.remove();
 	}
 	var setTextoCentral = function(id,text1,text2,text3){
 
