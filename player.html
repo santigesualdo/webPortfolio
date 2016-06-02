@@ -46,12 +46,12 @@
 			var attributes={};
 
 			if (res.tipo== "swf"){
-				swfobject.embedSWF(res.data, "myContent",w, h, "9.0.0", "expressInstall.swf",flashvars,params,attributes,onFlashReady);	
 				function onFlashReady(e) {
 					var f = swfobject.getObjectById('myContent');
 					f.tabIndex = 0;
 					f.focus();
 				}
+				swfobject.embedSWF(res.data, "myContent",w, h, "9.0.0", "expressInstall.swf",flashvars,params,attributes,onFlashReady);	
 			   $('#container').focusout(function() {
 			        $('#myContent').css("border","2px dashed orange");
 			        $('#volver').css("display","inline");

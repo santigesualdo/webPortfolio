@@ -111,20 +111,10 @@
 
     #paper{
         width: 800px;
-        height: 600px;
-    }
-    
-    #containerframe{
-        position: relative;
-        top: 65px;
+        height: 600px; 
+        position:fixed;
     }
 
-    #contentiframe{
-        width: 745px; 
-        height: 445px;
-        border-color: grey;
-        border-width: 1px;   
-    }
 
     .fancycontenido{
       font-family: "Moskl"
@@ -217,6 +207,12 @@
      } 
 
 
+     .svgRecuadroClass{
+        width:350px;
+        height:380px;
+        viewBox: 0 0 350 380;
+        enable-background: new 0 0 350 380;
+     }
     .button {
       background-color: #2B91AF;
       border-radius: 10px;
@@ -233,7 +229,7 @@
 
       position: absolute;
       width: 258px;
-      height: 500px;
+      height: 450px;
       padding: -50px; 
       top: 140px;
       left: 25px;
@@ -278,3 +274,70 @@
       background-color: #000;
     }
 
+    /* both */
+    @media screen and (max-width: 400px) and (max-height: 400px) 
+    {
+        body {
+            background-color: #4cbdc1;
+            color: #fff;
+        }
+    }
+
+    body {
+  background:#0b1d2a;
+}
+
+.arrows {
+  width: 60px;
+  height: 72px;
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+  bottom: 40px;
+}
+
+.arrows path {
+  stroke: #3ca38d;
+  fill: transparent;
+  stroke-width: 4px;  
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 1s infinite; 
+}
+
+@keyframes arrow
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+.arrows path.a1 {
+  animation-delay:-1s;
+  -webkit-animation-delay:-0.25s; /* Safari 和 Chrome */
+  stroke: #41b382;
+  stroke-width: 4px; 
+}
+
+.arrows path.a2 {
+  animation-delay:-0.5s;
+  -webkit-animation-delay:-0.25s; /* Safari 和 Chrome */
+  stroke: #e94354;
+  stroke-width: 4px; 
+}
+
+.arrows path.a3 { 
+  animation-delay:0s;
+  -webkit-animation-delay:-0.25s; /* Safari 和 Chrome */
+  stroke: #4cbdc1;
+  stroke-width: 4px; 
+}
+ 

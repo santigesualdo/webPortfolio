@@ -166,11 +166,9 @@ var main=(function(){
 		rx.C = 645;
 		ry.C = 90;
 
-		paper= Raphael("paper", "100%","100%");
+		paper= Raphael("paper", "100%","80%");
 
 		$('#paper').center();
-		$('#contentiframe').center();
-		$('#sliderContainer').center();
 
 		// Borde papel
 		var borde = paper.rect(0,0,mainOptions.paperwidth, mainOptions.paperheigth)
