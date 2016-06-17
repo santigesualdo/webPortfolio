@@ -1,58 +1,24 @@
 var main=(function(){
 	var init=function(){
 		$('#sequence').css("display","none");
-		$('.sec-nav').css("display","none");
+		$('#nav').css("display","block");
 		
 		$('#picSanti').hover(function(){
-			$('#sequence').removeClass("seq-step1");
-			$('#sequence').addClass("seq-step2");
-			
-			$('#step1').addClass("seq-in");
-			$('#step1').removeClass("seq-out");
-
-			$('#step2').addClass("seq-out");
-			$('#step2').removeClass("seq-in");
-
-			$('#step3').addClass("seq-out");
-			$('#step3').removeClass("seq-in");
-
-
+			hoverSanti();
 			$("#textoEnJoda").html("Programación | Videojuegos");
 		}, function(){
 			$("#textoEnJoda").html("Como un Portfolio ... pero multi.");
 		});
 
 		$('#picGabo').hover(function(){
-			//$('#sequence').removeClass("seq-step1");
-			$('#step1').removeClass("seq-in");
-			$('#step1').addClass("seq-out");
-
-			$('#step1').css('z-index', '3');
-			$('#step2').css('z-index', '2');
-
-			$('#step2').removeClass("seq-out");
-			$('#step2').removeClass("seq-in");
-
-			$('#step3').addClass("seq-out");
-			$('#step3').removeClass("seq-in");
+			hoverGabo();
 			$("#textoEnJoda").html("Audio");
 		}, function(){
 			$("#textoEnJoda").html("Como un Portfolio ... pero multi.");
 		});
 
 		$('#picJose').hover(function(){
-			//$('#sequence').removeClass("seq-step1");
-			$('#step1').removeClass("seq-in");
-			$('#step1').addClass("seq-out");
-
-			$('#step1').css('z-index', '3');
-			$('#step2').css('z-index', '2');
-
-			$('#step2').removeClass("seq-in");	
-			$('#step2').addClass("seq-out");
-
-			$('#step3').removeClass("seq-out");
-			$('#step3').removeClass("seq-in");
+			hoverJose();
 			$("#textoEnJoda").html("Diseño | Animación");
 		}, function(){
 			$("#textoEnJoda").html("Como un Portfolio ... pero multi.");
@@ -63,21 +29,18 @@ var main=(function(){
 			$("#navGabo")[0].click();
 			$('#intro').css("display","none");
 			$('#sequence').css("display","block");		
-			$('.sec-nav').css("display","block");		
 		});
 
 		$('#picJose').mousedown(function(e){
 			$("#navJose")[0].click();
 			$('#intro').css("display","none");
-			$('#sequence').css("display","block");	
-			$('.sec-nav').css("display","block");				
+			$('#sequence').css("display","block");		
 		});
 
 		$('#picSanti').mousedown(function(e){
 			$("#navSanti")[0].click();
 			$('#intro').css("display","none");
 			$('#sequence').css("display","block");
-			$('.sec-nav').css("display","block");	
 		});
 
 		/*var timesClicked = 0;
@@ -123,6 +86,71 @@ var main=(function(){
 
 	};	
 	
+	function hoverSanti(){
+
+		$('#step1').addClass("seq-in");
+		$('#step1').removeClass("seq-out");
+
+		$('#step3').removeClass("seq-in");
+		$('#step2').removeClass("seq-in");
+
+		$('#step3').addClass("seq-out");
+		$('#step2').addClass("seq-out");
+
+		$('#liJose').removeClass("seq-current");
+		$('#liGabo').removeClass("seq-current");
+		$('#liSanti').addClass("seq-current");
+
+	}
+
+	function hoverGabo(){
+
+		$('#step2').addClass("seq-in");
+		$('#step2').removeClass("seq-out");
+
+		$('#step3').removeClass("seq-in");
+		$('#step1').removeClass("seq-in");
+
+		$('#step3').addClass("seq-out");
+		$('#step1').addClass("seq-out");
+
+		$('#liSanti').removeClass("seq-current");
+		$('#liJose').removeClass("seq-current");
+		$('#liGabo').addClass("seq-current");
+
+	}
+
+	function hoverJose(){
+		$('#step3').addClass("seq-in");
+		$('#step3').removeClass("seq-out");
+
+		$('#step2').removeClass("seq-in");
+		$('#step1').removeClass("seq-in");
+
+		$('#step2').addClass("seq-out");
+		$('#step1').addClass("seq-out");
+
+		$('#liSanti').removeClass("seq-current");
+		$('#liGabo').removeClass("seq-current");
+		$('#liJose').addClass("seq-current");
+
+		/*$('.seq-step3').css('z-index','3').css('transition-duration','0ms')
+		.css('transition-property', 'opacity, transform').css('opacity','1');
+
+		$('.seq-step2').addClass("seq-out");
+		$('.seq-step2').css('z-index','2').css('transition-duration','500ms').
+		css('transition-property', 'opacity, transform').css('opacity','0');
+		
+		$('.seq-step1').removeClass("seq-in");
+		$('.seq-step1').addClass("seq-out");
+		$('.seq-step1').css('z-index','1').css('transition-duration','0ms').
+		css('transition-property', 'opacity, transform').css('opacity','1');
+
+		$('#liJose').addClass("seq-current");
+		$('#liSanti').removeClass("seq-current");
+		$('#liGabo').removeClass("seq-current");*/
+	}
+
 
 	function clickJose(){
 		$('#intro').css("display","none");
