@@ -1,6 +1,7 @@
 var main=(function(){
 	var init=function(){
 		$('#sequence').css("display","none");
+		$('#sec-navigation').css("display","none");
 		
 		$('#picSanti').hover(function(){
 			$('#sequence').removeClass("seq-step1");
@@ -61,19 +62,22 @@ var main=(function(){
 		$('#picGabo').mousedown(function(e){
 			$("#navGabo")[0].click();
 			$('#intro').css("display","none");
-			$('#sequence').css("display","block");				
+			$('#sequence').css("display","block");		
+			$('#sec-navigation').css("display","block");		
 		});
 
 		$('#picJose').mousedown(function(e){
 			$("#navJose")[0].click();
 			$('#intro').css("display","none");
-			$('#sequence').css("display","block");				
+			$('#sequence').css("display","block");	
+			$('#sec-navigation').css("display","block");				
 		});
 
 		$('#picSanti').mousedown(function(e){
 			$("#navSanti")[0].click();
 			$('#intro').css("display","none");
 			$('#sequence').css("display","block");
+			$('#sec-navigation').css("display","block");	
 		});
 
 		/*var timesClicked = 0;
