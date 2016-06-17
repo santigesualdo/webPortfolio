@@ -207,12 +207,12 @@
      } 
 
 
-     .svgRecuadroClass{
+     /*.svgRecuadroClass{
         width:350px;
         height:380px;
         viewBox: 0 0 350 380;
         enable-background: new 0 0 350 380;
-     }
+     }*/
     .button {
       background-color: #2B91AF;
       border-radius: 10px;
