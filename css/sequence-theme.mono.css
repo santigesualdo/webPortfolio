@@ -495,7 +495,7 @@ html,
   list-style: none;
   display: inline-block;
   vertical-align: middle;
-  width: 70;
+  width: 70px;
   height: 70px;
   margin: 2em;
   opacity:0.5;
@@ -591,6 +591,17 @@ html,
 }
 
 @media only screen and (max-width: 1024px) {
+    .seq .seq-pagination li {
+      margin: 0em;
+    }
+
+    .seq .seq-title {
+      margin: 0;
+      margin-bottom: 1em;
+      font-size:1em;
+    }
+
+
     #recuadroInfoSanti,#recuadroInfoGabo,#recuadroInfoJose {
       -webkit-transform: translateZ(0) scale(0);
       -ms-transform: translateZ(0) scale(0);

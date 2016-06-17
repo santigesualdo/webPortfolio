@@ -24,24 +24,27 @@ var main=(function(){
 			$("#textoEnJoda").html("Como un Portfolio ... pero multi.");
 		});
 
+
+		$('#picSanti').mousedown(function(e){
+			
+			$('#intro').css("display","none");
+			$('#sequence').css("display","block");
+			$("#navSanti")[0].click();
+		});
 		
 		$('#picGabo').mousedown(function(e){
-			$("#navGabo")[0].click();
 			$('#intro').css("display","none");
-			$('#sequence').css("display","block");		
+			$('#sequence').css("display","block");	
+			$("#navGabo")[0].click();
 		});
 
 		$('#picJose').mousedown(function(e){
-			$("#navJose")[0].click();
-			$('#intro').css("display","none");
-			$('#sequence').css("display","block");		
-		});
-
-		$('#picSanti').mousedown(function(e){
-			$("#navSanti")[0].click();
 			$('#intro').css("display","none");
 			$('#sequence').css("display","block");
+			$("#navJose")[0].click();	
 		});
+
+
 
 		/*var timesClicked = 0;
 		$( "#picSanti" ).bind( "click", function( event ) {
