@@ -100,7 +100,7 @@ html,
   }
 
    .svgRecuadroClass{
-      width:350px;
+      width:240px;
       height:380px;
       margin-top: -4em;
       margin-left: 1em;
@@ -148,7 +148,8 @@ html,
   .imgInfo {
     border: 3px solid #fff;
     border-radius: 5%;
-    position: relative; left: 15%;
+    position: relative; 
+    margin-left: 5.5em;
   }
 
   .imgInfoSanti{
@@ -541,6 +542,7 @@ html,
     height: auto;
   }
 
+
 }
 
 @media only screen and (min-width: 320px) and (min-height: 320px) {
@@ -600,9 +602,6 @@ html,
       width: 10px;
       height: 10px; 
     }
-    .imgInfo {
-      left:5%;
-    }
 
     .recuadro {
       position:relative;
@@ -611,20 +610,30 @@ html,
       margin-bottom: 7em; 
     }
 
-    .svgRecuadroClass{
+  .imgInfo {
+    /*margin-left: 3em;*/
+  }
 
-    }
+  .svgRecuadroClass{
+    /*margin-left:-1em;*/
+  }
 
 }
 
-@media only screen and (min-height: 480px) {
+@media only screen and (max-width: 410px) {
   /*.seq .seq-feature {
     /*
      * The image can now become its full native height
     
     max-height: 100%;
   }*/
-  
+  .imgInfo {
+    margin-left: 3em;
+  }
+
+  .svgRecuadroClass{
+    margin-left:-1em;
+  }
 
 }
 
