@@ -541,7 +541,6 @@ html,
     height: auto;
   }
 
-
 }
 
 @media only screen and (min-width: 320px) and (min-height: 320px) {
@@ -601,26 +600,31 @@ html,
       width: 10px;
       height: 10px; 
     }
+    .imgInfo {
+      left:5%;
+    }
 
+    .recuadro {
+      position:relative;
+      margin: 0em;
+      margin-top:2em;
+      margin-bottom: 7em; 
+    }
 
-    #recuadroInfoSanti,#recuadroInfoGabo,#recuadroInfoJose {
-      position:relative;  
-      margin-top: 2em;
+    .svgRecuadroClass{
 
     }
-    .imgInfo{
-      left: 5%;
-    }
+
 }
 
 @media only screen and (min-height: 480px) {
-  .seq .seq-feature {
+  /*.seq .seq-feature {
     /*
      * The image can now become its full native height
-     */
+    
     max-height: 100%;
-  }
-  alert("a");
+  }*/
+  
 
 }
 
