@@ -604,9 +604,12 @@ html,
 
 
     #recuadroInfoSanti,#recuadroInfoGabo,#recuadroInfoJose {
-      position:relative;
-      margin-bottom: 0.5em;
+      position:relative;  
       margin-top: 2em;
+
+    }
+    .imgInfo{
+      left: 5%;
     }
 }
 
