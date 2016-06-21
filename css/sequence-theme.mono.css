@@ -174,38 +174,46 @@ html,
     border: 2px solid #e94354;
   }
 
+  .aboutUs{
+    position:relative;
+    width: 100%;
+    margin:0;
+    font-family: "Moskb";
+    color:white;
+
+  }
+
+  .aboutUs:hover{
+    color:red;
+  }
 
 
-    .recuadroIconoSanti{
-        fill: black;
-      }
+  .recuadroIconoSanti{
+      fill: black;
+    }
 
-      .recuadroIconoSanti:hover {
-        fill: #41b382;
-      }
+    .recuadroIconoGabo{
+      fill: black;
+    }
 
-      .recuadroIconoGabo{
-        fill: black;
-      }
+    .recuadroIconoGabo:hover {
+      fill: #4cbdc1;
+    }
 
-      .recuadroIconoGabo:hover {
-        fill: #4cbdc1;
-      }
+    .recuadroIconoJose{
+      fill: black;
+      width: 200px;
+      height: 200px;
+      
+    }
 
-      .recuadroIconoJose{
-        fill: black;
-        width: 200px;
-        height: 200px;
-        
-      }
+    .recuadroIconoJose:hover {
+      fill: #e94354;
+    }
 
-      .recuadroIconoJose:hover {
-        fill: #e94354;
-      }
-
-     .recuadroNombre{
-      font-family: "Moskl";
-    }    
+  .recuadroNombre{
+    font-family: "Moskl";
+  }    
 
   .rcorners {
     border-radius: 5px;
@@ -548,6 +556,21 @@ html,
 
 }
 
+@media only screen and (min-height: 200px){
+  .seq .seq-title {
+    font-size: 1.4em;
+  }
+
+  .seq .seq-nav {
+    /*
+     * Position the nav across the bottom
+     */
+    top: 1.5em;
+    bottom: auto;
+    : 2em;
+  }
+}
+
 @media only screen and (min-width: 320px) and (min-height: 320px) {
   .seq .seq-canvas > * {
     bottom: 80px;
@@ -610,7 +633,7 @@ html,
       position:relative;
       margin: 0em;
       margin-top:2em;
-      margin-bottom: 7em; 
+      margin-bottom: 9em; 
     }
 
   .imgInfo {
