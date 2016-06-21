@@ -84,6 +84,7 @@ html,
 
   .pic{
       opacity:.7;
+      display: inline;
   }
  
   .pic:hover{

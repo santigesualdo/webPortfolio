@@ -122,7 +122,7 @@
 	/*font-weight: 400;*/
 	/*text-transform: uppercase;*/
 	font-size: 2em;
-	color: #3A4945;
+	color: #3ca38d;
 	/* padding: 0 0 0.125em;*/
 }
 
@@ -132,7 +132,7 @@
 	width: 100%;
 	height: 3px;
 	z-index: -1;
-	background: #3A4945;
+	background: #3ca38d;
 	position: absolute;
 	-webkit-transform: scale3d(0,1,1);
 	transform: scale3d(0,1,1);
@@ -157,7 +157,7 @@
 .link--surinami:hover::before,
 .link--surinami:hover::after {
 	-webkit-transform: scale3d(1,1,1);
-	transform: scale3d(1,1,1);
+	transform:  scale3d(1,1,1);
 }
 
 .link--surinami span {

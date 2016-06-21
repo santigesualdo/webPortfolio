@@ -2,6 +2,14 @@ var main=(function(){
 	var init=function(){
 		$('#sequence').css("display","none");
 		$('#nav').css("display","block");
+
+		$("#aboutUs").click(function(){
+	        $("#aboutUsDiv").toggle();
+	    });
+
+		$("#sobreNosotros").click(function(){
+	        $("#sobreNosotrosDiv").toggle();
+	    });
 		
 		$('#picSanti').hover(function(){
 			hoverSanti();
