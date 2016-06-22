@@ -8,7 +8,7 @@ var main=(function(){
 		$('#sequence').css("display","none");
 		$('#nav').css("display","block");
 
-		$(".textoEnJoda").css("font-size","1.5em");
+		$(".textoEnJoda").css("font-size","1.25em");
 
 		$("#divHome").click(function(){
 			location.reload(true);

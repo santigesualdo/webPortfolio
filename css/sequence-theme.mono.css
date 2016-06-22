@@ -83,12 +83,30 @@ html,
   }
 
   .pic{
+      width: 30%;
+      left:10%;
       opacity:.7;
       display: inline;
   }
  
   .pic:hover{
       opacity:1;
+  }
+
+
+
+  #textoPrincipal h1 {
+      display:inline;
+      font-family:"Moskb";
+      color:#3ca38d; 
+      font-size:7rem;
+  }
+
+  #textoPrincipal div{
+    display:inline; 
+    font-family:"Mosk";    
+    color:#3ca38d;
+    font-size:7rem;
   }
 
   .textoEnJoda{
@@ -675,6 +693,21 @@ html,
 
   .svgRecuadroClass{
     margin-left:-1em;
+  }
+
+}
+
+@media only screen and (max-width: 630px){
+  #textoPrincipal h1 {
+    font-size: 5rem;
+  }
+
+  #textoPrincipal div{
+    font-size: 5rem;
+  }
+
+  .pic{
+    display: inline-flex;
   }
 
 }
