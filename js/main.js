@@ -1,7 +1,22 @@
 var main=(function(){
 	var init=function(){
+
+		var textoInicio = "Como un portfolio ... "
+		var textoInicioSub = "pero multi.";
+
+		
 		$('#sequence').css("display","none");
 		$('#nav').css("display","block");
+
+		$(".textoEnJoda").css("font-size","1.5em");
+
+		$("#divHome").click(function(){
+			location.reload(true);
+		});
+
+		/*$("#divHome").css("width","30px");
+		$("#divHome").css("margin-right","0");*/
+		
 
 		$("#aboutUs").click(function(){
 	        $("#aboutUsDiv").toggle();
@@ -13,23 +28,35 @@ var main=(function(){
 		
 		$('#picSanti').hover(function(){
 			hoverSanti();
-			$("#textoEnJoda").html("Programación | Videojuegos");
+			$(".textoEnJoda").css("color","#fff");
+			$(".textoEnJoda").html("PROGRAMACIÓN | VIDEOJUEGOS");
 		}, function(){
-			$("#textoEnJoda").html("Como un Portfolio ... pero multi.");
+			var asd = '<span id="textoEnJodaSub" style="color: #fff;">pero multi.</span>';
+			$(".textoEnJoda").css("color","#6d7a97");
+			$(".textoEnJoda").html(textoInicio + asd);
+			//$("#textoEnJodaSub").html(textoInicioSub);
 		});
 
 		$('#picGabo').hover(function(){
 			hoverGabo();
-			$("#textoEnJoda").html("Audio");
+			$(".textoEnJoda").css("color","#fff");
+			$(".textoEnJoda").html("AUDIO");
 		}, function(){
-			$("#textoEnJoda").html("Como un Portfolio ... pero multi.");
+			var asd = '<span id="textoEnJodaSub" style="color: #fff;">pero multi.</span>';
+			$(".textoEnJoda").css("color","#6d7a97");
+			$(".textoEnJoda").html(textoInicio + asd);
+			//$("#textoEnJodaSub").html(textoInicioSub);
 		});
 
 		$('#picJose').hover(function(){
 			hoverJose();
-			$("#textoEnJoda").html("Diseño | Animación");
+			$(".textoEnJoda").css("color","#fff");
+			$(".textoEnJoda").html("DISEÑO | ANIMACIÓN");
 		}, function(){
-			$("#textoEnJoda").html("Como un Portfolio ... pero multi.");
+			var asd = '<span id="textoEnJodaSub" style="color: #fff;">pero multi.</span>';
+			$(".textoEnJoda").css("color","#6d7a97");
+			$(".textoEnJoda").html(textoInicio + asd);
+			//$("#textoEnJodaSub").html(textoInicioSub);
 		});
 
 

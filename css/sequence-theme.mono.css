@@ -91,6 +91,11 @@ html,
       opacity:1;
   }
 
+  .textoEnJoda{
+    font-family: "Moskub";
+    font-color: #fff;
+  }
+
   .recuadro{
    position: absolute; 
    width: 258px;
@@ -153,6 +158,8 @@ html,
     margin-left: 5.5em;
   }
 
+
+
   .imgInfoSanti{
     border: 3px solid #41b382;
   }
@@ -193,6 +200,10 @@ html,
       fill: black;
     }
 
+        .recuadroIconoSanti:hover {
+      fill: #41b382;
+    }
+
     .recuadroIconoGabo{
       fill: black;
     }
@@ -206,6 +217,10 @@ html,
       width: 200px;
       height: 200px;
       
+    }
+
+    #divHome:hover{
+      fill: white;
     }
 
     .recuadroIconoJose:hover {
@@ -502,7 +517,7 @@ html,
   vertical-align: middle;
   width: 70px;
   height: 70px;
-  margin: 2em;
+  margin-left: 2em;
   opacity:0.5;
 }
 
@@ -586,7 +601,7 @@ html,
     /*
      * Position the nav across the bottom
      */
-    top: 1.5em;
+    top: 0.5em;
     bottom: auto;
     : 2em;
   }
