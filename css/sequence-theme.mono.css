@@ -93,8 +93,6 @@ html,
       opacity:1;
   }
 
-
-
   #textoPrincipal h1 {
       display:inline;
       font-family:"Moskb";
@@ -597,9 +595,9 @@ html,
     margin-bottom: 0em;
   }
 
-  /*.svgRecuadroClass{
-    margin-left:-2em;
-  }  */
+  .svgRecuadroClass{
+    margin-left:1em;
+  }  
 
 }
 
@@ -680,7 +678,8 @@ html,
       position:relative;
       margin: 0em;
       margin-top:2em;
-      margin-bottom: 9em; 
+      margin-bottom: 9em;
+      margin-left:-2em; 
     }
 
   .imgInfo {
@@ -705,7 +704,7 @@ html,
   }
 
   .svgRecuadroClass{
-    margin-left:-1em;
+    margin-left:-4em;
   }
 
 }
