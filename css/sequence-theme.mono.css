@@ -516,16 +516,19 @@ html,
 
 .seq .seq-next {
   right: .625em;
+  margin-top: .625em;
 }
 
 .seq .seq-prev {
   left: .625em;
+  margin-top: .625em;
 }
 
 .seq .seq-pagination {
-  display: none;
-  margin: 0 1em;
-  padding: 0;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0;
 }
 
 .seq .seq-pagination li {
@@ -537,6 +540,10 @@ html,
   height: 70px;
   margin-left: 2em;
   opacity:0.5;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0;
 }
 
 .seq .seq-pagination li:hover {
@@ -579,14 +586,20 @@ html,
   opacity:1;
 }
 
-@media only screen and (min-width: 460px) {
+@media only screen and (min-width: 400px) {
   .seq .seq-feature {
     max-height: 50vh;
     width: auto;
     max-width: 100%;
     height: auto;
   }
+  .recuadro {
+    margin-bottom: 0em;
+  }
 
+  /*.svgRecuadroClass{
+    margin-left:-2em;
+  }  */
 
 }
 
@@ -675,7 +688,7 @@ html,
   }
 
   .svgRecuadroClass{
-    /*margin-left:-1em;*/
+    margin-left:0;
   }
 
 }
