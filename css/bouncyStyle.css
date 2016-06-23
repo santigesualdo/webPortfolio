@@ -14,8 +14,6 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Moskl", sans-serif;
-  color: #040404;
-  background-color: #ffffff;
   width:100%;
 }
 
@@ -33,9 +31,9 @@ General Style
   position: relative;
   height: 100vh;
   width: 100%;
+  text-align: center;
   /* vertically align its content */
   display: table;
-  background: #2e416a;
   overflow: hidden;
 }
 

@@ -6,6 +6,7 @@ var main=(function(){
 
 		
 		$('#sequence').css("display","none");
+		/*$('#intro').css("display","block");*/
 		$('#nav').css("display","block");
 
 		$(".textoEnJoda").css("font-size","1.25em");
