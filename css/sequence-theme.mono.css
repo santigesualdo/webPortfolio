@@ -711,11 +711,11 @@ html,
 
 @media only screen and (max-width: 630px){
   #textoPrincipal h1 {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   #textoPrincipal div{
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   .pic{

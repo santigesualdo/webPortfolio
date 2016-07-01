@@ -1,23 +1,37 @@
+$(window).on('resize', function(){
+      var win = $(this); //this = window
+      if (win.height() >= 820) { /* ... */ }
+      
+      if (win.width() < 630) { 
+      	cargarImagenesChicas();
+      }else{
+      	cargarImagenesFull();
+      }
+});
+
+var imagenesFull = false;
+
 var main=(function(){
+
+
+
 	var init=function(){
 
 		var textoInicio = "Como un portfolio ... "
 		var textoInicioSub = "pero multi.";
 
-		
 		$('#sequence').css("display","none");
 		/*$('#intro').css("display","block");*/
 		$('#nav').css("display","block");
 
-		$(".textoEnJoda").css("font-size","1.25em");
+		$(".textoEnJoda").css("font-size","1em");
+		$(".textoEnJoda").css("font-family","Moskl");
+
+		cargarImagenesFull();
 
 		$("#divHome").click(function(){
 			location.reload(true);
 		});
-
-		/*$("#divHome").css("width","30px");
-		$("#divHome").css("margin-right","0");*/
-		
 
 		$("#aboutUs").click(function(){
 	        $("#aboutUsDiv").toggle();
@@ -79,52 +93,33 @@ var main=(function(){
 			$('#sequence').css("display","block");
 			$("#navJose")[0].click();	
 		});
-
-
-
-		/*var timesClicked = 0;
-		$( "#picSanti" ).bind( "click", function( event ) {
-  			alert( "The quick brown fox jumps over the lazy dog." );
-  			timesClicked++;
-  			if ( timesClicked >= 3 ) {
-    			$( this ).unbind( event );
-  			}
-		});
-
-		$('#picSanti').mousedown(function(e){
-			
-			$('.seq-step1').addClass("seq-in");
-			$('.seq-step2').addClass("seq-out");
-			$('.seq-step3').addClass("seq-out");
-			$('#liSanti').addClass("seq-current");
-			$('#liJose').removeClass("seq-current");
-			$('#liGabo').removeClass("seq-current");
-			
-		});
-		$('#picGabo').mousedown(function(e){
-			$('#intro').css("display","none");
-			$('.seq-step2').addClass("seq-in");
-			$('.seq-step1').addClass("seq-out");
-			$('.seq-step3').addClass("seq-out");
-			$('#liGabo').addClass("seq-current");
-			$('#liJose').removeClass("seq-current");
-			$('#liSanti').removeClass("seq-current");
-			$('#sequence').css("display","block");	
-		});
-
-		$("#picJose").bind("click", clickJose);
-
-		$("#navGabo").mousedown(function(e){
-			$("#liJose").removeClass("seq-current");
-			$("#liSanti").removeClass("seq-current");
-			$('#sequence').removeClass("seq-step1");
-			$('#sequence').removeClass("seq-step3");
-		});*/
-
-	
-
 	};	
+
+	function loadImage(path, width, height, target) {
+	    $('<img src="'+ path +'">').load(function() {
+	      $(this).width(width).height(height).appendTo(target);
+	    });
+	}
 	
+	function cargarImagenesFull(){
+		if (!imagenesFull){
+			imagenesFull = true;
+			loadImage("images/santi.png",120,120 , "#picSanti");
+			loadImage("images/gabo.png",120,120 , "#picGabo");
+			loadImage("images/jose.png",120,120 , "#picJose");
+		}
+	}
+
+	function cargarImagenesChicas(){
+		if (imagenesFull){
+			alert('hola');
+			imagenesFull=false;
+			$("#picSanti").empty();
+			$("#picGabo").empty();
+			$("#picJose").empty();
+		}
+	}
+
 	function hoverSanti(){
 
 		$('#step1').addClass("seq-in");
