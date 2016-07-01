@@ -1,3 +1,33 @@
+function loadImage(path, width, height, target) {
+    $('<img src="'+ path +'">').load(function() {
+      $(this).width(width).height(height).appendTo(target);
+    });
+}
+
+function cargarImagenesFull(){
+	if (!imagenesFull){
+		imagenesFull = true;
+		$("#picSanti").contents().remove();
+		$("#picGabo").contents().remove();
+		$("#picJose").contents().remove();
+		loadImage("images/santi.png",120,120 , "#picSanti");
+		loadImage("images/gabo.png",120,120 , "#picGabo");
+		loadImage("images/jose.png",120,120 , "#picJose");
+	}
+}
+
+function cargarImagenesChicas(){
+	if (imagenesFull){
+		imagenesFull=false;
+		$("#picSanti").contents().remove();
+		$("#picGabo").contents().remove();
+		$("#picJose").contents().remove();
+		loadImage("images/santi-tn.png",70,70 , "#picSanti");
+		loadImage("images/gabo-tn.png",70,70 , "#picGabo");
+		loadImage("images/jose-tn.png",70,70 , "#picJose");
+	}
+}
+
 $(window).on('resize', function(){
       var win = $(this); //this = window
       if (win.height() >= 820) { /* ... */ }
@@ -12,9 +42,6 @@ $(window).on('resize', function(){
 var imagenesFull = false;
 
 var main=(function(){
-
-
-
 	var init=function(){
 
 		var textoInicio = "Como un portfolio ... "
@@ -27,7 +54,13 @@ var main=(function(){
 		$(".textoEnJoda").css("font-size","1em");
 		$(".textoEnJoda").css("font-family","Moskl");
 
-		cargarImagenesFull();
+		var win = $(window);
+		if (win.width() < 630){
+			cargarImagenesChicas();
+		}else{
+			cargarImagenesFull();	
+		}
+		
 
 		$("#divHome").click(function(){
 			location.reload(true);
@@ -95,30 +128,9 @@ var main=(function(){
 		});
 	};	
 
-	function loadImage(path, width, height, target) {
-	    $('<img src="'+ path +'">').load(function() {
-	      $(this).width(width).height(height).appendTo(target);
-	    });
-	}
-	
-	function cargarImagenesFull(){
-		if (!imagenesFull){
-			imagenesFull = true;
-			loadImage("images/santi.png",120,120 , "#picSanti");
-			loadImage("images/gabo.png",120,120 , "#picGabo");
-			loadImage("images/jose.png",120,120 , "#picJose");
-		}
-	}
 
-	function cargarImagenesChicas(){
-		if (imagenesFull){
-			alert('hola');
-			imagenesFull=false;
-			$("#picSanti").empty();
-			$("#picGabo").empty();
-			$("#picJose").empty();
-		}
-	}
+	
+
 
 	function hoverSanti(){
 
