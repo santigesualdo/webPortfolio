@@ -56,8 +56,10 @@ var main=(function(){
 
 		var win = $(window);
 		if (win.width() < 630){
+			imagenesFull = true;
 			cargarImagenesChicas();
 		}else{
+			imagenesFull = false;
 			cargarImagenesFull();	
 		}
 		

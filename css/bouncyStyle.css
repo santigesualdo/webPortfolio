@@ -66,9 +66,14 @@ General Style
   content: "";
   display: table;
 }
-.cd-intro-content .action-wrapper > * {
-  float: left;
+
+
+@media only screen and (max-width: 630px){
+  .cd-intro-content .action-wrapper > * {
+    display: inline-flex;
+  }
 }
+
 @media only screen and (min-width: 768px) {
   .cd-intro-content h1 {
     font-size: 5.2rem;

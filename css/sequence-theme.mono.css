@@ -86,6 +86,7 @@ html,
       width: 30%;
       left:10%;
       opacity:.7;
+      margin-left: 1em;
       display: inline;
   }
  
@@ -118,6 +119,9 @@ html,
    height: 400px;
    top: 2em;
    left: 2em;
+   margin-left:-1em;
+   margin-bottom: 14em;
+   margin-top: 0em; 
    /* margin-left: -30em;*/
   }
 
@@ -591,8 +595,9 @@ html,
     max-width: 100%;
     height: auto;
   }
+
   .recuadro {
-    margin-bottom: 0em;
+    top: 5em;
   }
 
   .svgRecuadroClass{
@@ -651,18 +656,24 @@ html,
     display: inline-block;
   }
 
-
 }
 
 @media only screen and (max-width: 1024px) {
+    .seq .seq-feature {
+      max-height: 50vh;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+    }
+
     .seq .seq-pagination li {
       margin: 0em;
     }
 
     .seq .seq-title {
       margin: 0;
-      margin-top:4em;
-      margin-bottom: 1em;
+      margin-top: 15em;
+      margin-bottom: 2em;
       font-size:1em;
     }
 
@@ -677,9 +688,10 @@ html,
     .recuadro {
       position:relative;
       margin: 0em;
-      margin-top:2em;
+      margin-top:0em;
       margin-bottom: 9em;
       margin-left:-2em; 
+      top: 5em;
     }
 
   .imgInfo {
@@ -687,24 +699,8 @@ html,
   }
 
   .svgRecuadroClass{
-    margin-left:0;
-  }
-
-}
-
-@media only screen and (max-width: 410px) {
-  /*.seq .seq-feature {
-    /*
-     * The image can now become its full native height
-    
-    max-height: 100%;
-  }*/
-  .imgInfo {
-    margin-left: 3em;
-  }
-
-  .svgRecuadroClass{
-    margin-left:-4em;
+    margin-left: -2em;
+    margin-top: -5em;
   }
 
 }
@@ -719,7 +715,9 @@ html,
   }
 
   .pic{
+    margin-left: 2em;
     display: inline-flex;
+
   }
 
 }
