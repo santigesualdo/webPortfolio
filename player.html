@@ -45,30 +45,21 @@
 			var params={};
 			var attributes={};
 
-			if (res.tipo== "swf"){
-				function onFlashReady(e) {
-					var f = swfobject.getObjectById('myContent');
-					f.tabIndex = 0;
-					f.focus();
-				}
-				swfobject.embedSWF(res.data, "myContent",w, h, "9.0.0", "expressInstall.swf",flashvars,params,attributes,onFlashReady);	
-			   $('#container').focusout(function() {
-			        $('#myContent').css("border","2px dashed orange");
-			        $('#volver').css("display","inline");
-			    }).focusin(function(){
-			    	$('#myContent').css("border","2px dashed grey");
-			    	$('#volver').css("display","none");
-			    });
-			}else 
-			if (res.tipo=="iframe"){
-				var  ifrm = document.createElement("embed"); 
-				ifrm.setAttribute("src", res.data); 
-				ifrm.style.width = w+"px"; 
-				ifrm.style.height = h+"px"; 
-				ifrm.id= "game_frame";
-				document.getElementById('myContent').appendChild(ifrm);
-				document.getElementById('game_frame').focus();
+			
+			function onFlashReady(e) {
+				var f = swfobject.getObjectById('myContent');
+				f.tabIndex = 0;
+				f.focus();
 			}
+			swfobject.embedSWF(res.data, "myContent",w, h, "9.0.0", "expressInstall.swf",flashvars,params,attributes,onFlashReady);	
+		   	$('#container').focusout(function() {
+		        $('#myContent').css("border","2px dashed orange");
+		        $('#volver').css("display","inline");
+		    }).focusin(function(){
+		    	$('#myContent').css("border","2px dashed grey");
+		    	$('#volver').css("display","none");
+		    });
+			
 			
 		    // Datos de ayuda.
 			var dataArray = [];
@@ -89,22 +80,19 @@
 		});
 	</script>
 	<body id="body">
-		<p class="comoJugar" id="titulo">Zona de Juego</p> 
-		<p class="comoJugar" id="subtitulo">(presiona F11 para mas comodidad)</p>
-		<p class="comoJugar" style="top:-50px;">
-			C&oacutemo jugar.
-			<ul id="lista" class="comoJugar" style= "position:fixed;"></ul>
-		</p>
-		<div id="container" style="position:fixed; top:0; left:0; width:100%; height:100%;">  
+		<div id="container" style="top:10em;" >  
 		  <div style="height:100%; display:table; margin:0 auto;">  
 			<div style="vertical-align:middle; display:table-cell;">
-				<p id="gametitle" class="comoJugar" style="position:inherited; margin-top:-15px;">Recuadro de Juego</p>
-				<div id= "myContent" style=""></div>			
-				<p id="volver" class="comoJugar" style="position:fixed; margin-top:-8px; color: orange; display:none">Click para volver al juego.
-				</p>
+				<p id="gametitle" class="comoJugar" style="position:inherited; margin-top:10px;">Recuadro de Juego</p>
+				<div id= "myContent" style="margin-top:50px;"></div>			
 			</div>		
 		  </div>		
+		  <div>
+			<p class="comoJugar comoJugarTitulo" >C&oacutemo jugar.	<ul id="lista" class="comoJugar"></ul></p>
+		  </div>
 		</div>	
+
+
 	</body>
 
 </html>
